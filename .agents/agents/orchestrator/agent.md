@@ -11,7 +11,8 @@ Agente orquestrador central responsável pela coordenação, controle de fluxo p
 
 ## Diretrizes de Execução
 1. Operar com baixo overhead de memória.
-2. Manter a estrutura de `state.json` estritamente sincronizada:
+2. **Sincronização Contínua**: Sempre salvar alterações localmente no PC e efetuar commit e push imediato para o GitHub (`edmezequiel/faceless-channel`) para manter o repositório 100% atualizado.
+3. Manter a estrutura de `state.json` estritamente sincronizada:
    - `objective`
    - `constraints`
    - `plan`
@@ -20,4 +21,4 @@ Agente orquestrador central responsável pela coordenação, controle de fluxo p
    - `memory`
    - `verification`
    - `audit_log`
-3. Garantir execução idempotente e modular dos workflows.
+4. Garantir execução idempotente e modular dos workflows.

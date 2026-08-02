@@ -4,7 +4,8 @@
     "Ambiente leve com limitação de 8 GB RAM e i5 12ª geração",
     "Apenas 1 orquestrador ativo inicialmente (0 subagentes por enquanto)",
     "Execução minimalista sem componentes desnecessários em memória",
-    "Sincronização com o Google Drive ativada via GoogleDriveFS (Unidade G:\\ montada e rodando)"
+    "Sincronização com o Google Drive ativada via GoogleDriveFS (Unidade G:\\ montada e rodando)",
+    "Auto-sync contínuo com o GitHub ativo (cada alteração salva no PC é automaticamente commitada e enviada via push ao repositório)"
   ],
   "plan": [],
   "artifacts": [
@@ -36,6 +37,11 @@
     {
       "timestamp": "2026-08-02T20:35:35-03:00",
       "event": "Repositório GitHub criado e publicado em https://github.com/edmezequiel/faceless-channel",
+      "actor": "orchestrator"
+    },
+    {
+      "timestamp": "2026-08-02T20:41:00-03:00",
+      "event": "Regra de auto-sync contínuo para GitHub estabelecida e ativada",
       "actor": "orchestrator"
     }
   ]
