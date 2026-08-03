@@ -1,0 +1,61 @@
+{
+  "name": "Faceless Channel Automation Main Graph",
+  "version": "2.0.0",
+  "description": "Grafo principal de execução leve e modular com 10 agentes especializados.",
+  "start_node": "intake_router",
+  "nodes": {
+    "intake_router": {
+      "agent": "intake_router",
+      "next": "orchestrator"
+    },
+    "orchestrator": {
+      "agent": "orchestrator",
+      "transitions": {
+        "start_research": "research_agent",
+        "start_codebase": "codebase_analyst",
+        "curate_memory": "memory_curator",
+        "route_model": "model_router_agent",
+        "implement": "implementation_agent",
+        "audit_final": "audit_reporter"
+      }
+    },
+    "research_agent": {
+      "agent": "research_agent",
+      "next": "memory_curator"
+    },
+    "codebase_analyst": {
+      "agent": "codebase_analyst",
+      "next": "memory_curator"
+    },
+    "memory_curator": {
+      "agent": "memory_curator",
+      "next": "model_router_agent"
+    },
+    "model_router_agent": {
+      "agent": "model_router_agent",
+      "next": "implementation_agent"
+    },
+    "implementation_agent": {
+      "agent": "implementation_agent",
+      "next": "verifier"
+    },
+    "verifier": {
+      "agent": "verifier",
+      "transitions": {
+        "passed": "security_auditor",
+        "failed": "implementation_agent"
+      }
+    },
+    "security_auditor": {
+      "agent": "security_auditor",
+      "transitions": {
+        "passed": "audit_reporter",
+        "failed": "implementation_agent"
+      }
+    },
+    "audit_reporter": {
+      "agent": "audit_reporter",
+      "next": "orchestrator"
+    }
+  }
+}

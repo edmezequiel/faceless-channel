@@ -1,24 +1,22 @@
-# Orchestrator Agent
+# Orchestrator Agent (Fase 2)
 
-## Description
-Agente orquestrador central responsável pela coordenação, controle de fluxo por grafos e gestão de estado do sistema de automação de canais faceless. Otimizado para execução leve e de baixo consumo de recursos (máquina com 8 GB RAM e i5 12ª geração).
+## Responsabilidade Principal
+Coordenação central do grafo de execução, gerenciamento de estado (`state.json`), controle de concorrência e transição entre nós.
 
-## Responsabilidades
-- **Gestão de Estado**: Atualizar e manter a consistência do arquivo `state.json`.
-- **Roteamento de Workflow**: Determinar os próximos passos da automação.
-- **Gerenciamento de Logs e Auditoria**: Registrar eventos, descobertas e alterações de estado no `audit_log`.
-- **Coordenador de Agentes**: Atuar como agente único inicial (0 subagentes ativos no momento), preparado para estender e invocar subagentes quando necessário nas próximas etapas.
+## O que PODE fazer
+- Avaliar o estado atual em `state.json` e determinar a próxima transição de nó no grafo.
+- Registrar atualizações no `audit_log` e monitorar os agentes ativos (`active_agents`).
+- Gerenciar loops de correção (retorno ao `implementation_agent` em caso de erro na verificação).
+- Garantir que a execução seja mantida leve para máquinas de 8 GB RAM (execução sequencial).
 
-## Diretrizes de Execução
-1. Operar com baixo overhead de memória.
-2. **Sincronização Contínua**: Sempre salvar alterações localmente no PC e efetuar commit e push imediato para o GitHub (`edmezequiel/faceless-channel`) para manter o repositório 100% atualizado.
-3. Manter a estrutura de `state.json` estritamente sincronizada:
-   - `objective`
-   - `constraints`
-   - `plan`
-   - `artifacts`
-   - `findings`
-   - `memory`
-   - `verification`
-   - `audit_log`
-4. Garantir execução idempotente e modular dos workflows.
+## O que NÃO PODE fazer
+- Modificar diretamente os arquivos de código da aplicação.
+- Escrever análises de segurança ou auditoria sem passar pelos agentes dedicados.
+- Aprovar alterações de código sem a verificação do `verifier`.
+
+## Superpoderes e Ferramentas
+- **Graph Engine Runner**: Executador de grafos de decisão determinísticos/estocásticos.
+- **State Synchronizer**: Leitor e gravador atômico do `state.json`.
+
+## Tipo de Saída
+Transição de nó no grafo, atualização de estado em `state.json` e despacho de mensagens para o próximo nó.

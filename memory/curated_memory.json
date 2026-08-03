@@ -1,0 +1,22 @@
+{
+  "project_name": "faceless-channel",
+  "phase": "Fase 2 - Arquitetura de Grafos e Agentes Especializados",
+  "system_architecture": {
+    "execution_mode": "Sequencial Leve (8 GB RAM)",
+    "graph_nodes": 10,
+    "open_source_stack": [
+      "LiteLLM",
+      "vLLM",
+      "SurfSense",
+      "Graphify",
+      "GitHub API",
+      "Hugging Face Hub"
+    ]
+  },
+  "curated_facts": [
+    "O projeto opera em modelo Open-Source First sem dependências proprietárias travadas.",
+    "A validação é estritamente independente: o agente criador não aprova o próprio trabalho.",
+    "A sincronização contínua com o GitHub (edmezequiel/faceless-channel) e o Google Drive (G:\\) é ativada em cada escrita local."
+  ],
+  "last_updated": "2026-08-02T21:10:35-03:00"
+}
