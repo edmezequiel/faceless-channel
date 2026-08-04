@@ -14,6 +14,7 @@
         "start_research": "research_agent",
         "start_codebase": "codebase_analyst",
         "cultural_engineer": "cultural_graph_engineer",
+        "gen_cinematographer": "generative_cinematographer",
         "curate_memory": "memory_curator",
         "route_model": "model_router_agent",
         "implement": "implementation_agent",
@@ -26,6 +27,10 @@
     },
     "cultural_graph_engineer": {
       "agent": "cultural_graph_engineer",
+      "next": "generative_cinematographer"
+    },
+    "generative_cinematographer": {
+      "agent": "generative_cinematographer",
       "next": "memory_curator"
     },
     "codebase_analyst": {
