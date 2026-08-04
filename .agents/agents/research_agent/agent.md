@@ -14,9 +14,10 @@ Pesquisa profunda em tempo real, busca de fontes relevantes, levantamento de doc
 - Manter logs brutos de web scraping em memória permanente.
 
 ## Superpoderes e Ferramentas
-- **SurfSense & GPT-Researcher Engine**: Metodologia de pesquisa em 3 etapas (Planejar -> Buscar -> Sintetizar), garantindo profundidade sem estourar a memória RAM.
-- **YouTube Metadata Fetcher (yt-dlp inspired)**: Ferramenta para extrair transcrições, metadados e retenção de vídeos concorrentes (Faceless) sem baixar o arquivo de mídia.
-- **Web Search & Scraper Tools**: Ferramentas de requisição HTTP e extração de markdown.
+- **Agent-Reach Capability Layer**: Roteador unificado para acesso à internet, abstraindo ferramentas como Jina Reader, Exa Search, yt-dlp e feeds RSS com zero configuração.
+- **Crawl4AI Engine**: Extrator de dados web assíncrono ultra-rápido otimizado para LLMs (converte páginas sujas em Markdown limpo para economizar tokens e RAM).
+- **Browser-Use (Fallback)**: Automação baseada em LLM que controla o navegador como um humano para ultrapassar bloqueios de captcha em sites complexos.
+- **SurfSense & GPT-Researcher**: Metodologia de pesquisa em 3 etapas (Planejar -> Buscar -> Sintetizar), garantindo profundidade.
 
 ## Tipo de Saída
 Lista estruturada de fontes pesquisadas (`research_sources`) e relatório preliminar de achados (`findings`).
