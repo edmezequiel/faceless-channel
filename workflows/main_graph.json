@@ -13,6 +13,7 @@
       "transitions": {
         "start_research": "research_agent",
         "start_codebase": "codebase_analyst",
+        "cultural_engineer": "cultural_graph_engineer",
         "curate_memory": "memory_curator",
         "route_model": "model_router_agent",
         "implement": "implementation_agent",
@@ -21,6 +22,10 @@
     },
     "research_agent": {
       "agent": "research_agent",
+      "next": "cultural_graph_engineer"
+    },
+    "cultural_graph_engineer": {
+      "agent": "cultural_graph_engineer",
       "next": "memory_curator"
     },
     "codebase_analyst": {

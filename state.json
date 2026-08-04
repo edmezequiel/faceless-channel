@@ -20,6 +20,7 @@
     ".agents/agents/intake_router/agent.md",
     ".agents/agents/orchestrator/agent.md",
     ".agents/agents/research_agent/agent.md",
+    ".agents/agents/cultural_graph_engineer/agent.md",
     ".agents/agents/codebase_analyst/agent.md",
     ".agents/agents/memory_curator/agent.md",
     ".agents/agents/model_router_agent/agent.md",
