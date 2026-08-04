@@ -15,7 +15,7 @@ Coordenação central do grafo de execução, gerenciamento de estado (`state.js
 - Aprovar alterações de código sem a verificação do `verifier`.
 
 ## Superpoderes e Ferramentas
-- **Graph Engine Runner**: Executador de grafos de decisão determinísticos/estocásticos.
+- **Graph Engine Runner (LangGraph-inspired)**: Executador de grafos de decisão determinísticos baseados na arquitetura de estados (`StateGraph`), garantindo que apenas as transições predefinidas ocorram.
 - **State Synchronizer**: Leitor e gravador atômico do `state.json`.
 
 ## Tipo de Saída

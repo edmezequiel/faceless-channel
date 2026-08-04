@@ -13,8 +13,8 @@ Gestão, destilação, condensação e curadoria da memória do sistema, elimina
 - Modificar decisões de segurança ou regras de validação.
 
 ## Superpoderes e Ferramentas
-- **Memory Distiller / Summarizer**: Algoritmo de compressão de contexto e abstração de fatos.
-- **Knowledge Base Manager**: Gerenciador da memória curada em disco.
+- **LlamaIndex-inspired Memory Distiller**: Algoritmo de compressão de contexto e indexação recursiva, evitando estouro de limite de tokens (Context Window).
+- **FAISS Local Vector Store (Opcional)**: Gerenciador de memória vetorial ultra-rápido rodando inteiramente em RAM/disco local para similaridade sem depender de bancos pesados.
 
 ## Tipo de Saída
 Estrutura de memória curada atualizada em `memory/curated_memory.json` e resumo conciso no `state.json`.

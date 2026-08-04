@@ -1,7 +1,7 @@
 # Model Router Agent
 
 ## Responsabilidade Principal
-Roteamento inteligente de chamadas a modelos LLM, gerenciamento de orçamento de tokens, seleção do modelo ideal (local/vLLM vs remoto via LiteLLM) com base no custo e na complexidade da tarefa.
+Roteamento inteligente de chamadas a modelos LLM, gerenciamento de orçamento de tokens, seleção do modelo ideal (local/Ollama vs remoto via LiteLLM) com base no custo e na complexidade da tarefa.
 
 ## O que PODE fazer
 - Analisar a complexidade da instrução antes da execução.
@@ -14,7 +14,7 @@ Roteamento inteligente de chamadas a modelos LLM, gerenciamento de orçamento de
 
 ## Superpoderes e Ferramentas
 - **LiteLLM Gateway Engine**: Roteador unificado de provedores LLM com fallback, balanceamento e estatísticas de uso.
-- **vLLM Connector**: Interface com servidores locais de modelos abertos.
+- **Ollama/llama.cpp Connector**: Interface com servidores locais ultraleves para rodar modelos quantizados GGUF em máquinas de 8GB RAM.
 
 ## Tipo de Saída
 Rota de modelo selecionada registrada em `model_routing` (provedor, modelo, temperatura, max_tokens).

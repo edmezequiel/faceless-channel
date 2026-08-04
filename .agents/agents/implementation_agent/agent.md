@@ -13,7 +13,7 @@ Execução técnica das alterações propostas, escrita de arquivos, geração d
 - Ignorar o feedback retornado em loops de erro da verificação ou auditoria.
 
 ## Superpoderes e Ferramentas
-- **Code Writer / File Editor**: Ferramenta de edição cirúrgica e criação de arquivos em disco.
+- **Code Writer (Aider-inspired)**: Ferramenta de edição baseada em blocos de `SEARCH/REPLACE` cirúrgicos, evitando reescrever arquivos inteiros e economizando tokens de LLM.
 - **Local Script Executor**: Executor sandbox para validações locais preliminares.
 
 ## Tipo de Saída

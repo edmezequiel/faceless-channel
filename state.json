@@ -3,7 +3,7 @@
   "constraints": [
     "Ambiente leve com limitação de 8 GB RAM e i5 12ª geração",
     "Execução estritamente sequencial ou de baixa concorrência de agentes",
-    "Open-Source First: LiteLLM, SurfSense, Graphify, vLLM",
+    "Open-Source First: LiteLLM, SurfSense, Graphify, Ollama/llama.cpp (no lugar de vLLM para poupar RAM)",
     "Sincronização com o Google Drive ativada via GoogleDriveFS (Unidade G:\\ montada)",
     "Auto-sync contínuo com o GitHub ativo (edmezequiel/faceless-channel)",
     "Validação independente estrita: agente criador não aprova o próprio trabalho"
@@ -34,7 +34,7 @@
   ],
   "findings": [
     "Arquitetura de grafos com 10 agentes especializados estabelecida com sucesso.",
-    "Open-Source stack estruturada com conectores para LiteLLM, SurfSense e Graphify."
+    "Open-Source stack estruturada com conectores para LiteLLM, SurfSense, Graphify e Ollama."
   ],
   "memory": [
     "O projeto opera em modelo Open-Source First sem dependências proprietárias travadas.",
@@ -81,7 +81,7 @@
   ],
   "model_routing": {
     "default_gateway": "LiteLLM",
-    "local_fallback": "vLLM",
+    "local_fallback": "Ollama/llama.cpp",
     "active_route": {
       "provider": "open-source",
       "model": "lite",

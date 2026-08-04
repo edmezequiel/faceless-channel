@@ -14,7 +14,8 @@ Pesquisa profunda em tempo real, busca de fontes relevantes, levantamento de doc
 - Manter logs brutos de web scraping em memória permanente.
 
 ## Superpoderes e Ferramentas
-- **SurfSense Engine**: Motor open-source de pesquisa profunda, scraping contextual e sumarização em tempo real.
+- **SurfSense & GPT-Researcher Engine**: Metodologia de pesquisa em 3 etapas (Planejar -> Buscar -> Sintetizar), garantindo profundidade sem estourar a memória RAM.
+- **YouTube Metadata Fetcher (yt-dlp inspired)**: Ferramenta para extrair transcrições, metadados e retenção de vídeos concorrentes (Faceless) sem baixar o arquivo de mídia.
 - **Web Search & Scraper Tools**: Ferramentas de requisição HTTP e extração de markdown.
 
 ## Tipo de Saída

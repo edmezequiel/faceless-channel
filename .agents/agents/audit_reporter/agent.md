@@ -13,8 +13,8 @@ Consolidação final da trilha de execução, geração de relatórios de audito
 - Omitir falhas ou desvios de processo ocorridos durante a execução.
 
 ## Superpoderes e Ferramentas
-- **Audit Logger Engine**: Gravador de logs estruturados imutáveis em JSON.
-- **Report Generator**: Gerador de resumos em markdown e JSON para o usuário.
+- **Audit Logger Engine (Append-Only)**: Gravador de logs estruturados imutáveis em JSON.
+- **Structured Report Generator**: Gerador de resumos estruturados via schemas Pydantic (Markdown e JSON) garantindo padronização na saída para o usuário final.
 
 ## Tipo de Saída
 Entrada de auditoria append-only adicionada ao `audit_log` e notificação de encerramento de ciclo.

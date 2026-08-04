@@ -13,8 +13,8 @@ Mapeamento arquitetural, análise de árvore de sintaxe abstrata (AST), identifi
 - Tomar decisões de contratação de APIs externas.
 
 ## Superpoderes e Ferramentas
-- **Graphify Engine**: Ferramenta open-source que converte a codebase em um grafo de conhecimento navegável.
-- **AST Parser / Tree-Sitter**: Analisador sintático de código para navegação precisa.
+- **Graphify Engine**: Ferramenta open-source leve que converte a codebase em um grafo de conhecimento navegável, sem a sobrecarga de memória de soluções corporativas (como Sourcegraph ou CodeQL).
+- **AST Parser / Tree-Sitter**: Analisador sintático de código para navegação precisa e extração de dependências em tempo real.
 
 ## Tipo de Saída
 Grafo de contexto da codebase, mapa de dependências e pontos de impacto para novas alterações.

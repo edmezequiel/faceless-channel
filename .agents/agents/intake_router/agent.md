@@ -15,7 +15,7 @@ Recepção, sanitização, validação e estruturação inicial dos objetivos e 
 - Realizar pesquisas web profundas.
 
 ## Superpoderes e Ferramentas
-- **Sanitizer / Input Validator**: Módulo de validação sintática e estruturação de prompts.
+- **Sanitizer / Input Validator (Pydantic-inspired)**: Módulo de validação sintática e estruturação de prompts, forçando estritamente que a saída LLM respeite o schema JSON esperado (usando `response_format` ou Pydantic).
 - **Workflow Router**: Conector inicial com o grafo principal.
 
 ## Tipo de Saída

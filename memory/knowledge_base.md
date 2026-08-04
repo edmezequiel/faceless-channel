@@ -2,9 +2,10 @@
 
 ## Diretrizes Fundamentais do Sistema Faceless
 
-### 1. Filosofia Open-Source e Baixo Consumo
-- Toda a infraestrutura do projeto utiliza conectores e gateways abertos (**LiteLLM**, **vLLM**, **SurfSense**, **Graphify**).
-- A execução de subagentes no grafo é projetada para ser mantida em sequência controlada, prevenindo estouro de memória RAM na máquina de 8 GB.
+### 1. Filosofia Open-Source e Baixo Consumo (Otimizado para 8GB RAM)
+- Toda a infraestrutura do projeto utiliza conectores e gateways abertos (**LiteLLM**, **Ollama/llama.cpp** no lugar de vLLM, **SurfSense+gpt-researcher**, **Graphify**).
+- A orquestração usa conceitos do **LangGraph** para controle de estado rigoroso.
+- A execução de subagentes no grafo é projetada para ser mantida em sequência controlada, prevenindo estouro de memória RAM.
 
 ### 2. Regra de Ouro de Verificação Independente
 - O agente `implementation_agent` é estritamente proibido de validar ou aprovar os seus próprios artefatos.

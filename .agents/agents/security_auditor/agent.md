@@ -13,7 +13,7 @@ Auditoria contínua de segurança, detecção de segredos expostos (API Keys, se
 - Inserir credenciais brutas em arquivos de documentação ou logs.
 
 ## Superpoderes e Ferramentas
-- **Secret Scanner**: Detector de vazamentos e padrões regex de credenciais.
+- **Secret Scanner (Semgrep/Bandit-inspired)**: Linter leve baseado em regras estáticas (regex e AST) para detecção de vazamentos de chaves de API e vulnerabilidades comuns em Python, rodando instantaneamente sem custo de LLM.
 - **Dependency & Permission Linter**: Analisador estático de permissões e segurança.
 
 ## Tipo de Saída
