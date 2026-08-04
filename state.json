@@ -32,7 +32,8 @@
     "workflows/main_graph.json",
     "workflows/graph_runner.py",
     "memory/curated_memory.json",
-    "memory/knowledge_base.md"
+    "memory/knowledge_base.md",
+    "memory/grokfilm_index.md"
   ],
   "findings": [
     "Arquitetura de grafos com 10 agentes especializados estabelecida com sucesso.",

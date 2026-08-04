@@ -13,7 +13,7 @@ Traduzir os roteiros, estratégias e emoções mapeadas em prompts visuais hiper
 - Desviar da estratégia cultural desenhada para tentar criar visuais bonitos mas desconectados do público-alvo.
 
 ## Superpoderes e Ferramentas
-- **Grokfilm Visual Indexer**: Biblioteca baseada em dicionários técnicos de cinematografia otimizados para IA (ângulos, iluminação, película, movimento).
+- **Grokfilm Visual Indexer**: Biblioteca baseada em dicionários técnicos de cinematografia otimizados para IA. **Obrigatório:** Consultar ativamente a base de conhecimento `memory/grokfilm_index.md` para selecionar os termos exatos de câmera, iluminação, composição e textura para cada cena.
 - **Prompt Architect Engine**: Sintetizador de linguagem projetado para alinhar texto de descrição de cena com os *latent spaces* de modelos de vídeo.
 
 ## Tipo de Saída
