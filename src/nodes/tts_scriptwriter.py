@@ -1,35 +1,63 @@
 from src.core.state import AgentState
 from src.connectors.llm_router import generate_response
+from pydantic import BaseModel, Field
+from langchain_core.output_parsers import PydanticOutputParser
+from langchain_core.exceptions import OutputParserException
 import logging
 
 logger = logging.getLogger(__name__)
 
+class TTSResponse(BaseModel):
+    tts_prose: str = Field(description="O roteiro completo escrito em prosa, formatado para TTS com tags de prosódia.")
+
 def node_tts_scriptwriter(state: AgentState) -> AgentState:
     """
-    Agente 4 (Esteira): TTS Scriptwriter
-    Gera o texto falado de forma humanizada usando o Claude Sonnet.
+    Agente 4 (Esteira): TTS Scriptwriter (O Coração do Roteiro)
+    Gera o texto falado com extrema qualidade (Claude Sonnet), banindo AI Slop.
     """
     logger.info("=== Executando Nó: tts_scriptwriter ===")
     
     skeleton = state.get("script_skeleton", {})
+    factual_context = state.get("factual_context", "")
     auditor_feedback = state.get("auditor_feedback", "")
     
-    prompt = f"Baseado na estrutura {skeleton}, escreva a prosa para TTS.\nFeedback de correção (se houver): {auditor_feedback}"
+    parser = PydanticOutputParser(pydantic_object=TTSResponse)
+    format_instructions = parser.get_format_instructions()
     
-    # Roteamento FORÇADO para o Claude Sonnet (Regra do Sistema)
-    response = generate_response(
-        prompt=prompt,
-        system_prompt="Você é um roteirista que escreve falas curtas com tags de prosódia [PAUSA_DRAMATICA].",
-        force_claude_sonnet=True
-    )
+    # O Prompt Supremo
+    prompt = f"""
+Você é um Roteirista de Elite para canais Faceless do YouTube (nível Netflix Documentaries).
+Sua missão é escrever o roteiro falado baseando-se NESTA ESTRUTURA exata:
+{skeleton}
+
+Contexto Factual (Use apenas fatos, sem alucinar):
+{factual_context}
+
+FEEDBACK DO AUDITOR (Se estiver reescrevendo, CORRIJA ISSO):
+{auditor_feedback if auditor_feedback else "Primeira tentativa. Faça perfeito."}
+
+REGRAS ABSOLUTAS E INQUEBRÁVEIS (O Roteiro será REJEITADO se você violar qualquer uma):
+1. BANIMENTO DE 'AI SLOP' (Lista Negra): NUNCA use as palavras: "mergulhar", "desvendar", "paisagem", "em um mundo onde", "jornada", "descubra", "vamos explorar", "hoje vamos falar sobre", "fascinante", "cativante", "teia", "intrincado", "testamento", "sinfonia", "dança", "imaginem".
+2. FÔLEGO CURTO: Nenhuma frase pode ter mais que 15 palavras. Use pontos finais constantes. O motor de TTS precisa respirar.
+3. PROSÓDIA OBRIGATÓRIA: Insira mecanicamente marcações teatrais como `[PAUSA_0.5s]`, `[PAUSA_1s]`, `[TOM_MISTERIOSO]`, `[TOM_AGRESSIVO]`, `[ACELERAR]` para guiar a voz gerada por IA. Exemplo: "Eles mentiram. [PAUSA_1s] Todos eles."
+4. DENSO E DIRETO: O roteiro DEVE ser longo o suficiente para gerar cerca de 10 minutos de áudio (aproximadamente 1800 a 2000 palavras). Expanda os detalhes da história factual, aprofunde-se nas dores e nos open loops, mas não encha linguiça.
+
+{format_instructions}
+    """
     
-    # Mock de resultado
-    prose = "Você sabia que a maior parte da história é uma mentira? [PAUSA_DRAMATICA] Hoje, nós vamos descobrir a verdade."
-    word_count = len(prose.split())
-    
-    # Se houvesse feedback de correção e ele estivesse consertando, ele faria um texto maior:
-    if auditor_feedback:
-        prose += " " + ("(Expansão de texto baseada no feedback...) " * 100)
-        word_count = 1850 # Forçando aprovação no segundo loop
+    try:
+        response = generate_response(
+            prompt=prompt,
+            system_prompt="Você é um gênio da escrita persuasiva focado em ritmo dinâmico. Você odeia jargões genéricos de Inteligência Artificial.",
+            force_claude_sonnet=True
+        )
+        parsed_prose = parser.parse(response)
+        prose_text = parsed_prose.tts_prose
+        logger.info("Prosa TTS extraída e formatada com sucesso.")
+    except OutputParserException as e:
+        logger.error(f"Falha ao extrair JSON do Scriptwriter: {e}")
+        prose_text = "ERRO NA GERAÇÃO. O sistema falhou ao interpretar o roteiro."
         
-    return {"tts_prose": prose, "word_count": word_count, "current_status": "scriptwriter_done"}
+    word_count = len(prose_text.split())
+    
+    return {"tts_prose": prose_text, "word_count": word_count, "current_status": "scriptwriter_done"}

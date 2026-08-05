@@ -18,6 +18,11 @@ def node_researcher_fact_checker(state: AgentState) -> AgentState:
     youtube_data = AgentReachConnector.search_youtube(goal)
     web_data = AgentReachConnector.read_webpage("wikipedia.org/wiki/" + goal.replace(" ", "_"))
     
-    factual_context = f"Fatos validados do YouTube:\n{youtube_data}\n\nFatos da Web:\n{web_data}"
+    # Usa o LLM para isolar fatos
+    from src.connectors.llm_router import generate_response
+    raw_data = f"YouTube: {youtube_data}\nWeb: {web_data}"
+    prompt = f"Analise estes dados sobre '{goal}'. Extraia APENAS fatos comprovados, nomes, datas e eventos, removendo qualquer viés ou desinformação.\n\nDados brutos:\n{raw_data}"
+    
+    factual_context = generate_response(prompt, system_prompt="Você é um Fact-Checker rigoroso.")
     
     return {"factual_context": factual_context, "current_status": "research_done"}

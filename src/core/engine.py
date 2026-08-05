@@ -1,5 +1,7 @@
 from langgraph.graph import StateGraph, END
 from src.core.state import AgentState
+from src.nodes.intake import node_intake_router
+from src.nodes.orchestrator import node_orchestrator
 from src.nodes.researcher_fact_checker import node_researcher_fact_checker
 from src.nodes.packaging_ctr import node_packaging_ctr
 from src.nodes.script_architect import node_script_architect
@@ -13,12 +15,14 @@ logger = logging.getLogger(__name__)
 
 def build_graph():
     """
-    Constrói o StateGraph para a Esteira Autônoma de 6 Agentes (Content Factory).
-    Implementa o Closed-Loop de retenção.
+    Constrói o StateGraph para a Esteira Autônoma (Content Factory).
+    Implementa o Intake -> Orchestrator -> Conveyor Belt -> Closed-Loop.
     """
     builder = StateGraph(AgentState)
     
-    # 1. Adiciona os 6 nós da esteira de conteúdo
+    # 1. Adiciona todos os nós
+    builder.add_node("intake", node_intake_router)
+    builder.add_node("orchestrator", node_orchestrator)
     builder.add_node("researcher", node_researcher_fact_checker)
     builder.add_node("packaging", node_packaging_ctr)
     builder.add_node("architect", node_script_architect)
@@ -26,8 +30,17 @@ def build_graph():
     builder.add_node("storyboarder", node_visual_storyboarder)
     builder.add_node("auditor", node_retention_auditor)
     
-    # 2. Define o fluxo de arestas (Edges sequenciais)
-    builder.set_entry_point("researcher")
+    # 2. Define o fluxo de arestas
+    builder.set_entry_point("intake")
+    builder.add_edge("intake", "orchestrator")
+    
+    # O Orquestrador roteia para a esteira
+    def orchestrator_router(state: AgentState):
+        return "researcher"
+        
+    builder.add_conditional_edges("orchestrator", orchestrator_router, {"researcher": "researcher"})
+    
+    # Arestas sequenciais da esteira
     builder.add_edge("researcher", "packaging")
     builder.add_edge("packaging", "architect")
     builder.add_edge("architect", "scriptwriter")
@@ -39,7 +52,6 @@ def build_graph():
         status = state.get("current_status", "")
         if status == "auditor_failed":
             logger.warning(">>> CLOSED LOOP ATIVADO: Roteiro reprovado (< 85). Voltando para o Scriptwriter.")
-            # Volta para o Scriptwriter para corrigir o tamanho/ritmo
             return "scriptwriter" 
         else:
             logger.info(">>> Roteiro APROVADO! Finalizando esteira.")
