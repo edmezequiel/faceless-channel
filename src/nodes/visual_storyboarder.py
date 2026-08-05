@@ -31,10 +31,9 @@ Você é o Visual Storyboarder de elite para vídeos em INFINITE SCROLL.
 Leia este roteiro de narração:
 {prose}
 
-TAXONOMIA DE CÂMERA & PERSONAGEM OBRIGATÓRIOS:
+TAXONOMIA DE CÂMERA OBRIGATÓRIA:
 - É ESTREITAMENTE PROIBIDO usar cortes secos, Dolly In, Orbit, ou Whip Pan.
 - TODOS os blocos visuais DEVEM utilizar o movimento "Vertical Pan Down".
-- PERSONAGEM RECORRENTE: Sempre que o apresentador ou narrador aparecer em cena (especialmente nas partes de LIP_SYNC), o `layer1_identity_token` DEVE ser obrigatoriamente `[SOUL_ID_DR_OBSIDIAN]`.
 - Defina a velocidade de rolagem (scroll_velocity): SLOW_PIN (pausa táctil), MEDIUM_FLOW (fluxo constante), FAST_SWEEP (varredura de transição).
 
 DIRETIVAS DE OUTPAINTING ESPACIAL:

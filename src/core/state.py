@@ -2,16 +2,7 @@ from typing import TypedDict, Annotated, List, Dict, Any, Optional
 import operator
 from pydantic import BaseModel, Field
 
-class BrandIdentity(BaseModel):
-    channel_name: str = Field(default="PROJETO ARQUÉTIPO", description="Nome da marca registrada do canal")
-    character_name: str = Field(default="Dr. Victor Vane (The Obsidian Analyst)", description="Nome do personagem proprietário")
-    soul_id_token: str = Field(
-        default='[SOUL_ID_DR_OBSIDIAN]: "Dr. Victor Vane, enigmatic 35yo male neuro-psychologist researcher, sharp angular jawline, piercing icy cyan glowing eyes, dark slate side-parted hair with subtle silver temples, wearing a tailored obsidian wool trench coat over a dark turtleneck, obsidian hourglass lapel pin, dramatic chiaroscuro volumetric lighting, deep obsidian black background, cyan neural glow accents, cinematic 85mm lens photo, hyperrealistic, 8k resolution, photorealistic masterwork"',
-        description="Prompt estático imutável do personagem"
-    )
-    opening_hook: str = Field(default="Welcome back to the shadows of the human mind. They tell you your decisions are conscious, but the neuroscience of control proves otherwise. I am Dr. Victor Vane...", description="Bordão de entrada")
-    closing_signature: str = Field(default="Mantenha a guarda alta. O inconsciente nunca dorme.", description="Bordão de fecho")
-
+# Modelos Pydantic v2 para estruturar os dados rígidos
 class Packaging(BaseModel):
     titles: List[str] = Field(default_factory=list, description="5 títulos com Curiosity Gap")
     thumbnail_concept: str = Field(default="", description="Conceito primário da capa")
@@ -56,9 +47,6 @@ class AgentState(TypedDict):
     """
     goal: str
     current_status: str
-    
-    # 0. Identidade de Marca & IP
-    brand_identity: Dict[str, Any]
     
     # 1. Pesquisa
     factual_context: str
