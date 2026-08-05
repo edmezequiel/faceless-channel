@@ -4,12 +4,12 @@ from pydantic import BaseModel, Field
 
 class BrandIdentity(BaseModel):
     channel_name: str = Field(default="PROJETO ARQUÉTIPO", description="Nome da marca registrada do canal")
-    character_name: str = Field(default="Dr. Kaelen (O Arquiteto)", description="Nome do personagem proprietário")
+    character_name: str = Field(default="Dr. Victor Vane (The Obsidian Analyst)", description="Nome do personagem proprietário")
     soul_id_token: str = Field(
-        default='[SOUL_ID_ARCHITECT]: "Enigmatic male cognitive scholar wearing a bespoke obsidian-black tailored suit with silver lapel pin, wearing a polished geometric chrome Venetian half-mask over upper face, calm sharp eyes, holding a glowing neon-cyan pocket watch, volumetric haze, chiaroscuro lighting, dark academia cyberpunk library background, photorealistic 8k render, cinematic 35mm anamorphic synthwave aesthetic."',
+        default='[SOUL_ID_DR_OBSIDIAN]: "Dr. Victor Vane, enigmatic 35yo male neuro-psychologist researcher, sharp angular jawline, piercing icy cyan glowing eyes, dark slate side-parted hair with subtle silver temples, wearing a tailored obsidian wool trench coat over a dark turtleneck, obsidian hourglass lapel pin, dramatic chiaroscuro volumetric lighting, deep obsidian black background, cyan neural glow accents, cinematic 85mm lens photo, hyperrealistic, 8k resolution, photorealistic masterwork"',
         description="Prompt estático imutável do personagem"
     )
-    opening_hook: str = Field(default="Sua mente não é um mistério... é um labirinto que alguém aprendeu a controlar antes de você.", description="Bordão de entrada")
+    opening_hook: str = Field(default="Welcome back to the shadows of the human mind. They tell you your decisions are conscious, but the neuroscience of control proves otherwise. I am Dr. Victor Vane...", description="Bordão de entrada")
     closing_signature: str = Field(default="Mantenha a guarda alta. O inconsciente nunca dorme.", description="Bordão de fecho")
 
 class Packaging(BaseModel):

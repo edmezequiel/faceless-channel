@@ -34,7 +34,7 @@ Leia este roteiro de narração:
 TAXONOMIA DE CÂMERA & PERSONAGEM OBRIGATÓRIOS:
 - É ESTREITAMENTE PROIBIDO usar cortes secos, Dolly In, Orbit, ou Whip Pan.
 - TODOS os blocos visuais DEVEM utilizar o movimento "Vertical Pan Down".
-- PERSONAGEM RECORRENTE: Sempre que o apresentador ou narrador aparecer em cena (especialmente nas partes de LIP_SYNC), o `layer1_identity_token` DEVE ser obrigatoriamente `[SOUL_ID_ARCHITECT]`.
+- PERSONAGEM RECORRENTE: Sempre que o apresentador ou narrador aparecer em cena (especialmente nas partes de LIP_SYNC), o `layer1_identity_token` DEVE ser obrigatoriamente `[SOUL_ID_DR_OBSIDIAN]`.
 - Defina a velocidade de rolagem (scroll_velocity): SLOW_PIN (pausa táctil), MEDIUM_FLOW (fluxo constante), FAST_SWEEP (varredura de transição).
 
 DIRETIVAS DE OUTPAINTING ESPACIAL:

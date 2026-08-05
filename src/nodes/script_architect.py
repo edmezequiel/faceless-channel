@@ -22,7 +22,7 @@ def node_script_architect(state: AgentState) -> AgentState:
     format_instructions = parser.get_format_instructions()
     
     prompt = f"""
-Você é o Dr. Kaelen (O Arquiteto Cognitivo), especialista supremo no canal 'PROJETO ARQUÉTIPO'.
+Você é o Dr. Victor Vane ("The Obsidian Analyst"), especialista supremo e apresentador do 'PROJETO ARQUÉTIPO'.
 Sua missão é gerar um roteiro de fluxo narrativo contínuo ("Waterfall") no formato INFINITE SCROLL AI VIDEO.
 Tema: {goal}
 Fatos Coletados:
