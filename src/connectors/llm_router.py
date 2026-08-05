@@ -2,15 +2,18 @@ from litellm import completion
 from src.core.config import config
 import logging
 
+import os
+
 logger = logging.getLogger(__name__)
 
-SCRIPTWRITER_WINNING_MODEL = "claude-3-7-sonnet-20250219"
+SCRIPTWRITER_WINNING_MODEL_DIRECT = "claude-3-7-sonnet-20250219"
+SCRIPTWRITER_WINNING_MODEL_OPENROUTER = "openrouter/anthropic/claude-3.7-sonnet"
 
 def generate_response(prompt: str, system_prompt: str = "Você é um assistente da Automação Faceless.", model: str = None, **kwargs) -> str:
     """
-    Roteador inteligente de LLMs.
-    Se a config USE_LOCAL_LLM for verdadeira, força o envio para o Ollama (economia de RAM e custos).
-    Caso contrário, ou se houver falha, envia via LiteLLM para nuvem.
+    Roteador inteligente de LLMs com suporte nativo ao OpenRouter.
+    Se USE_OPENROUTER estiver ativo ou OPENROUTER_API_KEY configurada,
+    mapeia automaticamente chamadas da nuvem via OpenRouter.
     """
     
     messages = [
@@ -19,16 +22,23 @@ def generate_response(prompt: str, system_prompt: str = "Você é um assistente 
     ]
     
     target_model = model
+    use_openrouter = config.USE_OPENROUTER or bool(os.getenv("OPENROUTER_API_KEY"))
     
     # Regra de Roteamento Específica (Esteira Autônoma - TTS Scriptwriter)
     if kwargs.get("force_claude_sonnet") or kwargs.get("force_scriptwriter"):
-        target_model = SCRIPTWRITER_WINNING_MODEL
-        logger.info("Regra especial: Roteamento forçado para Claude 3.7 Sonnet (Anti-AI Slop).")
+        if use_openrouter:
+            target_model = SCRIPTWRITER_WINNING_MODEL_OPENROUTER
+            logger.info("Roteamento Especial: Claude 3.7 Sonnet via OpenRouter (openrouter/anthropic/claude-3.7-sonnet).")
+        else:
+            target_model = SCRIPTWRITER_WINNING_MODEL_DIRECT
+            logger.info("Roteamento Especial: Claude 3.7 Sonnet direto via Anthropic API.")
     elif config.USE_LOCAL_LLM and target_model is None:
-        # Default local fallback (llama3 ou mistral, configurável)
+        # Default local fallback (llama3 ou mistral)
         target_model = "ollama/llama3"
     elif target_model is None:
         target_model = config.LITELLM_DEFAULT_MODEL
+        if use_openrouter and not target_model.startswith("openrouter/") and not target_model.startswith("ollama/"):
+            target_model = f"openrouter/{target_model}"
         
     try:
         if target_model.startswith("ollama/"):
