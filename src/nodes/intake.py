@@ -14,7 +14,7 @@ def node_intake_router(state: AgentState) -> AgentState:
     logger.info(f"Objetivo recebido: {goal}")
     
     # Simulação de validação
-    findings = state.get("findings", [])
-    findings.append("[Intake] Validação de entrada concluída com sucesso. Schema validado.")
+    audit_log = state.get("audit_log", [])
+    log_entry = {"agent": "intake_router", "action": "Validação de entrada concluída com sucesso."}
     
-    return {"findings": findings, "current_status": "intake_ok"}
+    return {"audit_log": [log_entry], "current_status": "intake_ok"}

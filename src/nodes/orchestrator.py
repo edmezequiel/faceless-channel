@@ -1,5 +1,4 @@
 from src.core.state import AgentState
-from src.connectors.llm_router import generate_response
 import logging
 
 logger = logging.getLogger(__name__)
@@ -7,25 +6,21 @@ logger = logging.getLogger(__name__)
 def node_orchestrator(state: AgentState) -> AgentState:
     """
     Agente 2: Orchestrator
-    Age como o cérebro do LangGraph. Analisa o estado atual e decide 
-    qual é a próxima transição.
+    Age como o cérebro do LangGraph. Analisa o estado do intake e despacha 
+    o trabalho para a Esteira de Conteúdo de 6 Agentes.
     """
     logger.info("=== Executando Nó: orchestrator ===")
     
     status = state.get("current_status", "")
-    plan = state.get("plan", "")
+    audit_log = state.get("audit_log", [])
     
-    # Lógica simples de transição baseada no status
     if status == "intake_ok":
-        next_route = "research_agent"
-        plan = "Passo 1: Pesquisar tendências."
-    elif status == "research_ok":
-        next_route = "cultural_graph_engineer"
-        plan = "Passo 2: Desenhar estratégia semiótica."
+        next_route = "researcher"
+        log_entry = {"agent": "orchestrator", "action": "Enviando demanda para a Esteira (Researcher)."}
     else:
-        # Padrão para finalizar o fluxo nos testes atuais
         next_route = "END"
+        log_entry = {"agent": "orchestrator", "action": "Finalizando devido a status não reconhecido."}
         
     logger.info(f"Orquestrador decidiu rotear para: {next_route}")
     
-    return {"current_status": f"route_{next_route}", "plan": plan}
+    return {"current_status": f"route_{next_route}", "audit_log": [log_entry]}

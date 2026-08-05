@@ -1,5 +1,9 @@
 import os
 from pydantic import BaseModel, Field
+from dotenv import load_dotenv
+
+# Carrega variáveis de ambiente do .env, caso exista
+load_dotenv()
 
 class SystemConfig(BaseModel):
     """

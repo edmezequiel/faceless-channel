@@ -12,6 +12,7 @@ dependencies = [
     "langgraph>=1.2.10",
     "litellm>=1.95.0",
     "pydantic>=2.13.4",
+    "python-dotenv>=1.0.0",
 ]
 
 [project.scripts]
