@@ -18,15 +18,9 @@ class SystemConfig(BaseModel):
     OLLAMA_BASE_URL: str = Field(default=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"))
     LITELLM_DEFAULT_MODEL: str = Field(default=os.getenv("LITELLM_DEFAULT_MODEL", "gpt-4o-mini"))
     
-    # OpenRouter Aggregator Config
-    OPENROUTER_API_KEY: str = Field(default=os.getenv("OPENROUTER_API_KEY", ""))
-    USE_OPENROUTER: bool = Field(
-        default=os.getenv("USE_OPENROUTER", "true").lower() == "true",
-        description="Habilita o roteamento agregador via OpenRouter para LLMs."
-    )
-    
-    # Restrições de Concorrência (evita estouro de RAM)
-    MAX_CONCURRENT_AGENTS: int = 1
+    # OpenRouter & Provedores de API
+    OPENROUTER_API_KEY: Optional[str] = Field(default=os.getenv("OPENROUTER_API_KEY", None))
+    USE_OPENROUTER: bool = Field(default=os.getenv("USE_OPENROUTER", "true").lower() == "true")
     
     # Caminhos
     WORKSPACE_DIR: str = os.getenv("WORKSPACE_DIR", ".")
