@@ -40,7 +40,7 @@ REGRAS ABSOLUTAS E INQUEBRÁVEIS (O Roteiro será REJEITADO se você violar qual
 1. BANIMENTO DE 'AI SLOP' (Lista Negra): NUNCA use as palavras: "mergulhar", "desvendar", "paisagem", "em um mundo onde", "jornada", "descubra", "vamos explorar", "hoje vamos falar sobre", "fascinante", "cativante", "teia", "intrincado", "testamento", "sinfonia", "dança", "imaginem".
 2. FÔLEGO CURTO: Nenhuma frase pode ter mais que 15 palavras. Use pontos finais constantes. O motor de TTS precisa respirar.
 3. PROSÓDIA OBRIGATÓRIA: Insira mecanicamente marcações teatrais como `[PAUSA_0.5s]`, `[PAUSA_1s]`, `[TOM_MISTERIOSO]`, `[TOM_AGRESSIVO]`, `[ACELERAR]` para guiar a voz gerada por IA. Exemplo: "Eles mentiram. [PAUSA_1s] Todos eles."
-4. DENSO E DIRETO: O roteiro DEVE ser longo o suficiente para gerar cerca de 10 minutos de áudio (aproximadamente 1800 a 2000 palavras). Expanda os detalhes da história factual, aprofunde-se nas dores e nos open loops, mas não encha linguiça.
+4. PROFUNDIDADE SEM ENCHER LINGUIÇA: O roteiro não tem limite de tempo mínimo ou máximo. Ele deve durar o tempo exato necessário para esgotar o assunto, reter a audiência e maximizar a atenção, mantendo uma densidade altíssima de valor do início ao fim. Expanda os detalhes da história factual, aprofunde-se nas dores e nos open loops livremente.
 
 {format_instructions}
     """

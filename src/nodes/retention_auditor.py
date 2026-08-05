@@ -41,9 +41,9 @@ def node_retention_auditor(state: AgentState) -> AgentState:
     score = 100
     feedback_notes = []
     
-    if word_count < 1800:
+    if word_count < 200:
         score -= 40
-        feedback_notes.append(f"Volume insuficiente ({word_count} palavras). Expanda para atingir pelo menos 1800 palavras.")
+        feedback_notes.append(f"Volume criticamente baixo ({word_count} palavras). O assunto não foi esgotado. Expanda a profundidade e a pesquisa factual.")
         
     if avg_words_per_sentence > 15:
         score -= 20
