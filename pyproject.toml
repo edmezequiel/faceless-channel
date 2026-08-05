@@ -1,0 +1,22 @@
+[project]
+name = "faceless-channel"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "edmezequiel", email = "edmezequiel@users.noreply.github.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "langchain-core>=1.5.3",
+    "langgraph>=1.2.10",
+    "litellm>=1.95.0",
+    "pydantic>=2.13.4",
+]
+
+[project.scripts]
+faceless-channel = "faceless_channel:main"
+
+[build-system]
+requires = ["uv_build>=0.12.1,<0.13.0"]
+build-backend = "uv_build"
