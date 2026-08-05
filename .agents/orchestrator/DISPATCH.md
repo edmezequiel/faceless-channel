@@ -21,3 +21,15 @@ Requirements:
 - R2: Technical Video Workflow Proposal for AI continuous scroll effect (continuous outpainting, seamless pan/dolly transitions, Deforum/SVD, motion tracking text overlay).
 - R3: LangGraph Architecture Plan detailing necessary adaptations to visual_storyboarder.py and script_architect.py (e.g. camera taxonomy forced to Vertical Pan Down). Produce implementation_plan.md.
 - Constraints: DO NOT edit any .py source code files in this phase.
+
+## 2026-08-05T16:00:05Z
+
+User Request:
+Definir o posicionamento estratégico do nicho do canal unindo Psicologia Científica/Acadêmica e Pop Psychology/Dark Psychology, e criar a Identidade de Marca (Branding, Personagem Recorrente / SOUL ID e Âncoras Visuais Proprietárias) anti-cópia para o Faceless Channel.
+
+Requirements:
+- R1. Pesquisa e Posicionamento do Nicho (Via Browser): Pesquisar no YouTube e web canais de sucesso em Psicologia/Dark Psychology/Neurociência (ex: Academy of Ideas, Einzelgänger, Psych2Go, canais estilo Netflix). Identificar fusão ideal entre rigor científico e ganchos populares.
+- R2. Criação da Identidade de Marca e Personagem (SOUL ID Anti-Cópia): Desenvolver a bíblia do personagem/apresentador virtual proprietário (design conceitual, arquétipo, paleta de cores, simbologia recorrente, bordão/assinatura).
+- R3. Mapeamento de Integração no Sistema LangGraph: Documentar como integrar o personagem e diretrizes de nicho no pipeline do LangGraph (`layer1_identity_token` em `visual_storyboarder.py`, `SOUL_ID` em `state.py`, tom de voz em `tts_scriptwriter.py`). Criar o artefato `implementation_plan.md`.
+- Constraints: DO NOT edit any .py source code files in this phase.
+

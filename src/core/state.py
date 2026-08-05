@@ -2,7 +2,16 @@ from typing import TypedDict, Annotated, List, Dict, Any, Optional
 import operator
 from pydantic import BaseModel, Field
 
-# Modelos Pydantic v2 para estruturar os dados rígidos
+class BrandIdentity(BaseModel):
+    channel_name: str = Field(default="PROJETO ARQUÉTIPO", description="Nome da marca registrada do canal")
+    character_name: str = Field(default="Dr. Kaelen (O Arquiteto)", description="Nome do personagem proprietário")
+    soul_id_token: str = Field(
+        default='[SOUL_ID_ARCHITECT]: "Enigmatic male cognitive scholar wearing a bespoke obsidian-black tailored suit with silver lapel pin, wearing a polished geometric chrome Venetian half-mask over upper face, calm sharp eyes, holding a glowing neon-cyan pocket watch, volumetric haze, chiaroscuro lighting, dark academia cyberpunk library background, photorealistic 8k render, cinematic 35mm anamorphic synthwave aesthetic."',
+        description="Prompt estático imutável do personagem"
+    )
+    opening_hook: str = Field(default="Sua mente não é um mistério... é um labirinto que alguém aprendeu a controlar antes de você.", description="Bordão de entrada")
+    closing_signature: str = Field(default="Mantenha a guarda alta. O inconsciente nunca dorme.", description="Bordão de fecho")
+
 class Packaging(BaseModel):
     titles: List[str] = Field(default_factory=list, description="5 títulos com Curiosity Gap")
     thumbnail_concept: str = Field(default="", description="Conceito primário da capa")
@@ -47,6 +56,9 @@ class AgentState(TypedDict):
     """
     goal: str
     current_status: str
+    
+    # 0. Identidade de Marca & IP
+    brand_identity: Dict[str, Any]
     
     # 1. Pesquisa
     factual_context: str

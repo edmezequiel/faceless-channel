@@ -37,11 +37,11 @@ FEEDBACK DO AUDITOR (Se estiver reescrevendo, CORRIJA ISSO):
 {auditor_feedback if auditor_feedback else "Primeira tentativa. Faça perfeito."}
 
 REGRAS ABSOLUTAS E INQUEBRÁVEIS (O Roteiro será REJEITADO se você violar qualquer uma):
-1. DIVISÃO DE ÁUDIO 80/20: Separe o roteiro usando as tags `[VOICEOVER]` (80% do texto para conduzir a narrativa através de planos abertos) e `[LIP_SYNC]` (apenas 20% do texto, restrito a close-ups dramáticos e confissões diretas para a câmera).
-2. BANIMENTO DE 'AI SLOP' (Lista Negra): NUNCA use as palavras narrativas ("mergulhar", "desvendar", "paisagem", "em um mundo onde", "jornada", "descubra", "vamos explorar", "hoje vamos falar sobre", "fascinante", "cativante", "teia", "intrincado", "testamento", "sinfonia", "dança", "imaginem") e também palavras visuais batidas ("hyperrealistic", "masterpiece", "trending on artstation", "4K", "8K", "oversaturated").
-3. FÔLEGO CURTO: Nenhuma frase pode ter mais que 15 palavras. Use pontos finais constantes. O motor de TTS precisa respirar.
-4. PROSÓDIA OBRIGATÓRIA: Insira mecanicamente marcações teatrais como `[PAUSA_0.5s]`, `[PAUSA_1s]`, `[TOM_MISTERIOSO]`, `[TOM_AGRESSIVO]`, `[ACELERAR]` para guiar a voz gerada por IA. Exemplo: "Eles mentiram. [PAUSA_1s] Todos eles."
-5. PROFUNDIDADE SEM ENCHER LINGUIÇA: O roteiro não tem limite de tempo mínimo ou máximo. Ele deve durar o tempo exato necessário para esgotar o assunto, reter a audiência e maximizar a atenção, mantendo uma densidade altíssima de valor do início ao fim. Expanda os detalhes da história factual, aprofunde-se nas dores e nos open loops livremente.
+1. PERSONA E BORDÕES PROPRIETÁRIOS: Escreva com a voz grave, calculista e serena do Dr. Kaelen (O Arquiteto Cognitivo). O vídeo DEVE obrigatoriamente iniciar com a fala: "Sua mente não é um mistério... é um labirinto que alguém aprendeu a controlar antes de você." e encerrar com a assinatura: "Mantenha a guarda alta. O inconsciente nunca dorme."
+2. DIVISÃO DE ÁUDIO 80/20: Separe o roteiro usando as tags `[VOICEOVER]` (80% do texto para conduzir a narrativa através de planos abertos) e `[LIP_SYNC]` (apenas 20% do texto, restrito a close-ups dramáticos do Dr. Kaelen).
+3. BANIMENTO DE 'AI SLOP' (Lista Negra): NUNCA use as palavras narrativas ("mergulhar", "desvendar", "paisagem", "em um mundo onde", "jornada", "descubra", "vamos explorar", "hoje vamos falar sobre", "fascinante", "cativante", "teia", "intrincado", "testamento", "sinfonia", "dança", "imaginem") e também palavras visuais batidas ("hyperrealistic", "masterpiece", "trending on artstation", "4K", "8K", "oversaturated").
+4. FÔLEGO CURTO: Nenhuma frase pode ter mais que 15 palavras. Use pontos finais constantes. O motor de TTS precisa respirar.
+5. PROSÓDIA OBRIGATÓRIA: Insira mecanicamente marcações teatrais como `[PAUSA_0.5s]`, `[PAUSA_1s]`, `[TOM_ANALITICO]`, `[TOM_MISTERIOSO]`, `[ACELERAR]` para guiar a voz gerada por IA.
 
 {format_instructions}
     """

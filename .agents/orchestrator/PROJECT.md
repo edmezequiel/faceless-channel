@@ -1,28 +1,27 @@
-# Project: Infinite Scroll AI Video Architecture
+# Project: Channel Niche Positioning, Brand Identity & LangGraph Integration
 
 ## Architecture
-Planning and architecture phase for adapting Faceless Channel video pipeline to produce an "Infinite Scroll" visual style.
-- Input: Web reference URLs (`https://www.shopify.com/editions/winter2026` & `https://pear.no/`) and existing codebase (`src/nodes/script_architect.py`, `src/nodes/visual_storyboarder.py`, `src/nodes/retention_auditor.py`, `src/core/state.py`).
-- Output: `implementation_plan.md` in workspace root.
+Strategic positioning, brand identity design, proprietary virtual presenter character bible (SOUL ID), and LangGraph architecture integration mapping for the Faceless Channel.
+- Input: User specifications in `ORIGINAL_REQUEST.md`, existing codebase (`src/nodes/visual_storyboarder.py`, `src/nodes/tts_scriptwriter.py`, `src/core/state.py`).
+- Output: Complete Character Bible / SOUL ID specification + `implementation_plan.md` in workspace root.
 
 ## Feature Inventory
 | # | Feature | Description | Milestone | Source | Status |
 |---|---------|-------------|-----------|--------|--------|
-| 1 | Reference Analysis | Analyze visual structure, rhythm, continuous scrolling transitions, and text/visual merging of Shopify Winter 2026 & Pear.no | M1 | Web References | DONE |
-| 2 | Codebase Audit & LangGraph Adaptation | Audit `script_architect.py`, `visual_storyboarder.py`, `retention_auditor.py`, and state models to map adaptations | M2 | Codebase | DONE |
-| 3 | Technical Video Workflow Proposal | Propose AI technical workflow (continuous outpainting, pan/dolly transitions, Deforum/SVD, motion tracking text overlay) | M3 | Synthesis | DONE |
-| 4 | Implementation Plan Generation | Produce `implementation_plan.md` detailing LangGraph adaptations, camera taxonomy overrides, prompt structure, and workflow logic | M3 | Synthesis | DONE |
+| 1 | Niche Research & Positioning | Benchmark successful channels (Academy of Ideas, Einzelgänger, Psych2Go, Netflix Dark Psych) and map scientific vs pop psych fusion | M1 | Browser / Web | IN_PROGRESS |
+| 2 | Brand Identity & SOUL ID Bible | Define virtual presenter archetype, visual anchors, static prompt of SOUL_ID, palette, recurring symbols, catchphrase | M2 | Synthesis | IN_PROGRESS |
+| 3 | LangGraph Codebase Audit | Audit `visual_storyboarder.py`, `tts_scriptwriter.py`, and `state.py` for integration points | M3 | Codebase | IN_PROGRESS |
+| 4 | Implementation Plan Generation | Produce `implementation_plan.md` in workspace root detailing LangGraph integration without modifying `.py` files | M3 | Synthesis | IN_PROGRESS |
 
 ## Milestones
 | # | Name | Scope | Dependencies | Status |
 |---|------|-------|-------------|--------|
-| M1 | Reference Analysis | Deep dive into Shopify Winter 2026 & Pear.no infinite scroll mechanics and aesthetics | None | DONE |
-| M2 | Codebase Audit & LangGraph Adaptation | Audit `script_architect.py` & `visual_storyboarder.py` for continuous scroll narrative logic | None | DONE |
-| M3 | Workflow Proposal & Plan Generation | Produce `implementation_plan.md` in workspace root | M1, M2 | DONE |
+| M1 | Niche Research & Positioning | Deep-dive research on top psychology channels, defining scientific + pop psychology balance | None | IN_PROGRESS |
+| M2 | Brand Identity & SOUL ID Bible | Complete specification of channel identity, anti-copy character bible, static prompt, visual anchors, tone | M1 | IN_PROGRESS |
+| M3 | LangGraph Architecture & Plan | Detailed mapping of `layer1_identity_token`, `SOUL_ID`, `tts_scriptwriter.py` tone, and creation of `implementation_plan.md` | M1, M2 | IN_PROGRESS |
 
 ## Code Layout (Read-Only Audit Scope)
-- `src/nodes/script_architect.py` - Script generation, beat structuring, camera cue definitions
-- `src/nodes/visual_storyboarder.py` - Visual prompt generation, shot composition, camera taxonomy
-- `src/nodes/retention_auditor.py` - Retention audit rules, camera repetition checks
-- `src/core/state.py` - Pydantic state schemas
+- `src/nodes/visual_storyboarder.py` - Storyboard generation, camera prompts, `layer1_identity_token` injection
+- `src/nodes/tts_scriptwriter.py` - Script generation, narration pacing, tone of voice control
+- `src/core/state.py` - Pydantic state schemas, `SOUL_ID` definition
 - `implementation_plan.md` - Target deliverable artifact in workspace root
