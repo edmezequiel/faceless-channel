@@ -4,6 +4,8 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+SCRIPTWRITER_WINNING_MODEL = "claude-3-7-sonnet-20250219"
+
 def generate_response(prompt: str, system_prompt: str = "Você é um assistente da Automação Faceless.", model: str = None, **kwargs) -> str:
     """
     Roteador inteligente de LLMs.
@@ -19,9 +21,9 @@ def generate_response(prompt: str, system_prompt: str = "Você é um assistente 
     target_model = model
     
     # Regra de Roteamento Específica (Esteira Autônoma - TTS Scriptwriter)
-    if kwargs.get("force_claude_sonnet"):
-        target_model = "claude-3-5-sonnet-latest"
-        logger.info("Regra especial: Roteamento forçado para Claude 3.5 Sonnet.")
+    if kwargs.get("force_claude_sonnet") or kwargs.get("force_scriptwriter"):
+        target_model = SCRIPTWRITER_WINNING_MODEL
+        logger.info("Regra especial: Roteamento forçado para Claude 3.7 Sonnet (Anti-AI Slop).")
     elif config.USE_LOCAL_LLM and target_model is None:
         # Default local fallback (llama3 ou mistral, configurável)
         target_model = "ollama/llama3"
