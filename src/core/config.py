@@ -11,7 +11,7 @@ class SystemConfig(BaseModel):
     """
     # Configurações do Roteador OmniRoute (Proxy Central de LLMs)
     OMNIROUTE_BASE_URL: str = Field(
-        default=os.getenv("OMNIROUTE_BASE_URL", "http://localhost:8000/v1"),
+        default=os.getenv("OMNIROUTE_BASE_URL", "http://localhost:20128/v1"),
         description="Endpoint base da API OpenAI-compatible do OmniRoute"
     )
     OMNIROUTE_API_KEY: str = Field(
