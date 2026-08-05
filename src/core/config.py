@@ -7,20 +7,24 @@ load_dotenv()
 
 class SystemConfig(BaseModel):
     """
-    Configurações globais do sistema Faceless, focadas em otimização
-    de RAM (8GB max) e fallback de modelos.
+    Configurações globais do sistema Faceless, integradas à arquitetura OmniRoute + LiteLLM.
     """
-    # Roteamento de Modelos (Ollama Local vs API Nuvem)
-    USE_LOCAL_LLM: bool = Field(
-        default=os.getenv("USE_LOCAL_LLM", "true").lower() == "true",
-        description="Força o roteamento primário para Ollama local (Economia de recursos)."
+    # Configurações do Roteador OmniRoute (Proxy Central de LLMs)
+    OMNIROUTE_BASE_URL: str = Field(
+        default=os.getenv("OMNIROUTE_BASE_URL", "http://localhost:8000/v1"),
+        description="Endpoint base da API OpenAI-compatible do OmniRoute"
     )
-    OLLAMA_BASE_URL: str = Field(default=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"))
-    LITELLM_DEFAULT_MODEL: str = Field(default=os.getenv("LITELLM_DEFAULT_MODEL", "gpt-4o-mini"))
+    OMNIROUTE_API_KEY: str = Field(
+        default=os.getenv("OMNIROUTE_API_KEY", "sk-omniroute-master"),
+        description="Chave de autenticação mestre do OmniRoute"
+    )
     
-    # OpenRouter & Provedores de API
-    OPENROUTER_API_KEY: Optional[str] = Field(default=os.getenv("OPENROUTER_API_KEY", None))
-    USE_OPENROUTER: bool = Field(default=os.getenv("USE_OPENROUTER", "true").lower() == "true")
+    # Modelo padrão e Modelo Roteirista (Anti-AI Slop)
+    LITELLM_DEFAULT_MODEL: str = Field(default=os.getenv("LITELLM_DEFAULT_MODEL", "gpt-4o-mini"))
+    SCRIPTWRITER_MODEL: str = Field(default=os.getenv("SCRIPTWRITER_MODEL", "claude-3-7-sonnet-20250219"))
+    
+    # Restrições de Concorrência
+    MAX_CONCURRENT_AGENTS: int = 1
     
     # Caminhos
     WORKSPACE_DIR: str = os.getenv("WORKSPACE_DIR", ".")

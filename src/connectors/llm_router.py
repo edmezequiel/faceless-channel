@@ -4,13 +4,12 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-SCRIPTWRITER_WINNING_MODEL = "claude-3-7-sonnet-20250219"
+SCRIPTWRITER_WINNING_MODEL = config.SCRIPTWRITER_MODEL
 
 def generate_response(prompt: str, system_prompt: str = "Você é um assistente da Automação Faceless.", model: str = None, **kwargs) -> str:
     """
-    Roteador inteligente de LLMs.
-    Se a config USE_LOCAL_LLM for verdadeira, força o envio para o Ollama (economia de RAM e custos).
-    Caso contrário, ou se houver falha, envia via LiteLLM para nuvem.
+    Roteador inteligente de LLMs via OmniRoute + LiteLLM.
+    Todas as requisições são direcionadas estritamente através da API OpenAI-compatible do OmniRoute.
     """
     
     messages = [
@@ -20,42 +19,28 @@ def generate_response(prompt: str, system_prompt: str = "Você é um assistente 
     
     target_model = model
     
-    # Regra de Roteamento Específica (Esteira Autônoma - TTS Scriptwriter)
+    # Regra de Roteamento Específica (Esteira Autônoma - TTS Scriptwriter / Claude 3.7 Sonnet)
     if kwargs.get("force_claude_sonnet") or kwargs.get("force_scriptwriter"):
-        target_model = SCRIPTWRITER_WINNING_MODEL
-        logger.info("Regra especial: Roteamento forçado para Claude 3.7 Sonnet (Anti-AI Slop).")
-    elif config.USE_LOCAL_LLM and target_model is None:
-        # Default local fallback (llama3 ou mistral, configurável)
-        target_model = "ollama/llama3"
-        
-    if target_model is None:
+        target_model = config.SCRIPTWRITER_MODEL
+        logger.info(f"Regra especial: Roteamento forçado para {target_model} via OmniRoute (Anti-AI Slop).")
+    elif target_model is None:
         target_model = config.LITELLM_DEFAULT_MODEL
 
-    # Mapeamento Inteligente para OpenRouter quando habilitado
-    if config.USE_OPENROUTER or config.OPENROUTER_API_KEY:
-        if target_model == "claude-3-7-sonnet-20250219" or "claude-3-7" in target_model.lower():
-            target_model = "openrouter/anthropic/claude-3.7-sonnet"
-            logger.info("Mapeado automaticamente para OpenRouter: openrouter/anthropic/claude-3.7-sonnet")
-        elif not target_model.startswith("ollama/") and not target_model.startswith("openrouter/"):
-            target_model = f"openrouter/{target_model}"
+    # Formata a chamada OpenAI-compatible para ser processada via OmniRoute proxy
+    llm_model_name = target_model if target_model.startswith("openai/") else f"openai/{target_model}"
 
     try:
-        if target_model.startswith("ollama/"):
-            logger.info(f"Roteando requisição para modelo local: {target_model}")
-            response = completion(
-                model=target_model, 
-                messages=messages, 
-                api_base=config.OLLAMA_BASE_URL
-            )
-        else:
-            logger.info(f"Roteando requisição para provedor em nuvem (LiteLLM/OpenRouter): {target_model}")
-            response = completion(
-                model=target_model,
-                messages=messages
-            )
+        logger.info(f"Roteando requisição via OmniRoute ({config.OMNIROUTE_BASE_URL}): {target_model}")
+        response = completion(
+            model=llm_model_name,
+            messages=messages,
+            api_base=config.OMNIROUTE_BASE_URL,
+            api_key=config.OMNIROUTE_API_KEY,
+            custom_llm_provider="openai"
+        )
             
         return response.choices[0].message.content
         
     except Exception as e:
-        logger.error(f"Erro na inferência do modelo {target_model}: {e}")
+        logger.error(f"Erro na inferência do modelo {target_model} via OmniRoute: {e}")
         return f"ERROR_LLM: {str(e)}"
