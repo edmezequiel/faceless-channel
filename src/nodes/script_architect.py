@@ -29,9 +29,10 @@ Fatos Coletados:
 {factual_context}
 
 Regras:
-1. O Gancho (Beat 1) DEVE quebrar o padrão.
-2. A cada 45 segundos, mude o ângulo narrativo.
+1. O Gancho (Beat 1) DEVE ser um "2-Second Hook" visual e narrativo violento, quebrando o padrão imediatamente.
+2. Divida a narrativa em "shots" temporais extremamente curtos (de 2.0s a 4.5s no máximo), para não fatigar o modelo de vídeo (AI morphing).
 3. Insira 1 a 2 Open Loops massivos que só se resolvem no Clímax.
+4. Planeje cada beat prevendo que precisará de um header de metadados de câmera.
 
 {format_instructions}
     """

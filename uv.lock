@@ -295,6 +295,7 @@ dependencies = [
     { name = "langgraph" },
     { name = "litellm" },
     { name = "pydantic" },
+    { name = "python-dotenv" },
 ]
 
 [package.metadata]
@@ -303,6 +304,7 @@ requires-dist = [
     { name = "langgraph", specifier = ">=1.2.10" },
     { name = "litellm", specifier = ">=1.95.0" },
     { name = "pydantic", specifier = ">=2.13.4" },
+    { name = "python-dotenv", specifier = ">=1.0.0" },
 ]
 
 [[package]]

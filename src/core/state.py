@@ -6,16 +6,24 @@ from pydantic import BaseModel, Field
 class Packaging(BaseModel):
     titles: List[str] = Field(default_factory=list, description="5 títulos com Curiosity Gap")
     thumbnail_concept: str = Field(default="", description="Conceito primário da capa")
+    color_palette: str = Field(default="", description="Paleta de cores dominante (ex: neon cyberpunk)")
 
 class ScriptSkeleton(BaseModel):
     beats: List[str] = Field(default_factory=list, description="Estrutura temporal")
     open_loops: List[str] = Field(default_factory=list, description="Ganchos retidos até o final")
 
+class ShotMetadata(BaseModel):
+    shot_id: str = Field(description="ID do shot (ex: SC01_SH002)")
+    duration_seconds: float = Field(description="Duração do take entre 2.0s e 4.5s")
+    camera_movement: str = Field(description="Taxonomia de câmera (ex: Dolly In, Whip Pan)")
+    audio_type: str = Field(description="Tipo de áudio (voiceover ou lip_sync)")
+    spatial_constraints: List[str] = Field(default_factory=list, description="Restrições (ex: keep subject centered)")
+
 class VisualBlock(BaseModel):
-    timestamp_start: str
-    timestamp_end: str
-    b_roll_description: str
-    grokfilm_technique: str
+    shot_metadata: ShotMetadata
+    layer1_identity_token: str = Field(description="SOUL ID do personagem sem descritores extras")
+    layer2_keyframe_prompt: str = Field(description="Prompt estático T2I de ambiente e iluminação")
+    layer3_motion_prompt: str = Field(description="Prompt imperativo I2V de câmera e movimento")
 
 class AgentState(TypedDict):
     """

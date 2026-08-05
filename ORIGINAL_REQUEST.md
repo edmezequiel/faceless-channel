@@ -34,3 +34,39 @@ Atualizar `src/connectors/llm_router.py` para substituir o modelo atual pelo mod
 
 ---
 *Next: when approved → delegate via invoke_subagent (see Delegation Protocol)*
+
+## 2026-08-05T15:24:12Z
+
+# Teamwork Project Prompt — Draft
+
+> Status: Launched
+> Goal: Craft prompt → get user approval → delegate to teamwork_preview
+
+Analisar a fundo o projeto de filme de IA "Hell Grind" da Higgsfield AI, extraindo seus métodos de roteiro, prompts, workflows e direção visual. Com base nesses insights, auditar nosso projeto atual (Faceless Channel) e criar um Plano de Implementação sugerindo melhorias profissonais, sem conectar APIs externas no momento.
+
+Working directory: c:\Users\ezequ\OneDrive\Área de Trabalho\FACELESS CHANNEL
+Integrity mode: development
+
+## Requirements
+
+### R1. Extração de Conhecimento
+Leia o conteúdo do site `https://higgsfield.ai/@higgsfield.studio/projects/hell-grind` usando o subagente `browser` ou navegação web. Extraia insights profundos sobre os processos, técnicas, prompts, direção visual e roteiro utilizados no filme.
+
+### R2. Análise Comparativa
+Compare as técnicas profissionais encontradas no case do "Hell Grind" com a arquitetura atual do nosso Faceless Channel (`src/nodes/` e o pipeline LangGraph). Identifique lacunas na nossa direção visual, estruturação do roteiro e orquestração de agentes.
+
+### R3. Plano de Implementação
+Crie o artefato `implementation_plan.md` detalhando as melhorias que devemos absorver do "Hell Grind". As melhorias não devem ser regras absolutas, mas adaptações para enriquecer nosso projeto. Não implemente integrações de conexão com hubs de IA neste momento. Aguarde revisão (não edite código fonte ainda).
+
+## Acceptance Criteria
+
+### Qualidade da Extração
+- [ ] O plano lista metodologias reais citadas na página do projeto (estilos de prompt, lógicas de transição, estruturação de roteiro).
+
+### Verificação do Plano
+- [ ] O artefato `implementation_plan.md` existe, contém uma seção de "Alterações Propostas" para arquivos específicos em `src/nodes/` baseados na análise do filme.
+- [ ] Nenhum arquivo `.py` de código-fonte foi alterado durante esta fase (apenas planejamento).
+
+---
+*Next: when approved → delegate via invoke_subagent (see Delegation Protocol)*
+

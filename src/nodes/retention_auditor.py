@@ -52,14 +52,36 @@ def node_retention_auditor(state: AgentState) -> AgentState:
     if tag_count < (len(sentences) // 4): # Exige pelo menos 1 tag a cada 4 frases
         score -= 20
         feedback_notes.append(f"Poucas tags de prosódia ({tag_count}). Adicione mais pausas [PAUSA_1s] e mudanças de tom para reter a atenção.")
-    
+        
+    # 3. Análise Visual (Cadência e Movimento)
+    visual_blocks = state.get("visual_blocks", [])
+    if not visual_blocks:
+        score -= 30
+        feedback_notes.append("Nenhum bloco visual gerado. O Storyboarder falhou.")
+    else:
+        for i in range(1, len(visual_blocks)):
+            prev_cam = visual_blocks[i-1].get("shot_metadata", {}).get("camera_movement", "").lower()
+            curr_cam = visual_blocks[i].get("shot_metadata", {}).get("camera_movement", "").lower()
+            
+            # Reprovar se houver cadência idêntica seguida
+            if prev_cam and curr_cam and prev_cam == curr_cam:
+                score -= 15
+                feedback_notes.append(f"Cadência visual repetitiva detectada no shot {i}. Movimento '{curr_cam}' usado consecutivamente.")
+                break
+                
+        # Verificar verbos imperativos no primeiro shot
+        first_cam = visual_blocks[0].get("shot_metadata", {}).get("camera_movement", "").lower()
+        if first_cam and not any(verb in first_cam for verb in ["dolly", "pan", "truck", "orbit", "zoom", "tilt", "static"]):
+            score -= 10
+            feedback_notes.append(f"Taxonomia de câmera física ausente ou incorreta no gancho inicial: '{first_cam}'.")
+
     if score < 85:
         logger.warning(f"ALERTA: Roteiro REPROVADO com nota {score}.")
         feedback = " | ".join(feedback_notes)
         next_status = "auditor_failed"
     else:
         logger.info(f"SUCESSO: Roteiro APROVADO com nota {score}.")
-        feedback = "Roteiro perfeito. Pronto para produção."
+        feedback = "Roteiro perfeito e visualmente cadenciado. Pronto para produção."
         next_status = "auditor_approved"
         
     return {

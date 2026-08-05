@@ -31,8 +31,10 @@ Regras para Títulos:
 2. Máximo de 50 caracteres (otimizado para celular).
 3. Seja extremo, mas baseado na verdade.
 
-Regras para a Thumbnail:
-1. Descreva o conceito com 3 elementos visuais no máximo (Ex: Fundo vermelho escuro, Rosto com expressão de choque, Setas apontando para um detalhe minúsculo).
+Regras para a Thumbnail & Estética:
+1. Descreva o conceito com 3 elementos visuais no máximo (Ex: Fundo vermelho escuro, Rosto de choque, Setas).
+2. A Thumbnail DEVE usar a lógica do "Keyframe Hero Frame" (Foco absoluto estático e super contraste).
+3. Defina a `color_palette` dominante que vai ditar toda a direção de arte do vídeo (ex: "neon_cyberpunk", "desaturated_monochrome").
 
 {format_instructions}
     """

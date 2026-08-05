@@ -31,9 +31,13 @@ Você é um Diretor de Arte focado em retenção do YouTube (estilo MrBeast).
 Leia este roteiro de narração:
 {prose}
 
-Sua tarefa é fatiar esse roteiro em "Blocos Visuais". Para cada bloco de texto, defina:
-- O que deve aparecer na tela (b_roll_description).
-- Qual técnica de câmera/iluminação usar (grokfilm_technique).
+Sua tarefa é fatiar esse roteiro em "Blocos Visuais". Para cada bloco de texto, defina obrigatoriamente as 3 Camadas de Prompt (Hell Grind 3-Layer Architecture) e os metadados do shot:
+- `shot_metadata`: Inclua o `shot_id`, `duration_seconds` (2.0s a 4.5s), `camera_movement` (Taxonomia Física: Dolly In, Whip Pan Left, Orbit 360°, Truck Right) e `spatial_constraints` (ex: "keep subject centered").
+- `layer1_identity_token`: Apenas o SOUL ID do personagem principal ou sujeito (ex: [SOUL_ID_HERO]). Não inclua descrições físicas.
+- `layer2_keyframe_prompt`: Apenas o ambiente estático, paleta de cores e iluminação cinematográfica (ex: 35mm anamorphic, neon teal).
+- `layer3_motion_prompt`: Verbos imperativos de ação e intensidade do movimento (ex: Subject walking intensely towards camera).
+
+REGRA DE CADÊNCIA DE ENQUADRAMENTO: Proibido repetir enquadramentos consecutivos (ex: Close-Up seguido de Close-Up é proibido). Alterne entre Close-Up, Medium e Wide.
 
 {format_instructions}
     """
