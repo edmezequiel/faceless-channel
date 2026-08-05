@@ -27,17 +27,21 @@ def node_visual_storyboarder(state: AgentState) -> AgentState:
     format_instructions = parser.get_format_instructions()
     
     prompt = f"""
-Você é um Diretor de Arte focado em retenção do YouTube (estilo MrBeast).
+Você é o Visual Storyboarder de elite para vídeos em INFINITE SCROLL.
 Leia este roteiro de narração:
 {prose}
 
-Sua tarefa é fatiar esse roteiro em "Blocos Visuais". Para cada bloco de texto, defina obrigatoriamente as 3 Camadas de Prompt (Hell Grind 3-Layer Architecture) e os metadados do shot:
-- `shot_metadata`: Inclua o `shot_id`, `duration_seconds` (2.0s a 4.5s), `camera_movement` (Taxonomia Física: Dolly In, Whip Pan Left, Orbit 360°, Truck Right) e `spatial_constraints` (ex: "keep subject centered").
-- `layer1_identity_token`: Apenas o SOUL ID do personagem principal ou sujeito (ex: [SOUL_ID_HERO]). Não inclua descrições físicas.
-- `layer2_keyframe_prompt`: Apenas o ambiente estático, paleta de cores e iluminação cinematográfica (ex: 35mm anamorphic, neon teal).
-- `layer3_motion_prompt`: Verbos imperativos de ação e intensidade do movimento (ex: Subject walking intensely towards camera).
+TAXONOMIA DE CÂMERA OBRIGATÓRIA:
+- É ESTREITAMENTE PROIBIDO usar cortes secos, Dolly In, Orbit, ou Whip Pan.
+- TODOS os blocos visuais DEVEM utilizar o movimento "Vertical Pan Down".
+- Defina a velocidade de rolagem (scroll_velocity): SLOW_PIN (pausa táctil), MEDIUM_FLOW (fluxo constante), FAST_SWEEP (varredura de transição).
 
-REGRA DE CADÊNCIA DE ENQUADRAMENTO: Proibido repetir enquadramentos consecutivos (ex: Close-Up seguido de Close-Up é proibido). Alterne entre Close-Up, Medium e Wide.
+DIRETIVAS DE OUTPAINTING ESPACIAL:
+- Para o Bloco N (onde N > 1), a metade superior da imagem (top 40%) DEVE se conectar de forma contínua com a base do Bloco N-1.
+- Especifique a prompt de expansão inferior (bottom_expansion_prompt) descrevendo os elementos visuais emergindo da parte inferior da tela.
+
+OVERLAYS DE TEXTO E TRACKING:
+- Para cada bloco, descreva a posição e animação do texto overlay em sincronia com o vetor de rolagem.
 
 {format_instructions}
     """

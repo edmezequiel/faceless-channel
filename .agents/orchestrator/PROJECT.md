@@ -1,26 +1,28 @@
-# Project: Faceless Channel — Hell Grind Improvement Plan
+# Project: Infinite Scroll AI Video Architecture
 
 ## Architecture
-This is a planning and architecture audit phase.
-- Input: `https://higgsfield.ai/@higgsfield.studio/projects/hell-grind` & existing codebase in `src/nodes/` and `src/core/engine.py`.
-- Output: `implementation_plan.md` in root and `.agents/orchestrator/implementation_plan.md`.
+Planning and architecture phase for adapting Faceless Channel video pipeline to produce an "Infinite Scroll" visual style.
+- Input: Web reference URLs (`https://www.shopify.com/editions/winter2026` & `https://pear.no/`) and existing codebase (`src/nodes/script_architect.py`, `src/nodes/visual_storyboarder.py`, `src/nodes/retention_auditor.py`, `src/core/state.py`).
+- Output: `implementation_plan.md` in workspace root.
 
 ## Feature Inventory
-| # | Feature | Description | Milestone | Source |
-|---|---------|-------------|-----------|--------|
-| 1 | Hell Grind Knowledge Extraction | Extract scripting methods, prompt engineering styles, visual direction, camera movements, color/mood guidelines, transition logic, agent workflows | M1 | Web Page / Search |
-| 2 | Codebase Architecture Audit | Audit all files in `src/nodes/` and `src/core/engine.py` to document node responsibilities, prompt structure, workflow links | M2 | Codebase |
-| 3 | Comparative Gap Analysis | Compare Hell Grind techniques vs current nodes, identifying specific gaps in prompt engineering, script structuring, visual directions, multi-agent coordination | M2 | Synthesis |
-| 4 | Implementation Plan Creation | Generate `implementation_plan.md` with detailed improvements to absorb and "Alterações Propostas" mapped to specific files in `src/nodes/` | M3 | Synthesis |
+| # | Feature | Description | Milestone | Source | Status |
+|---|---------|-------------|-----------|--------|--------|
+| 1 | Reference Analysis | Analyze visual structure, rhythm, continuous scrolling transitions, and text/visual merging of Shopify Winter 2026 & Pear.no | M1 | Web References | DONE |
+| 2 | Codebase Audit & LangGraph Adaptation | Audit `script_architect.py`, `visual_storyboarder.py`, `retention_auditor.py`, and state models to map adaptations | M2 | Codebase | DONE |
+| 3 | Technical Video Workflow Proposal | Propose AI technical workflow (continuous outpainting, pan/dolly transitions, Deforum/SVD, motion tracking text overlay) | M3 | Synthesis | DONE |
+| 4 | Implementation Plan Generation | Produce `implementation_plan.md` detailing LangGraph adaptations, camera taxonomy overrides, prompt structure, and workflow logic | M3 | Synthesis | DONE |
 
 ## Milestones
 | # | Name | Scope | Dependencies | Status |
 |---|------|-------|-------------|--------|
-| M1 | Hell Grind Knowledge Extraction | Extract deep insights from Higgsfield Hell Grind project page | None | DONE |
-| M2 | Codebase Audit & Comparative Analysis | Audit `src/nodes/` & `src/core/engine.py` and analyze gaps against M1 findings | M1 | DONE |
-| M3 | Implementation Plan Generation | Produce final `implementation_plan.md` | M1, M2 | DONE |
+| M1 | Reference Analysis | Deep dive into Shopify Winter 2026 & Pear.no infinite scroll mechanics and aesthetics | None | DONE |
+| M2 | Codebase Audit & LangGraph Adaptation | Audit `script_architect.py` & `visual_storyboarder.py` for continuous scroll narrative logic | None | DONE |
+| M3 | Workflow Proposal & Plan Generation | Produce `implementation_plan.md` in workspace root | M1, M2 | DONE |
 
 ## Code Layout (Read-Only Audit Scope)
-- `src/nodes/` - Individual pipeline nodes (topic, scriptwriter, visual prompt generator, tts, video generator, publisher, etc.)
-- `src/core/engine.py` - LangGraph orchestrator engine linking all nodes
-- `implementation_plan.md` - Target deliverable file
+- `src/nodes/script_architect.py` - Script generation, beat structuring, camera cue definitions
+- `src/nodes/visual_storyboarder.py` - Visual prompt generation, shot composition, camera taxonomy
+- `src/nodes/retention_auditor.py` - Retention audit rules, camera repetition checks
+- `src/core/state.py` - Pydantic state schemas
+- `implementation_plan.md` - Target deliverable artifact in workspace root

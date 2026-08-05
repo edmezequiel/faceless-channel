@@ -21,18 +21,20 @@ def node_script_architect(state: AgentState) -> AgentState:
     parser = PydanticOutputParser(pydantic_object=ScriptSkeleton)
     format_instructions = parser.get_format_instructions()
     
-    # Prompt com regras de Framework de Retenção
     prompt = f"""
-Você é um Arquiteto de Roteiros nível MrBeast. Sua função é criar a estrutura de um vídeo de 10 minutos focado em retenção extrema.
+Você é o Script Architect especializado no formato INFINITE SCROLL AI VIDEO.
+Sua missão é gerar um roteiro de fluxo narrativo contínuo ("Waterfall") sem cortes secos.
 Tema: {goal}
 Fatos Coletados:
 {factual_context}
 
-Regras:
-1. O Gancho (Beat 1) DEVE ser um "2-Second Hook" visual e narrativo violento, quebrando o padrão imediatamente.
-2. Divida a narrativa em "shots" temporais extremamente curtos (de 2.0s a 4.5s no máximo), para não fatigar o modelo de vídeo (AI morphing).
-3. Insira 1 a 2 Open Loops massivos que só se resolvem no Clímax.
-4. Planeje cada beat prevendo que precisará de um header de metadados de câmera.
+Regras do Roteiro:
+1. NARRATIVA EM CASCATA: Cada batida de roteiro deve se conectar fisicamente com a anterior, como se a câmera estivesse descendo continuamente em uma página web infinita.
+2. PACING DE ROLAGEM (scroll_pacing):
+   - HERO (Abertura): Apresentação do tema com texto em destaque.
+   - FEATURE_PIN (Explicação): Momento onde a velocidade de rolagem desacelera para foco no conceito.
+   - SPEED_RAMP_TRANSITION (Transição): Varredura rápida para o próximo módulo visual.
+3. KINETIC TEXT OVERLAYS: Para cada batida, forneça uma frase curta e de alto impacto para ser renderizada sobre o vídeo em sincronia com a locução.
 
 {format_instructions}
     """

@@ -1,72 +1,39 @@
 # Original User Request
 
-## 2026-08-05T14:36:53Z
-
-# Teamwork Project Prompt — Draft
-
-> Status: Ready for launch — awaiting user approval
-> Goal: Craft prompt → get user approval → delegate to teamwork_preview
-
-O projeto consiste em auditar a base de código atual do canal Faceless para garantir que os 6 subagentes da "Esteira Autônoma" estejam corretamente criados e integrados. Além disso, analisar e definir qual é o melhor modelo de IA do mercado atual para garantir 100% de qualidade no roteiro (zero "AI slop" ou texto genérico), e aplicar as correções necessárias no roteador de LLM do código.
-
-Working directory: c:\Users\ezequ\OneDrive\Área de Trabalho\FACELESS CHANNEL
-Integrity mode: development
-
-## Requirements
-
-### R1. Auditoria da Esteira (LangGraph)
-Verificar os arquivos em `src/nodes/` e `src/core/engine.py` para confirmar que a topologia de 6 agentes está perfeitamente amarrada e os nós existem. Nenhuma integração com a interface visual (UI) do Antigravity é necessária, o foco é 100% no código Python.
-
-### R2. Seleção do Modelo Definitivo (Anti AI Slop)
-Executar uma análise sobre os modelos de fronteira atuais (você tem acesso à skill `llm_version_checker` no workspace). Determinar qual modelo entrega a melhor prosa humana, sem jargões genéricos, custe o que custar.
-
-### R3. Refatoração do Roteador
-Atualizar `src/connectors/llm_router.py` para substituir o modelo atual pelo modelo vencedor da análise (se diferente), garantindo que o `node_tts_scriptwriter` use-o compulsoriamente.
-
-## Acceptance Criteria
-
-### Verificação do Grafo Python
-- [ ] O script `engine.py` passa por uma verificação de sintaxe (`python -m py_compile`) sem falhas, confirmando que os 6 agentes estão implementados.
-
-### Atualização do Roteador
-- [ ] O arquivo `llm_router.py` contém explicitamente o nome exato do modelo (ex: `claude-3-5-sonnet-latest` ou superior) na regra de roteamento forçado do scriptwriter.
-- [ ] As alterações no roteador não quebram o fallback local do Ollama para o resto do sistema.
-
----
-*Next: when approved → delegate via invoke_subagent (see Delegation Protocol)*
-
-## 2026-08-05T15:24:12Z
+## 2026-08-05T15:35:47Z
 
 # Teamwork Project Prompt — Draft
 
 > Status: Launched
 > Goal: Craft prompt → get user approval → delegate to teamwork_preview
 
-Analisar a fundo o projeto de filme de IA "Hell Grind" da Higgsfield AI, extraindo seus métodos de roteiro, prompts, workflows e direção visual. Com base nesses insights, auditar nosso projeto atual (Faceless Channel) e criar um Plano de Implementação sugerindo melhorias profissonais, sem conectar APIs externas no momento.
+Analisar a fundo a estética de "Infinite Scroll" de sites de altíssimo nível (Shopify Winter 2026 e Pear.no) e arquitetar uma metodologia técnica para converter esse formato web interativo em um formato de vídeo contínuo gerado por IA para o Faceless Channel. O vídeo deve manter um fluxo visual ininterrupto, conectando imagens e textos de forma orgânica com a narração.
 
 Working directory: c:\Users\ezequ\OneDrive\Área de Trabalho\FACELESS CHANNEL
 Integrity mode: development
 
 ## Requirements
 
-### R1. Extração de Conhecimento
-Leia o conteúdo do site `https://higgsfield.ai/@higgsfield.studio/projects/hell-grind` usando o subagente `browser` ou navegação web. Extraia insights profundos sobre os processos, técnicas, prompts, direção visual e roteiro utilizados no filme.
+### R1. Análise de Referências (Via Browser)
+O agente DEVE usar o subagente `browser` para acessar e destrinchar a estrutura visual, o ritmo e as lógicas de transição dos sites `https://www.shopify.com/editions/winter2026` e `https://pear.no/`. Identifique como os elementos textuais e visuais se mesclam durante a rolagem contínua.
 
-### R2. Análise Comparativa
-Compare as técnicas profissionais encontradas no case do "Hell Grind" com a arquitetura atual do nosso Faceless Channel (`src/nodes/` e o pipeline LangGraph). Identifique lacunas na nossa direção visual, estruturação do roteiro e orquestração de agentes.
+### R2. Metodologia de Adaptação para Vídeo de IA
+Proponha um workflow técnico explicando como mimetizar esse efeito usando nossas ferramentas de IA (ex: Outpainting contínuo, transições de pan/dolly fluidas unidas por interpoladores, uso de Deforum/SVD, ou sobreposição de texto em motion tracking). 
 
-### R3. Plano de Implementação
-Crie o artefato `implementation_plan.md` detalhando as melhorias que devemos absorver do "Hell Grind". As melhorias não devem ser regras absolutas, mas adaptações para enriquecer nosso projeto. Não implemente integrações de conexão com hubs de IA neste momento. Aguarde revisão (não edite código fonte ainda).
+### R3. Plano de Arquitetura no LangGraph
+Desenvolva um plano de implementação documentando como adaptar nosso `visual_storyboarder.py` e `script_architect.py` para suportar esse novo estilo narrativo (onde a câmera nunca corta, apenas "scrolla"). Crie o artefato `implementation_plan.md` listando as mudanças necessárias no código. Não modifique o código-fonte ainda.
 
 ## Acceptance Criteria
 
-### Qualidade da Extração
-- [ ] O plano lista metodologias reais citadas na página do projeto (estilos de prompt, lógicas de transição, estruturação de roteiro).
+### [Qualidade da Análise]
+- [ ] O plano descreve detalhadamente o comportamento de "scroll" dos sites de referência e como isso se traduz visualmente para vídeo (direção de arte).
 
-### Verificação do Plano
-- [ ] O artefato `implementation_plan.md` existe, contém uma seção de "Alterações Propostas" para arquivos específicos em `src/nodes/` baseados na análise do filme.
-- [ ] Nenhum arquivo `.py` de código-fonte foi alterado durante esta fase (apenas planejamento).
+### [Verificação do Workflow Técnico]
+- [ ] O plano sugere uma técnica plausível de geração de vídeo contínuo com IA (ex: parâmetros específicos de I2V, Panning, Outpainting, ou After Effects script automation).
+- [ ] O plano mapeia exatamente quais nós do LangGraph precisariam ser reescritos (ex: forçar a taxonomia de câmera para `Vertical Pan Down` constante).
+
+### [Segurança do Código]
+- [ ] Nenhum código `.py` é alterado nesta fase; apenas o artefato de planejamento é entregue.
 
 ---
 *Next: when approved → delegate via invoke_subagent (see Delegation Protocol)*
-

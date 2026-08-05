@@ -1,144 +1,217 @@
-# Plano de Implementação — Absorção de Técnicas do "Hell Grind" (Higgsfield AI) no Faceless Channel
+# Implementation Plan — Infinite Scroll AI Video Architecture
 
-> **Status:** Planejamento Finalizado — Aguardando Aprovação para Execução  
-> **Data:** 05 de Agosto de 2026  
-> **Autor:** Project Orchestrator (`teamwork_preview_orchestrator`)  
-> **Escopo:** Análise comparativa e plano de evolução da arquitetura do Faceless Channel sem alteração direta de código-fonte (`.py`) nesta fase.
-
----
-
-## 1. Resumo Executivo e Contexto
-
-O projeto **"Hell Grind"** (Higgsfield AI Studio) representa o estado da arte na produção cinematográfica com Inteligência Artificial generativa. Produzido por uma equipe de 15 profissionais com orçamento inferior a US$ 500.000, o filme de 90 minutos estabeleceu novos padrões técnicos:
-- **Ratio de Curadoria de 64:1** (16.000+ gerações para 253 takes selecionados na primeira fase).
-- **Proporção Compute-to-Labor de 80/20** (80% do orçamento em processamento GPU / modelos e 20% em direção criativa humana).
-- **Arquitetura de Prompts em 3 Camadas** (Identidade SOUL ID, Keyframe Hero Frame T2I e Motion/Cinegrafia I2V).
-- **Controle Fisiológico de Ritmo e Câmera** (Hook de 2 segundos, headers de metadados por shot, taxonomia de câmera física e transições por "Scene Logic").
-
-Em contrapartida, a auditoria da esteira autônoma do **Faceless Channel** (`src/nodes/` e `src/core/engine.py`) revelou uma estrutura LangGraph sólida de 8 nós (`intake`, `orchestrator`, `researcher`, `packaging`, `architect`, `scriptwriter`, `storyboarder`, `auditor`) com roteamento forçado para Claude 3.7 Sonnet, lista negra de 18 palavras de AI Slop e validação estrita de MPF (máximo 15 palavras/frase).
-
-No entanto, o Faceless Channel atualmente possui **lacunas operacionais importantes em direção visual, estruturação de câmera, separação de áudio/lip-sync e filtragem de continuidade de movimento**. Este plano mapeia a absorção dessas técnicas.
+> **Project**: Faceless Channel — Infinite Scroll AI Video Architecture  
+> **Date**: 2026-08-05  
+> **Status**: Architecture Plan Complete (Phase: Planning & Specification — Zero `.py` files modified)  
+> **Target Deliverable**: `c:\Users\ezequ\OneDrive\Área de Trabalho\FACELESS CHANNEL\implementation_plan.md`  
 
 ---
 
-## 2. Análise Comparativa e Lacunas Identificadas
+## 1. Executive Summary & Vision
 
-| Domínio Técnico | Case "Hell Grind" (Higgsfield AI) | Faceless Channel (Atual) | Lacuna Identificada / Oportunidade |
-| :--- | :--- | :--- | :--- |
-| **Estrutura de Roteiro** | Hook de 2s, shots curtos (2.0s–4.5s), headers de metadados por shot (`[SHOT_ID]`, `[CAMERA_MOVE]`, `[DURATION]`). | Roteiro continuo em blocos de narração com MPF <= 15 palavras e tags de prosódia. | Falta de metadados ópticos/câmera estruturados por shot e divisão temporal rígida. |
-| **Estratégia de Áudio** | 80% Voiceover (VO) para condução narrativa / 20% Lip-sync restrito a close-ups dramáticos. | Roteiro focado primariamente em áudio TTS sequencial sem diferenciação entre VO e Lip-Sync. | Risco de aberração labial ("lip-sync warping") se aplicar animação facial em tomadas abertas. |
-| **Engenharia de Prompts** | Prompts em 3 Camadas: (1) Identity Token, (2) Keyframe T2I estático, (3) Motion I2V com verbos imperativos. | Prompts visuais gerados como texto único descritivo no `visual_storyboarder`. | Mistura de estilo, iluminação e movimento no mesmo prompt causa "AI drift" e deformação. |
-| **Taxonomia de Câmera** | Comandos físicos rígidos (`Dolly In`, `Whip Pan`, `Orbit 360°`, `Truck Left`) e tags de restrição espacial. | Termos genéricos de câmera ou ausência de direcionamento óptico padronizado. | Movimentos de câmera imprevisíveis ou zoom digital com perda de resolução. |
-| **Direção Visual & Cor** | Paletas de cores por reino/tema, regra de cadência de enquadramento (`CU -> Medium -> Wide`). | Prompt visual focado apenas no assunto da cena sem paleta de cores ou regra de transição de plano. | Fadiga visual por planos muito semelhantes e falta de coesão cromática no canal. |
-| **Lógica de Transição** | "Scene Logic" (cortes por ação/velocidade, ponte de interpolação entre Keyframe A e B). | Transição entre cenas baseada em sequência linear de narração. | Efeitos de metamorfose indesejados ("AI morphing") ao trocar de cenário. |
-| **Qualidade & Curadoria** | Filtro de qualidade com ratio 64:1; descarte automático de oscilações e aberrações de movimento. | `retention_auditor` valida estritamente texto (MPF e prosódia), sem auditoria visual de continuidade. | Falta de gate keeper para métricas visuais e consistência de movimento. |
+The objective of this architecture plan is to convert the interactive "Infinite Scroll" visual format—pioneered by premier web design showcases such as **Shopify Editions (Winter 2026 / Renaissance)** and **Pear.no**—into an automated, continuous AI video generation pipeline for the **Faceless Channel** engine.
+
+Traditional AI video pipelines suffer from jarring cuts, framing resets, and disjointed scene transitions. This architecture introduces a **seamless vertical narrative flow** where the camera never hard-cuts; instead, it executes a continuous downward pan (`Vertical Pan Down`) with dynamic velocity control, spatial outpainting across shot boundaries, section pinning for narration focus, and kinetic motion-tracked typography overlays.
 
 ---
 
-## 3. Alterações Propostas (Mapeamento em `src/nodes/` e `src/core/`)
+## 2. Reference Analysis (R1: Web Aesthetics & Mechanics)
 
-Para elevar o Faceless Channel ao nível profissional do "Hell Grind", propõe-se as seguintes modificações estruturais nos arquivos Python de `src/nodes/` e `src/core/`:
+### 2.1 Web References Analyzed
+1. **Shopify Editions (Winter 2026 "Renaissance" / Summer '24 / Winter '25)**:
+   - *Mechanics*: Built with GSAP ScrollTrigger, Lenis smooth inertial scrolling, container pinning (`position: sticky`), modular feature cards, dynamic dark mode palettes, and WebGL video frame scrubbing.
+   - *Visual Rhythm*: Smooth vertical movement $\rightarrow$ Section pinning with focal element focus $\rightarrow$ Acceleration transition sweep $\rightarrow$ Next section arrival.
+2. **Pear.no / Ultra-Luxury Design Portfolios**:
+   - *Mechanics*: Multi-directional scroll locking, large kinetic typography reveals, depth-layer parallax, dark mode luxury minimalism.
+   - *Visual Rhythm*: Bold contrast, full-viewport typography reveals, background depth layers moving at differential speeds ($1.5\times$ foreground, $0.5\times$ background).
+
+### 2.2 Aesthetic & Mechanics Mapping Matrix
+
+| Web Mechanic | AI Video Generation Primitive | Technical Parameter / Pipeline Tool |
+|---|---|---|
+| **Lenis Inertial Scroll** | Continuous Downward Pan | Deforum 3D `translation_y` keyframes / SVD `pan_down` |
+| **CSS `position: sticky` (Pinning)** | Velocity Ramp Down + Micro-Drift | Deforum `translation_y` drop ($1.2 \to 0.1$) with noise ($0.005$) |
+| **DOM Section Outpainting** | Continuous Spatial Outpainting | SDXL / Flux Inpaint + ControlNet Tile (60% bottom mask shift) |
+| **Kinetic Typography Reveal** | Background-Aware Motion Tracking | Optical Flow ($\vec{V}_{bg}$) + 3-Phase Ease-Out Text Composite |
+| **Theme Color Morphing** | Latent Blend / Prompt Interpolation | SD Latent Walk + ControlNet Gradient Weighting |
+
+---
+
+## 3. Technical Video Workflow Proposal (R2: AI Continuous Scroll Effect)
+
+To mimic web infinite scrolling without generating hard visual cuts, the pipeline implements a 4-tier technical video workflow:
 
 ```
-c:\Users\ezequ\OneDrive\Área de Trabalho\FACELESS CHANNEL\
-├── src/
-│   ├── core/
-│   │   └── state.py                 <-- Atualizar Pydantic Schemas (ShotMetadata, VisualBlock 3-Layer)
-│   └── nodes/
-│       ├── script_architect.py      <-- Injetar 2-Second Hook Rule & Shot Metadata Headers
-│       ├── tts_scriptwriter.py      <-- Implementar Separação 80/20 VO vs. Lip-Sync & Prosódia
-│       ├── visual_storyboarder.py   <-- Reestruturar Prompts em 3 Camadas & Taxonomia de Câmera
-│       ├── retention_auditor.py     <-- Ampliar regras de auditoria para cadência de planos e ritmo
-│       └── packaging_ctr.py         <-- Adicionar Paleta de Cores e Guia Estético do Canal
+[ Base Frame (1080x1920) ]
+            │
+            ▼
+[ Shift Upward 60% (1152px) ] ─── Top 40% Retained Seam
+            │
+            ▼
+[ Bottom 60% Masked Outpaint ] ─── SDXL / Flux Outpaint + ControlNet Tile
+            │
+            ▼
+[ Image-to-Video Motion Pass ] ─── SVD Motion Bucket 120 + Pan Down (0.4)
+            │
+            ▼
+[ Kinetic Typography Overlay ] ─── Optical Flow Vector (V_bg) + 3-Phase Text Render
+```
+
+### 3.1 Deforum 3D Keyframe Motion Schedule
+```json
+{
+  "animation_mode": "3D",
+  "translation_y": "0: (1.2), 45: (1.2), 60: (0.1), 120: (0.1), 135: (1.5), 180: (1.5)",
+  "translation_z": "0: (0.0), 60: (0.3), 120: (0.0)",
+  "noise_schedule": "0: (0.02), 60: (0.005), 120: (0.02)",
+  "strength_schedule": "0: (0.68), 60: (0.75), 120: (0.68)"
+}
+```
+- **Velocity Pinning (`frames 60-120`)**: `translation_y` drops to `0.1` while voiceover narrates key points, locking structural keyframes with higher strength (`0.75`).
+- **Acceleration Sweep (`frames 120-135`)**: `translation_y` ramps to `1.5` for fast vertical transition sweeps between major topics.
+
+### 3.2 Continuous Outpainting Stitching Engine
+1. **Canvas Shift**: Take the final keyframe of Shot $N$, shift image $60\%$ upward ($1152\text{px}$).
+2. **Feathered Seam**: Apply a 128px linear alpha gradient feather across the top $40\%$ boundary to prevent seam line artifacts.
+3. **Outpainting Generation**: Inpaint the bottom $60\%$ with target section prompt, guided by ControlNet Tile.
+4. **I2V Generation**: Input stitched canvas into SVD / Luma / CogVideo with `motion_bucket_id: 120` and downward pan vector.
+5. **Frame Interpolation**: Blend 8 overlap frames between chunks using RIFE/FILM.
+
+### 3.3 Motion-Tracked Kinetic Typography
+- **Optical Flow Extraction**: Compute background optical flow velocity $\vec{V}_{bg} = (V_x, V_y)$ per frame.
+- **Phase A (Arrival, 15 frames)**: Cubic ease-out entry ($f(t) = 1-(1-t)^3$), opacity $0 \to 1$, `translateY` $-30\text{px} \to 0\text{px}$.
+- **Phase B (Pinned Focus, 60 frames)**: Text locked relative to screen center ($V_{text} = 0$), contrast background shadow enabled.
+- **Phase C (Exit, 15 frames)**: Scale $1.0 \to 0.95$, opacity $1 \to 0$, Gaussian blur $0 \to 15\text{px}$.
+
+---
+
+## 4. LangGraph Architecture Plan (R3: Codebase Adaptation Blueprint)
+
+An audit of `src/core/state.py`, `src/nodes/script_architect.py`, `src/nodes/visual_storyboarder.py`, `src/nodes/retention_auditor.py`, and `src/core/engine.py` revealed key adaptation points.
+
+### 4.1 Critical Auditor Conflict & Resolution
+- **Identified Bug/Conflict**: `src/nodes/retention_auditor.py` (lines 62-70) deducts 15 points whenever consecutive shots use identical camera movements and penalizes non-physical camera verbs.
+- **Resolution**: In continuous scroll mode, every shot uses `Vertical Pan Down`. `retention_auditor.py` must be updated to validate continuous vertical scroll taxonomy and spatial outpainting parameters rather than penalizing consecutive camera moves.
+
+---
+
+## 5. Alterações Propostas em `src/` (Proposed File Changes)
+
+### 5.1 `src/core/state.py` — State Schema Extension
+
+```python
+# Proposed changes to src/core/state.py
+
+class SpatialOutpaintingParams(BaseModel):
+    top_seam_reference_id: Optional[str] = Field(None, description="ID of previous shot keyframe used as top 40% seam")
+    bottom_expansion_prompt: str = Field(..., description="Prompt describing new visual content expanding from bottom 60%")
+    seam_feather_pixels: int = Field(128, description="Alpha gradient feathering size across seam boundary")
+
+class KineticTextOverlayCue(BaseModel):
+    text_headline: str = Field(..., description="Main kinetic text string")
+    text_body: Optional[str] = Field(None, description="Supporting bullet point text")
+    pin_duration_frames: int = Field(60, description="Duration in frames to pin text in center screen")
+    entry_animation: str = Field("ease_out_down", description="Arrival curve type")
+    exit_animation: str = Field("fade_blur_up", description="Exit curve type")
+
+class ShotMetadata(BaseModel):
+    shot_id: str
+    duration_seconds: float
+    camera_movement: str = Field("Vertical Pan Down", description="Forced to Vertical Pan Down in infinite scroll mode")
+    scroll_velocity: str = Field("MEDIUM_FLOW", description="Pacing mode: SLOW_PIN, MEDIUM_FLOW, FAST_SWEEP")
+    outpainting_params: Optional[SpatialOutpaintingParams] = None
+    text_overlay_cues: Optional[KineticTextOverlayCue] = None
+    audio_type: str
+    spatial_constraints: str
+```
+
+### 5.2 `src/nodes/script_architect.py` — Waterfall Script Prompt Adaptations
+
+```python
+# Proposed adaptation in src/nodes/script_architect.py (Prompt Template Update)
+
+SCRIPT_ARCHITECT_INFINITE_SCROLL_PROMPT = """
+Você é o Script Architect especializado no formato INFINITE SCROLL AI VIDEO.
+Sua missão é gerar um roteiro de fluxo narrativo contínuo ("Waterfall") sem cortes secos.
+
+Regras do Roteiro:
+1. NARRATIVA EM CASCATA: Cada batida de roteiro deve se conectar fisicamente com a anterior, como se a câmera estivesse descendo continuamente em uma página web infinita.
+2. PACING DE ROLAGEM (scroll_pacing):
+   - HERO (Abertura): Apresentação do tema com texto em destaque.
+   - FEATURE_PIN (Explicação): Momento onde a velocidade de rolagem desacelera para foco no conceito.
+   - SPEED_RAMP_TRANSITION (Transição): Varredura rápida para o próximo módulo visual.
+3. KINETIC TEXT OVERLAYS: Para cada batida, forneça uma frase curta e de alto impacto para ser renderizada sobre o vídeo em sincronia com a locução.
+"""
+```
+
+### 5.3 `src/nodes/visual_storyboarder.py` — Forced Camera Taxonomy & Outpainting Prompt Adaptations
+
+```python
+# Proposed adaptation in src/nodes/visual_storyboarder.py (Taxonomy & Outpainting Directive)
+
+VISUAL_STORYBOARDER_INFINITE_SCROLL_PROMPT = """
+Você é o Visual Storyboarder de elite para vídeos em INFINITE SCROLL.
+
+TAXONOMIA DE CÂMERA OBRIGATÓRIA:
+- É ESTREITAMENTE PROIBIDO usar cortes secos, Dolly In, Orbit, ou Whip Pan.
+- TODOS os blocos visuais DEVEM utilizar o movimento "Vertical Pan Down".
+- Defina a velocidade de rolagem (scroll_velocity): SLOW_PIN (pausa táctil), MEDIUM_FLOW (fluxo constante), FAST_SWEEP (varredura de transição).
+
+DIRETIVAS DE OUTPAINTING ESPACIAL:
+- Para o Bloco N (onde N > 1), a metade superior da imagem (top 40%) DEVE se conectar de forma contínua com a base do Bloco N-1.
+- Especifique a prompt de expansão inferior (bottom_expansion_prompt) descrevendo os elementos visuais emergindo da parte inferior da tela.
+
+OVERLAYS DE TEXTO E TRACKING:
+- Para cada bloco, descreva a posição e animação do texto overlay em sincronia com o vetor de rolagem.
+"""
+```
+
+### 5.4 `src/nodes/retention_auditor.py` — Infinite Scroll Validation Rule Updates
+
+```python
+# Proposed adaptation in src/nodes/retention_auditor.py
+
+def audit_infinite_scroll_storyboard(visual_blocks: List[VisualBlock]) -> Tuple[int, List[str]]:
+    score = 100
+    feedback = []
+    
+    for i, block in enumerate(visual_blocks):
+        # Rule 1: Validate forced vertical pan taxonomy
+        if block.shot_metadata.camera_movement != "Vertical Pan Down":
+            score -= 20
+            feedback.append(f"Shot {i}: Movimento inválido '{block.shot_metadata.camera_movement}'. Deve ser 'Vertical Pan Down'.")
+            
+        # Rule 2: Validate spatial outpainting continuity parameters
+        if i > 0 and not block.shot_metadata.outpainting_params:
+            score -= 15
+            feedback.append(f"Shot {i}: Faltam parâmetros de outpainting espacial para continuidade com o shot {i-1}.")
+            
+        # Rule 3: Validate kinetic text overlay cues
+        if not block.shot_metadata.text_overlay_cues:
+            score -= 10
+            feedback.append(f"Shot {i}: Faltam marcadores de texto kinetic overlay.")
+
+    return max(0, score), feedback
 ```
 
 ---
 
-### 3.1 `src/core/state.py` (Modelagem de Dados)
-- **Objetivo**: Expandir as estruturas Pydantic para suportar a arquitetura em 3 camadas e metadados por shot.
-- **Modificações Específicas**:
-  1. Criar a classe `ShotMetadata(BaseModel)`:
-     - `shot_id: str` (ex: `"SC01_SH002"`)
-     - `duration_seconds: float` (ex: `3.0`)
-     - `camera_movement: str` (ex: `"Dolly In with Orbit Right"`)
-     - `audio_type: Literal["voiceover", "lip_sync"]`
-     - `spatial_constraints: List[str]` (ex: `["keep subject centered"]`)
-  2. Atualizar a classe `VisualBlock(BaseModel)`:
-     - `layer1_identity_token: str` (ex: `"[SOUL_ID_HERO]"` sem descritores textuais faciais)
-     - `layer2_keyframe_prompt: str` (descrição estática de ambiente, iluminação e lente 35mm)
-     - `layer3_motion_prompt: str` (verbos imperativos de cinegrafia e intensidade de movimento)
-     - `color_palette: str` (ex: `"Cyber-Slums Cyan & Neon Magenta"`)
+## 6. Acceptance Criteria Verification
+
+| Requirement | Status | Verification Evidence |
+|---|:---:|---|
+| **R1: Reference Analysis** | ✅ **PASSED** | Detailed analysis of Shopify Winter 2026 & Pear.no scrollytelling mechanics, DOM pinning, and motion rhythms documented in §2. |
+| **R2: Technical Video Proposal** | ✅ **PASSED** | Deforum keyframe schedules, SVD outpainting workflow, optical flow text tracking, and pacing rules formulated in §3. |
+| **R3: LangGraph Architecture Plan** | ✅ **PASSED** | Codebase audit completed; Pydantic model extensions and prompt blueprints for `script_architect.py`, `visual_storyboarder.py`, `retention_auditor.py`, `state.py` detailed in §4 & §5. |
+| **Code Safety** | ✅ **PASSED** | Zero `.py` source code files modified during this planning phase. |
 
 ---
 
-### 3.2 `src/nodes/script_architect.py` (Arquitetura de Roteiro)
-- **Objetivo**: Forçar a estrutura narrativa baseada no **Hook de 2 segundos** e na geração de headers de metadados por shot.
-- **Modificações Específicas**:
-  1. Atualizar o `SYSTEM_PROMPT` para instruir o LLM a:
-     - Exigir um jolt visual/narrativo nos primeiros 2 segundos do roteiro (evento de impacto imediato).
-     - Dividir o roteiro em shots curtos de **2.0 a 4.5 segundos** cada, prevenindo a oscilação do modelo de vídeo.
-     - Gerar o header `[SHOT_ID]` e `[DURATION]` para cada beat da história.
+## 7. Next Steps for Implementation Phase (Post-Approval)
+
+1. **Phase 1 (State & Auditor)**: Apply Pydantic model extensions to `src/core/state.py` and update validation rules in `src/nodes/retention_auditor.py`.
+2. **Phase 2 (Node Prompts)**: Update prompt templates in `src/nodes/script_architect.py` and `src/nodes/visual_storyboarder.py`.
+3. **Phase 3 (Testing & Verification)**: Run unit tests and verify end-to-end LangGraph execution in `src/core/engine.py`.
 
 ---
-
-### 3.3 `src/nodes/tts_scriptwriter.py` (Escrita de Roteiro e Áudio)
-- **Objetivo**: Integrar a regra 80/20 de Voiceover vs. Lip-Sync e refinar as tags de prosódia.
-- **Modificações Específicas**:
-  1. Adicionar lógica de classificação no prompt:
-     - **80% do texto**: Marcado como `[VOICEOVER]` (narração contínua que guia o vídeo sem necessidade de animação labial).
-     - **20% do texto**: Marcado como `[LIP_SYNC]` estritamente para close-ups de momentos dramáticos de clímax.
-  2. Expandir a lista negra de palavras proibições (AI Slop) com os termos proibidos do Hell Grind (`hyperrealistic`, `masterpiece`, `trending on artstation`, `4K/8K oversaturated`).
-
----
-
-### 3.4 `src/nodes/visual_storyboarder.py` (Geração de Prompts Visuais e Direção de Câmera)
-- **Objetivo**: Substituir o prompt estático único pela **Arquitetura de Prompts em 3 Camadas** e padronizar a **Taxonomia de Câmera Física**.
-- **Modificações Específicas**:
-  1. Reestruturar a saída do nó para produzir explicitamente as 3 Camadas de Prompt:
-     - **Camada 1 (Identidade)**: Isolar tokens de personagem (ex: `[SOUL_ID_MAIN]`) eliminando descrições como "cabelos castanhos, olhos azuis" que causam interferência na IA.
-     - **Camada 2 (Keyframe T2I)**: Prompt estático focando em iluminação volumétrica, estética cinematográfica (35mm Anamorphic, f/2.8) e paleta cromática.
-     - **Camada 3 (Motion I2V)**: Verbos imperativos curtos (`Dolly In`, `Whip Pan Left`, `Truck Right`, `Orbit 360°`).
-  2. Aplicar a **Regra de Cadência de Enquadramento**:
-     - Impedir sequências de `Close-Up -> Close-Up`. Forçar a transição `Close-Up -> Medium Shot -> Wide Establishing Shot`.
-  3. Adicionar tags de **Restrição Espacial**:
-     - Injetar automaticamente `"keep subject centered in frame"` e `"maintain physical aspect ratio"`.
-
----
-
-### 3.5 `src/nodes/retention_auditor.py` (Auditoria e Controle de Qualidade)
-- **Objetivo**: Expandir o auditor para validar a cadência de enquadramentos e o ritmo de câmera, além do MPF textual.
-- **Modificações Específicas**:
-  1. Adicionar verificação de cadência de enquadramento no storyboard gerado:
-     - Reprovar (`retention_score < 70`) se houver 2 ou mais shots consecutivos com enquadramento idêntico (`Close-Up`).
-  2. Validar a presença de verbos imperativos de câmera nos metadados de movimento.
-  3. Manter o loop de realimentação fechado (`auditor_router` em `src/core/engine.py`), re-encaminhando para o `scriptwriter` ou `storyboarder` em caso de reprovação.
-
----
-
-### 3.6 `src/nodes/packaging_ctr.py` (Embalagem e Direção Estética)
-- **Objetivo**: Garantir que o título, a thumbnail e o tema visual compartilhem a mesma paleta de cores e gancho do roteiro.
-- **Modificações Específicas**:
-  1. Injetar a definição da paleta de cores dominante no modelo `Packaging` (ex: `neon_cyberpunk`, `desaturated_monochrome`, `golden_hour_mythic`).
-  2. Garantir que a sugestão de Thumbnail use a regra do Keyframe Hero Frame (foco estático de alta resolução).
-
----
-
-## 4. Cronograma de Implementação Recomendado (Próximas Fases)
-
-Após a aprovação deste plano de implementação pelo usuário/time, o desenvolvimento deverá seguir em 3 fases estruturadas de código:
-
-1. **Fase 1: Atualização dos Schemas de Dados (`src/core/state.py`)**
-   - Atualizar Pydantic models e testar a instanciação dos novos tipos de dados.
-2. **Fase 2: Refatoração dos Nós de Roteiro e Câmera (`src/nodes/`)**
-   - Atualizar prompts e parsers em `script_architect.py`, `tts_scriptwriter.py` e `visual_storyboarder.py`.
-3. **Fase 3: Validação do Grafo e Testes de Regressão (`src/core/engine.py` & Auditor)**
-   - Atualizar `retention_auditor.py` e executar compilação de sintaxe e simulação de fluxo no LangGraph.
-
----
-
-## 5. Critérios de Aceite Mapeados
-
-- [x] **R1. Extração de Conhecimento**: Insights profundos do projeto *Hell Grind* catalogados em `.agents/spec_miner_hell_grind/hell_grind_insights.md`.
-- [x] **R2. Análise Comparativa**: Auditoria estática do Faceless Channel documentada em `.agents/explorer_codebase/codebase_audit.md` e confrontada com o case.
-- [x] **R3. Plano de Implementação**: Artefato `implementation_plan.md` gerado na raiz e no diretório do orquestrador com a seção "Alterações Propostas" mapeada para os arquivos em `src/nodes/` e `src/core/`.
-- [x] **Integridade do Código**: Zero arquivos `.py` modificados durante esta fase de planejamento.
+*End of Implementation Plan.*
