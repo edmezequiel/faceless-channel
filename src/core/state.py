@@ -16,6 +16,8 @@ class Packaging(BaseModel):
     titles: List[str] = Field(default_factory=list, description="5 títulos com Curiosity Gap")
     thumbnail_concept: str = Field(default="", description="Conceito primário da capa")
     color_palette: str = Field(default="", description="Paleta de cores dominante (ex: neon cyberpunk)")
+    description: str = Field(default="", description="Descrição otimizada para SEO do YouTube com avisos de compliance e disclaimers")
+    compliance_disclaimer: str = Field(default="", description="Aviso legal de IA sintética e isenção de responsabilidade médica")
 
 class ScriptSkeleton(BaseModel):
     beats: List[str] = Field(default_factory=list, description="Estrutura temporal")

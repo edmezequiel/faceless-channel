@@ -39,16 +39,31 @@ Regras para a Thumbnail & Estética:
 {format_instructions}
     """
     
+    COMPLIANCE_DISCLAIMER = (
+        "⚠️ AVISO DE CONTEÚDO SINTÉTICO/IA:\n"
+        "Este vídeo utiliza representações visuais cinematográficas e sintetização de voz geradas por inteligência artificial "
+        "para ilustrar conceitos educacionais de psicologia.\n\n"
+        "ISENÇÃO DE RESPONSABILIDADE MÉDICA/LEGAL:\n"
+        "O conteúdo apresentado pelo Dr. Victor Vane e EDM ARCHETYPE LAB destina-se exclusivamente a fins educativos, analíticos e de entretenimento. "
+        "Não substitui o diagnóstico ou tratamento psicológico/psiquiátrico profissional."
+    )
+
     try:
         response = generate_response(prompt, system_prompt="Você é um gênio de CTR e Psicologia Humana.", agent_role="packaging")
         parsed_pkg = parser.parse(response)
         packaging_data = parsed_pkg.model_dump()
-        logger.info("Packaging gerado e parseado com sucesso via Pydantic.")
+        packaging_data["compliance_disclaimer"] = COMPLIANCE_DISCLAIMER
+        if not packaging_data.get("description"):
+            packaging_data["description"] = f"{goal}\n\nAnálise comportamental detalhada por Dr. Victor Vane.\n\n{COMPLIANCE_DISCLAIMER}"
+        logger.info("Packaging gerado e parseado com sucesso via Pydantic com regras de compliance.")
     except OutputParserException as e:
         logger.error(f"Falha ao extrair JSON do Packaging: {e}")
         packaging_data = {
             "titles": [f"O segredo chocante sobre {goal}", "A verdade oculta", "Eles mentiram", "O que ninguém te conta", "A revelação final"],
-            "thumbnail_concept": "Imagem simples gerando curiosidade."
+            "thumbnail_concept": "Imagem simples gerando curiosidade.",
+            "color_palette": "obsidian_cyan",
+            "description": f"{goal}\n\n{COMPLIANCE_DISCLAIMER}",
+            "compliance_disclaimer": COMPLIANCE_DISCLAIMER
         }
     
     return {"packaging": packaging_data, "current_status": "packaging_done"}
