@@ -25,7 +25,7 @@ class SystemConfig(BaseModel):
     LITELLM_DEFAULT_MODEL: str = Field(default=os.getenv("LITELLM_DEFAULT_MODEL", "gpt-4o-mini"))
     
     # Modelo Roteirista Principal (Anti-AI Slop — Claude Sonnet)
-    SCRIPTWRITER_MODEL: str = Field(default=os.getenv("SCRIPTWRITER_MODEL", "claude-3-7-sonnet-20250219"))
+    SCRIPTWRITER_MODEL: str = Field(default=os.getenv("SCRIPTWRITER_MODEL", "antigravity/claude-sonnet-4-6"))
     
     # ═══════════════════════════════════════════════════════════════
     # MATRIZ DE ESPECIALIZAÇÃO MULTI-MODELO (por função de agente)
@@ -34,24 +34,24 @@ class SystemConfig(BaseModel):
     # roteado automaticamente via OmniRoute.
     
     RESEARCHER_MODEL: str = Field(
-        default=os.getenv("RESEARCHER_MODEL", "gemini-2.0-flash"),
-        description="Modelo para pesquisa e fact-checking (janela de contexto grande, gratuito)"
+        default=os.getenv("RESEARCHER_MODEL", "groq/llama-3.3-70b-versatile"),
+        description="Modelo para pesquisa e fact-checking (Groq 70b)"
     )
     PACKAGING_MODEL: str = Field(
-        default=os.getenv("PACKAGING_MODEL", "gpt-4o-mini"),
-        description="Modelo para embalagem CTR (rápido e preciso em formatação)"
+        default=os.getenv("PACKAGING_MODEL", "groq/llama-3.3-70b-versatile"),
+        description="Modelo para embalagem CTR"
     )
     ARCHITECT_MODEL: str = Field(
-        default=os.getenv("ARCHITECT_MODEL", "claude-3-7-sonnet-20250219"),
-        description="Modelo para arquitetura de roteiro (qualidade narrativa)"
+        default=os.getenv("ARCHITECT_MODEL", "antigravity/claude-sonnet-4-6"),
+        description="Modelo para arquitetura de roteiro"
     )
     STORYBOARDER_MODEL: str = Field(
-        default=os.getenv("STORYBOARDER_MODEL", "gemini-2.0-flash"),
-        description="Modelo para storyboard visual (detalhamento visual e spatial prompting)"
+        default=os.getenv("STORYBOARDER_MODEL", "groq/llama-3.3-70b-versatile"),
+        description="Modelo para storyboard visual"
     )
     AUDITOR_MODEL: str = Field(
-        default=os.getenv("AUDITOR_MODEL", "gpt-4o-mini"),
-        description="Modelo para auditoria de retenção (raciocínio lógico estrito)"
+        default=os.getenv("AUDITOR_MODEL", "groq/llama-3.3-70b-versatile"),
+        description="Modelo para auditoria de retenção"
     )
     
     # Restrições de Concorrência
