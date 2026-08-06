@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "last_updated": "2026-08-06T14:28:30Z",
-  "analyzed_videos_count": 4,
+  "last_updated": "2026-08-06T17:34:50Z",
+  "analyzed_videos_count": 2,
   "patterns": {
     "hooks": [
       {
@@ -18,31 +18,15 @@
         "pattern": "Apresentar um mundo/objeto em uma condição extrema fazendo exatamente o oposto do esperado",
         "example_source": "James Webb Pluto (2M views)",
         "template": "A world four billion miles away is running its own private refrigerator, cooling itself down using nothing but the haze in its sky.",
-        "adapted_for_channel": "Um predador emocional constrói uma jaulação de controle mental... usando exatamente a sua própria empatia como combustível."
+        "adapted_for_channel": "Um predador emocional constrói uma jaula de controle mental... usando exatamente a sua própria empatia como combustível."
       },
       {
-        "type": "intrigue",
-        "pattern": "revelação de um fato desconhecido",
-        "example_phrase": "Right now, while you're reading these words, something is happening that almost nobody on Earth knows about",
-        "adapted_for_psychology": "curiosidade"
-      },
-      {
-        "type": "comparação",
-        "pattern": "comparação com algo familiar",
-        "example_phrase": "A machine the size of a small car",
-        "adapted_for_psychology": "facilitação da compreensão"
-      },
-      {
-        "type": "Surpresa",
-        "pattern": "Apresentar uma informação inesperada",
-        "example_phrase": "nobody expected a world that small and that cold to be doing anything like this",
-        "adapted_for_psychology": "Desencadear curiosidade e surpresa no espectador"
-      },
-      {
-        "type": "Mistério",
-        "pattern": "Apresentar um fenômeno misterioso",
-        "example_phrase": "a dwarf planet four billion miles away is running its own private refrigerator",
-        "adapted_for_psychology": "Manter o espectador engajado e curioso sobre o que está acontecendo"
+        "id": "HOOK_003",
+        "type": "intrigue_hidden_truth",
+        "pattern": "Revelar um fato surpreendente que quase ninguém na Terra conhece sobre um sistema ou comportamento",
+        "example_source": "Voyager 1 (3M views)",
+        "template": "Right now, while you're reading these words, something is happening that almost nobody on Earth knows about.",
+        "adapted_for_channel": "Neste exato segundo, enquanto você ouve esta frase, existe um mecanismo inconsciente operando na sua mente que quase ninguém percebe."
       }
     ],
     "analogies": [
@@ -50,102 +34,124 @@
         "id": "ANA_001",
         "concept": "Energia / Potência Limitada",
         "domestic_comparison": "A luz dentro da sua geladeira ou a lâmpada do fogão",
-        "example": "Runs on 4 watts of power — less electricity than the light inside your refrigerator."
+        "example_source": "Voyager 1 (3M views)",
+        "example": "Runs on 4 watts of power — less electricity than the light inside your refrigerator.",
+        "adapted_for_channel": "O cérebro gasta apenas 20 watts de energia — menos que a lâmpada da sua geladeira — para calcular cada ameaça social."
       },
       {
         "id": "ANA_002",
         "concept": "Gelo Extremo",
         "domestic_comparison": "Metal / Rocha sólida",
-        "example": "At 400 degrees below zero, water ice stops being slippery and behaves like solid rock, ringing like metal if struck."
+        "example_source": "James Webb Pluto (2M views)",
+        "example": "At 400 degrees below zero, water ice stops being slippery and behaves like solid rock, ringing like metal if struck.",
+        "adapted_for_channel": "Sob estresse psicológico contínuo, a empatia para de ser flexível e se comporta como rocha sólida, ressoando como metal frio se for atingida."
       },
       {
         "id": "ANA_003",
         "concept": "Medição Espacial Esparsa",
         "domestic_comparison": "Medir o clima de um continente inteiro olhando um único termômetro em uma cidade uma vez por ano",
-        "example": "Like trying to understand continental weather by checking one thermometer once a year."
+        "example_source": "James Webb Pluto (2M views)",
+        "example": "Like trying to understand continental weather by checking one thermometer once a year.",
+        "adapted_for_channel": "Tentar detectar um manipulador experiente avaliando apenas uma palavra casual é como tentar prever o clima de um continente checando um termômetro uma vez por ano."
       },
       {
-        "concept": "tamanho da sonda",
-        "domestic_comparison": "tamanho de um carro pequeno",
-        "example_phrase": "A machine the size of a small car"
-      },
-      {
-        "concept": "consumo de energia",
-        "domestic_comparison": "luz de uma geladeira",
-        "example_phrase": "less electricity than the light inside your refrigerator"
-      },
-      {
-        "concept": "Resfriamento de um planeta",
-        "domestic_comparison": "Refrigerador",
-        "example_phrase": "running its own private refrigerator"
+        "id": "ANA_004",
+        "concept": "Escala de Tamanho de Máquina Complexa",
+        "domestic_comparison": "Um carro compacto popular",
+        "example_source": "Voyager 1 (3M views)",
+        "example": "A machine the size of a small car carrying the hopes of human civilization into interstellar space.",
+        "adapted_for_channel": "O sistema límbico, do tamanho de um punho fechado, carrega toda a arquitetura emocional desenvolvida em milhões de anos."
       }
     ],
     "micro_twists": [
       {
         "id": "TWIST_001",
         "trigger": "Inversão de Consenso Científico",
+        "example_source": "James Webb Pluto (2M views)",
         "phrase": "Researchers were not using words like 'interesting'... they were using words like 'we were wrong'.",
-        "adapted_for_channel": "Os psicólogos achavam que o narcisismo era apenas vaidade... até que a neuroimagem provou que estávamos completamente errados."
+        "adapted_for_channel": "Os psicólogos não estavam usando termos como 'curioso'... eles estavam usando termos como 'estávamos completamente errados'."
       },
       {
         "id": "TWIST_002",
         "trigger": "Crise Inesperada de Hardware / Mente",
+        "example_source": "Voyager 1 (3M views)",
         "phrase": "For 5 months, the spacecraft transmitted gibberish... a single memory chip had failed after 46 years.",
-        "adapted_for_channel": "Sob manipulação prolongada, o cérebro não apenas se estressa — um único circuito no córtex pré-frontal entra em pane silenciosa."
+        "adapted_for_channel": "Sob manipulação prolongada, o cérebro não apenas se estressa — um único circuito no córtex pré-frontal entra em pane silenciosa e começa a emitir sinais confusos."
       },
       {
-        "trigger": "descoberta inesperada",
-        "phrase": "The researchers are using words like we were wrong",
-        "adapted_for_psychology": "surpresa"
-      },
-      {
-        "trigger": "Descrever o funcionamento da tecnologia",
-        "phrase": "Webb reads light itself, breaking it apart into individual wavelengths to reveal chemical fingerprints",
-        "adapted_for_psychology": "Mostrar a complexidade e a precisão da tecnologia para aumentar a credibilidade"
+        "id": "TWIST_003",
+        "trigger": "Inversão por Leitura de Espectro Invisível",
+        "example_source": "James Webb Pluto (2M views)",
+        "phrase": "Webb reads light itself, breaking it apart into individual wavelengths to reveal chemical fingerprints that nobody expected.",
+        "adapted_for_channel": "A neuroanálise de precisão lê a linguagem não verbal, decompondo micro-expressões invisíveis para revelar assinaturas emocionais que o manipulador tentou esconder."
       }
     ],
     "sensory_beats": [
       {
         "id": "SENS_001",
         "type": "first_person_simulation",
+        "example_source": "Voyager 1 (3M views)",
         "template": "Now picture for just a moment what it would actually be like to stand on [LOCATION/SATELLITE]...",
         "adapted_for_channel": "Agora imagine por um segundo como é estar sentado na sala onde um manipulador de elite está presente... sinta a tensão física no ar antes da primeira palavra."
       },
       {
-        "type": "visualização",
-        "template_phrase": "imaginar uma sonda no espaço"
+        "id": "SENS_002",
+        "type": "tactile_cold_immersion",
+        "example_source": "James Webb Pluto (2M views)",
+        "template": "Imagine a world four billion miles away where nitrogen ice glimmers in total darkness and rings like metal under extreme freeze...",
+        "adapted_for_channel": "Visualize o gelo mental do isolamento emocional: o silêncio congelante na sala onde nenhuma explicação calorosa jamais chega."
       },
       {
-        "type": "compreensão",
-        "template_phrase": "entender a ideia de algo desconhecido"
-      },
-      {
-        "type": "Visual",
-        "template_phrase": "Imagine um planeta distante como Pluto..."
-      },
-      {
-        "type": "Descritivo",
-        "template_phrase": "a dwarf planet four billion miles away..."
+        "id": "SENS_003",
+        "type": "deep_abyss_visualization",
+        "example_source": "Voyager 1 (3M views)",
+        "template": "Visualizing Voyager floating through perpetual darkness, 15 billion miles away in pitch black interstellar space...",
+        "adapted_for_channel": "Visualize a mente flutuando na escuridão do gaslighting, navegando sem pontos de referência externos a bilhões de milhas da certeza."
       }
     ],
     "ctas": [
       {
         "id": "CTA_001",
         "type": "organic_mid_video",
+        "example_source": "Voyager 1 (3M views)",
         "template": "If you are the kind of person who wants stories explained clearly without jargon, drop a like right now because it genuinely helps this content reach more people.",
         "adapted_for_channel": "Se você é o tipo de pessoa que busca entender a mente humana com rigor científico sem o sensacionalismo de superfície, inscreva-se no EDM Archetype Lab agora."
       },
       {
-        "type": "reflexão",
-        "template_phrase": "pense sobre o que isso significa"
+        "id": "CTA_002",
+        "type": "curiosity_continuation_hook",
+        "example_source": "James Webb Pluto (2M views)",
+        "template": "Stick around because I am about to walk you through how this impossible mechanism actually functions...",
+        "adapted_for_channel": "Permaneça conosco pelos próximos 60 segundos porque vamos desconstruir exatamente a mecânica secreta que desarma esse padrão neural."
+      }
+    ],
+    "retention_tactics": [
+      {
+        "id": "TAC_001",
+        "tactic": "Open Loop Escalation",
+        "mechanism": "Apresentar uma pergunta não respondida nos primeiros 30s e prometer a resposta no clímax",
+        "pacing_interval": "00:05 - 00:30 (Setup) -> 08:00 (Clímax)",
+        "example_source": "Voyager 1 (3M views)",
+        "template": "There is one single psychological flaw that makes even smart people vulnerable... and we will reveal it before this video ends.",
+        "adapted_for_channel": "Existe uma única falha na neurobiologia humana que torna qualquer pessoa vulnerável a manipuladores... e o antídoto exato será revelado antes de fecharmos este laboratório."
       },
       {
-        "type": "exploração",
-        "template_phrase": "descubra mais sobre a sonda Voyager 1"
+        "id": "TAC_002",
+        "tactic": "Micro-Cliffhanger Rehook",
+        "mechanism": "Introduzir um novo mistério ou dilema iminente a cada 90 segundos logo antes de concluir a explicação anterior",
+        "pacing_interval": "A cada 90 - 120 segundos",
+        "example_source": "Voyager 1 (3M views)",
+        "template": "But just when engineers thought the mission was saved, a far more terrifying signal arrived from deep space...",
+        "adapted_for_channel": "Mas no momento exato em que a vítima acredita ter recuperado o controle, o predador aciona uma tática de chantagem ainda mais sutil..."
       },
       {
-        "type": "Convite para continuar assistindo",
-        "template_phrase": "Stick around because I am about to walk you through..."
+        "id": "TAC_003",
+        "tactic": "Sensory Pattern Interrupt",
+        "mechanism": "Alternar bruscamente a cadência da locução e a densidade conceitual ao mudar de bloco narrativo",
+        "pacing_interval": "Transições de bloco (~03:00 / ~06:00)",
+        "example_source": "James Webb Pluto (2M views)",
+        "template": "Stop. Look closely at this data point before we go any deeper into the darkness...",
+        "adapted_for_channel": "Pare. Respire por um segundo e observe atentamente este detalhe na resposta não verbal antes de avançarmos."
       }
     ]
   }

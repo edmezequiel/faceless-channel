@@ -18,14 +18,14 @@ Lead and orchestrate the execution of Viral Learning Engine requirements R1-R4 a
 3. **On failure**: Retry -> Replace -> Skip -> Redistribute -> Redesign -> Escalate.
 4. **Succession**: Self-succeed at 20 spawns.
 - **Work items**:
-  1. Survey & Architecture Mapping [pending]
-  2. M1: Viral Knowledge Bank Schema & Storage (R1) [pending]
-  3. M2: Autonomous Learning & Ingestion Engine (R2) [pending]
+  1. Survey & Architecture Mapping [done]
+  2. M1: Viral Knowledge Bank Schema & Storage (R1) [done]
+  3. M2: Autonomous Learning & Ingestion Engine (R2) [in-progress]
   4. M3: CLI Ingestion Script & Voyager 1 / Pluto Data Processing (R4) [pending]
   5. M4: Dynamic Injection into LangGraph Pipeline (R3) [pending]
   6. M5: E2E Pipeline Integration & Verification (`run_test.py`) [pending]
-- **Current phase**: 0 (Survey)
-- **Current focus**: Survey phase — dispatch 3 Explorers to inspect existing codebase, imports, LangGraph pipeline, scripts, and test setup.
+- **Current phase**: 1 (Executing Milestones)
+- **Current focus**: Milestone 2 (M2) — Autonomous Learning & Ingestion Module (`src/connectors/learning_engine.py`).
 
 ## 🔒 Key Constraints
 - DISPATCH-ONLY: delegate code creation, modification, builds, and tests to subagents.
@@ -45,12 +45,19 @@ Lead and orchestrate the execution of Viral Learning Engine requirements R1-R4 a
 |-------|------|-----------|--------|---------|
 | Explorer 1 | teamwork_preview_explorer | Codebase Architecture Survey | completed | 7443405e-3dbf-4a2e-88ec-604e7a809b6e |
 | Explorer 2 | teamwork_preview_explorer | Transcripts & KB Survey | completed | 2f9d957f-65dc-446e-8b42-b028e32b2cfb |
-| Explorer 3 | teamwork_preview_explorer | Pipeline & Test Survey | in-progress | f7b62674-4f5f-42e3-a787-7688885b7c9b |
+| Explorer 3 | teamwork_preview_explorer | Pipeline & Test Survey | completed | f7b62674-4f5f-42e3-a787-7688885b7c9b |
+| Worker 1 | teamwork_preview_worker | M1 Knowledge Bank Implementation | completed | fa99f5c4-0281-4c4f-bdfe-297d1ca02a68 |
+| Reviewer 1 | teamwork_preview_reviewer | M1 Review | completed | 714511cb-31d2-4809-8d4f-09c0a0272634 |
+| Reviewer 2 | teamwork_preview_reviewer | M1 Review | completed | 9e602750-40ee-465d-bc22-7f07d5e4ca64 |
+| Challenger 1 | teamwork_preview_challenger | M1 Empirical Challenge | completed | d928587a-28da-43b3-9c66-3c4689409697 |
+| Challenger 2 | teamwork_preview_challenger | M1 Stress & Encoding Challenge | completed | eaa918fc-2147-4682-8f92-7736f214f915 |
+| Auditor 1 | teamwork_preview_auditor | M1 Forensic Audit | completed | 6e602a03-09bf-473e-bf61-b78d12beca48 |
+| Worker 2 | teamwork_preview_worker | M2 Learning Engine Implementation | in-progress | b3e3bb6f-b459-4284-bc32-60340e4af304 |
 
 ## Succession Status
 - Succession required: no
-- Spawn count: 3 / 20
-- Pending subagents: 7443405e-3dbf-4a2e-88ec-604e7a809b6e, 2f9d957f-65dc-446e-8b42-b028e32b2cfb, f7b62674-4f5f-42e3-a787-7688885b7c9b
+- Spawn count: 10 / 20
+- Pending subagents: b3e3bb6f-b459-4284-bc32-60340e4af304
 - Predecessor: none
 - Successor: not yet spawned
 
