@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "last_updated": "2026-08-06T17:34:50Z",
-  "analyzed_videos_count": 2,
+  "last_updated": "2026-08-06T17:44:29Z",
+  "analyzed_videos_count": 6,
   "patterns": {
     "hooks": [
       {
@@ -27,6 +27,54 @@
         "example_source": "Voyager 1 (3M views)",
         "template": "Right now, while you're reading these words, something is happening that almost nobody on Earth knows about.",
         "adapted_for_channel": "Neste exato segundo, enquanto você ouve esta frase, existe um mecanismo inconsciente operando na sua mente que quase ninguém percebe."
+      },
+      {
+        "type": "interrogação",
+        "pattern": "pergunta intrigante",
+        "example_phrase": "Você sabia que a Voyager 1 está se aproximando de um buraco negro?",
+        "adapted_for_psychology": "curiosidade e surpresa"
+      },
+      {
+        "type": "estatística",
+        "pattern": "fato interessante",
+        "example_phrase": "A Voyager 1 viaja a uma velocidade de 61.000 km/h e já cobriu mais de 14 bilhões de milhas",
+        "adapted_for_psychology": "admirar a grandiosidade"
+      },
+      {
+        "type": "Intrigue",
+        "pattern": "Revelar algo desconhecido",
+        "example_phrase": "Right now, while you read these words, something is happening that almost nobody on Earth knows about...",
+        "adapted_for_psychology": "Curiosidade humana"
+      },
+      {
+        "type": "Contraste",
+        "pattern": "Comparação inesperada",
+        "example_phrase": "A machine with less power than your refrigerator light is shaking the foundations of physics.",
+        "adapted_for_psychology": "Contraste para ressaltar a importância"
+      },
+      {
+        "type": "surpresa",
+        "pattern": "comparação inesperada",
+        "example_phrase": "A world four billion miles away is running its own private refrigerator",
+        "adapted_for_psychology": "ativar curiosidade"
+      },
+      {
+        "type": "pergunta retórica",
+        "pattern": "questionamento para estimular pensamento",
+        "example_phrase": "Trying to measure this atmospheric pressure from Earth is like trying to understand continental weather by checking one thermometer once a year",
+        "adapted_for_psychology": "encorajar reflexão"
+      },
+      {
+        "type": "contraste",
+        "pattern": "apresentação de uma contradição entre dois fatos",
+        "example_phrase": "David Anthony Burke, um músico de sucesso, acusado de assassinato",
+        "adapted_for_psychology": true
+      },
+      {
+        "type": "pergunta clínica",
+        "pattern": "apresentação de perguntas que despertam curiosidade",
+        "example_phrase": "As duas perguntas clínicas principais",
+        "adapted_for_psychology": true
       }
     ],
     "analogies": [
@@ -61,6 +109,46 @@
         "example_source": "Voyager 1 (3M views)",
         "example": "A machine the size of a small car carrying the hopes of human civilization into interstellar space.",
         "adapted_for_channel": "O sistema límbico, do tamanho de um punho fechado, carrega toda a arquitetura emocional desenvolvida em milhões de anos."
+      },
+      {
+        "concept": "buraco negro",
+        "domestic_comparison": "uma poderosa aspirador de pó",
+        "example_phrase": "Um buraco negro é como uma aspirador de pó cósmico, sugando tudo o que está ao seu redor"
+      },
+      {
+        "concept": "Voyager 1",
+        "domestic_comparison": "uma mensagem em uma garrafa",
+        "example_phrase": "A Voyager 1 é como uma mensagem em uma garrafa, viajando pelo espaço, esperando ser encontrada por alguém ou algo"
+      },
+      {
+        "concept": "Energia da Voyager 1",
+        "domestic_comparison": "Luz de geladeira",
+        "example_phrase": "Voyager 1 runs on 4 watts of power — less electricity than the light inside your refrigerator."
+      },
+      {
+        "concept": "Tamanho da Voyager 1",
+        "domestic_comparison": "Tamanho de um carro pequeno",
+        "example_phrase": "A machine the size of a small car carrying the hopes of human civilization into interstellar space."
+      },
+      {
+        "concept": "comportamento do gelo de nitrogênio",
+        "domestic_comparison": "comparação com um refrigerador",
+        "example_phrase": "A world four billion miles away is running its own private refrigerator"
+      },
+      {
+        "concept": "medida de pressão atmosférica",
+        "domestic_comparison": "comparação com termômetro",
+        "example_phrase": "Trying to measure this atmospheric pressure from Earth is like trying to understand continental weather by checking one thermometer once a year"
+      },
+      {
+        "concept": "Teoria da Reatância",
+        "domestic_comparison": "consumo velado de mídias",
+        "example_phrase": "aplicação da Teoria da Reatância sobre o consumo velado de mídias"
+      },
+      {
+        "concept": "Tríade Obscura",
+        "domestic_comparison": "construtos clínicos de Narcisismo, Maquiavelismo e Psicopatia",
+        "example_phrase": "Enquadramento nos construtos clínicos de Narcisismo, Maquiavelismo e Psicopatia"
       }
     ],
     "micro_twists": [
@@ -84,6 +172,46 @@
         "example_source": "James Webb Pluto (2M views)",
         "phrase": "Webb reads light itself, breaking it apart into individual wavelengths to reveal chemical fingerprints that nobody expected.",
         "adapted_for_channel": "A neuroanálise de precisão lê a linguagem não verbal, decompondo micro-expressões invisíveis para revelar assinaturas emocionais que o manipulador tentou esconder."
+      },
+      {
+        "trigger": "surpresa",
+        "phrase": "E você sabia que a Voyager 1 está se aproximando de um buraco negro?",
+        "adapted_for_psychology": "manter o espectador engajado"
+      },
+      {
+        "trigger": "curiosidade",
+        "phrase": "O que aconteceria se a Voyager 1 fosse sugada por um buraco negro?",
+        "adapted_for_psychology": "manter o espectador curioso"
+      },
+      {
+        "trigger": "Falha do chip de memória",
+        "phrase": "For 5 months, the spacecraft transmitted gibberish... a single memory chip had failed after 46 years of continuous operation.",
+        "adapted_for_psychology": "Surpresa e curiosidade"
+      },
+      {
+        "trigger": "Sinal terrificante",
+        "phrase": "But just when engineers thought the mission was saved, a far more terrifying signal arrived from deep space.",
+        "adapted_for_psychology": "Aumento da tensão"
+      },
+      {
+        "trigger": "revelação de informação inesperada",
+        "phrase": "Webb reads light itself, breaking it apart into individual wavelengths to reveal chemical fingerprints that nobody expected",
+        "adapted_for_psychology": "surpreender o espectador"
+      },
+      {
+        "trigger": "mudança de tom",
+        "phrase": "Stop. Look closely at this data point before we go any deeper into the darkness...",
+        "adapted_for_psychology": "focar atenção do espectador"
+      },
+      {
+        "trigger": "reviravolta na história",
+        "phrase": "As acusações da promotoria relativas ao homicídio",
+        "adapted_for_psychology": true
+      },
+      {
+        "trigger": "desenvolvimento da personalidade",
+        "phrase": "Criação do alter ego Itami",
+        "adapted_for_psychology": true
       }
     ],
     "sensory_beats": [
@@ -107,6 +235,38 @@
         "example_source": "Voyager 1 (3M views)",
         "template": "Visualizing Voyager floating through perpetual darkness, 15 billion miles away in pitch black interstellar space...",
         "adapted_for_channel": "Visualize a mente flutuando na escuridão do gaslighting, navegando sem pontos de referência externos a bilhões de milhas da certeza."
+      },
+      {
+        "type": "visual",
+        "template_phrase": "Imagine a Voyager 1 viajando pelo espaço, com estrelas e planetas passando como em um túnel"
+      },
+      {
+        "type": "auditivo",
+        "template_phrase": "O som da Voyager 1 enviando sinais de volta à Terra, após 40 anos de silêncio"
+      },
+      {
+        "type": "Visualização",
+        "template_phrase": "Now picture for just a moment what it would actually be like to stand in interstellar space..."
+      },
+      {
+        "type": "Ambientação",
+        "template_phrase": "Visualizing Voyager floating through perpetual darkness, 15 billion miles away in pitch black space."
+      },
+      {
+        "type": "sensorial",
+        "template_phrase": "nitrogen ice glimmers in total darkness and rings like metal under extreme freeze"
+      },
+      {
+        "type": "auditivo",
+        "template_phrase": "water ice stops being slippery and behaves like solid rock, ringing like metal if struck"
+      },
+      {
+        "type": "música de fundo",
+        "template_phrase": "Sons e sintetizadores de estilo Dark Ambient/Drone contínuos"
+      },
+      {
+        "type": "voz do narrador",
+        "template_phrase": "Tom sério, calmo e clínico, mantendo uma abordagem investigativa e neutra"
       }
     ],
     "ctas": [
@@ -123,6 +283,30 @@
         "example_source": "James Webb Pluto (2M views)",
         "template": "Stick around because I am about to walk you through how this impossible mechanism actually functions...",
         "adapted_for_channel": "Permaneça conosco pelos próximos 60 segundos porque vamos desconstruir exatamente a mecânica secreta que desarma esse padrão neural."
+      },
+      {
+        "type": "explorar",
+        "template_phrase": "Quer aprender mais sobre a Voyager 1 e sua jornada pelo espaço? Clique no link abaixo"
+      },
+      {
+        "type": "compartilhar",
+        "template_phrase": "Compartilhe este vídeo com seus amigos e familiares para que eles também possam descobrir a incrível história da Voyager 1"
+      },
+      {
+        "type": "Like",
+        "template_phrase": "If you are the kind of person who wants stories explained clearly without jargon, drop a like right now because it genuinely helps this content reach more people."
+      },
+      {
+        "type": "chamada para ação",
+        "template_phrase": "Stick around because I am about to walk you through how this impossible mechanism actually functions"
+      },
+      {
+        "type": "reflexão",
+        "template_phrase": "Reflexão sobre os alertas ignorados"
+      },
+      {
+        "type": "homenagem",
+        "template_phrase": "Mensagem em memória da vítima"
       }
     ],
     "retention_tactics": [
@@ -152,6 +336,54 @@
         "example_source": "James Webb Pluto (2M views)",
         "template": "Stop. Look closely at this data point before we go any deeper into the darkness...",
         "adapted_for_channel": "Pare. Respire por um segundo e observe atentamente este detalhe na resposta não verbal antes de avançarmos."
+      },
+      {
+        "tactic": "alternar entre informações e perguntas",
+        "mechanism": "manter o espectador engajado",
+        "pacing_interval": "a cada 2 minutos",
+        "template_phrase": "Agora que você sabe sobre a Voyager 1, vamos falar sobre os buracos negros... ou será que os buracos negros vão sugar a Voyager 1?"
+      },
+      {
+        "tactic": "usar histórias e analogias",
+        "mechanism": "tornar as informações mais interessantes e fáceis de entender",
+        "pacing_interval": "a cada 3 minutos",
+        "template_phrase": "Imagine que a Voyager 1 é como um time de futebol, viajando pelo espaço e superando obstáculos"
+      },
+      {
+        "tactic": "Promessa de revelação",
+        "mechanism": "Manter o espectador engajado",
+        "pacing_interval": "Ao longo do vídeo",
+        "template_phrase": "and we will reveal it before this video ends."
+      },
+      {
+        "tactic": "Estimulação da curiosidade",
+        "mechanism": "Manter o espectador curioso",
+        "pacing_interval": "Ao longo do vídeo",
+        "template_phrase": "There is one single psychological flaw that makes even smart people vulnerable..."
+      },
+      {
+        "tactic": "suspense",
+        "mechanism": "adicionar mistério",
+        "pacing_interval": "ao longo do vídeo",
+        "template_phrase": "Stop. Look closely at this data point before we go any deeper into the darkness..."
+      },
+      {
+        "tactic": "intriga",
+        "mechanism": "revelar informações gradualmente",
+        "pacing_interval": "ao longo do vídeo",
+        "template_phrase": "Webb reads light itself, breaking it apart into individual wavelengths to reveal chemical fingerprints that nobody expected"
+      },
+      {
+        "tactic": "estrutura de ensaio psicológico",
+        "mechanism": "apresentação de um caso e análise",
+        "pacing_interval": "10 blocos",
+        "template_phrase": "O vídeo segue a estrutura de um ensaio psicológico / true crime em 10 blocos"
+      },
+      {
+        "tactic": "uso de gráficos e citações",
+        "mechanism": "exibição de trechos de documentos e depoimentos",
+        "pacing_interval": "ao longo do vídeo",
+        "template_phrase": "Exibição de trechos de documentos da promotoria, prints de postagens do Discord/TikTok e depoimentos"
       }
     ]
   }

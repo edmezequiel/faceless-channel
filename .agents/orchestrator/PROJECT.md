@@ -24,9 +24,9 @@
 | # | Name | Scope | Dependencies | Status |
 |---|------|-------|-------------|--------|
 | 1 | M1: Knowledge Bank Storage & Schema (R1) | Create/Update `knowledge_base.json` with all 6 categories including `retention_tactics` and generate `patterns.md` | None | DONE |
-| 2 | M2: Autonomous Learning Engine (`learning_engine.py`) (R2) | Update `learning_engine.py` to support `retention_tactics`, atomic updates, `patterns.md` sync, and pass `py_compile` | M1 | IN_PROGRESS |
-| 3 | M3: CLI Ingestion Script & Transcript Processing (R4) | Finalize `ingest_viral_script.py`, process Voyager 1 & Pluto/JWST transcript data, verify KB population | M2 | PLANNED |
-| 4 | M4: Dynamic Prompt Injection into LangGraph Nodes (R3) | Ensure `script_architect.py` and `tts_scriptwriter.py` format & inject all 6 categories into Claude 3.7 Sonnet prompts | M2 | PLANNED |
+| 2 | M2: Autonomous Learning Engine (`learning_engine.py`) (R2) | Update `learning_engine.py` to support `retention_tactics`, atomic updates, `patterns.md` sync, and pass `py_compile` | M1 | DONE |
+| 3 | M3: CLI Ingestion Script & Transcript Processing (R4) | Finalize `ingest_viral_script.py`, process Voyager 1 & Pluto/JWST transcript data, verify KB population | M2 | IN_PROGRESS |
+| 4 | M4: Dynamic Prompt Injection into LangGraph Nodes (R3) | Ensure `script_architect.py` and `tts_scriptwriter.py` format & inject all 6 categories into Claude 3.7 Sonnet prompts | M2 | IN_PROGRESS |
 | 5 | M5: E2E Pipeline Integration & Audit (AC) | Run `run_test.py`, verify full pipeline execution, and perform Forensic Audit verification | M3, M4 | PLANNED |
 
 ## Interface Contracts
