@@ -11,6 +11,10 @@ class BrandIdentity(BaseModel):
     )
     opening_hook: str = Field(default="Welcome back to the shadows of the human mind. They tell you your decisions are conscious, but the neuroscience of control proves otherwise. I am Dr. Victor Vane...", description="Bordão de entrada")
     closing_signature: str = Field(default="Mantenha a guarda alta. O inconsciente nunca dorme.", description="Bordão de fecho")
+    medical_disclaimer: str = Field(
+        default="ISENÇÃO DE RESPONSABILIDADE MÉDICA/LEGAL: O conteúdo apresentado pelo Dr. Victor Vane e EDM ARCHETYPE LAB destina-se exclusivamente a fins educativos, analíticos e de entretenimento. Não substitui o diagnóstico ou tratamento psicológico/psiquiátrico profissional.",
+        description="Isenção de responsabilidade médica e legal obrigatória"
+    )
 
 class Packaging(BaseModel):
     titles: List[str] = Field(default_factory=list, description="5 títulos com Curiosity Gap")
