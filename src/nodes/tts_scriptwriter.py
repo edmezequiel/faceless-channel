@@ -42,6 +42,8 @@ REGRAS ABSOLUTAS E INQUEBRÁVEIS (O Roteiro será REJEITADO se você violar qual
 3. BANIMENTO DE 'AI SLOP' (Lista Negra): NUNCA use as palavras narrativas ("mergulhar", "desvendar", "paisagem", "em um mundo onde", "jornada", "descubra", "vamos explorar", "hoje vamos falar sobre", "fascinante", "cativante", "teia", "intrincado", "testamento", "sinfonia", "dança", "imaginem") e também palavras visuais batidas ("hyperrealistic", "masterpiece", "trending on artstation", "4K", "8K", "oversaturated").
 4. FÔLEGO CURTO: Nenhuma frase pode ter mais que 15 palavras. Use pontos finais constantes. O motor de TTS precisa respirar.
 5. PROSÓDIA OBRIGATÓRIA: Insira mecanicamente marcações teatrais como `[PAUSA_0.5s]`, `[PAUSA_1s]`, `[TOM_ANALITICO]`, `[TOM_MISTERIOSO]`, `[ACELERAR]` para guiar a voz gerada por IA.
+6. ANALOGIAS DOMÉSTICAS DO DIA A DIA: Traduza termos neurobiológicos ou psicológicos complexos usando comparações do cotidiano simples (ex: comparar a resposta da amígdala ao alarme de fumaça de uma casa, ou o dopamina-loop à trava de uma fechadura de geladeira).
+7. SOFT CTA ORGÂNICO DE MEIO DE VÍDEO: Insira por volta do meio da narrativa uma chamada orgânica e elegante de autoridade (ex: "Se você quer entender a mente humana com rigor científico sem o sensacionalismo de superfície, inscreva-se no EDM Archetype Lab agora...").
 
 {format_instructions}
     """

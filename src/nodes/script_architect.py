@@ -30,12 +30,15 @@ Fatos Coletados:
 
 DIRETRIZES DE PERSONA & NICHO:
 1. FUSÃO DE PSICOLOGIA: Combine conceitos acadêmicos rigorosos (Neuropsicologia, Tríade Sombria, TCC) para explicar fenômenos populares do dia a dia (Gatilhos Emocionais, Relacionamentos Tóxicos, Síndrome do Impostor, Manipulação).
-2. NARRATIVA EM CASCATA: Cada batida deve se conectar fisicamente com a anterior, como se estivéssemos descendo por uma página web infinita.
-3. PACING DE ROLAGEM (scroll_pacing):
+2. PARADOX HOOK (00:00-01:00): A abertura DEVE apresentar um paradoxo fascinante e contraintuitivo sobre a mente humana que desafie o senso comum.
+3. IMERSÃO SENSORIAL EM 1ª PESSOA: Inclua obrigatoriamente um Beat de simulação sensorial ("Agora imagine por um segundo como é estar sentado na sala onde um manipulador de elite está presente... sinta a tensão física antes da palavra.").
+4. MICRO-TWISTS & INVERSÃO DE EXPECTATIVAS: Use viradas conceituais ("Durante décadas acreditou-se que X era verdade... até que novos exames neurobiológicos provaram que estávamos completamente errados.").
+5. NARRATIVA EM CASCATA: Cada batida deve se conectar fisicamente com a anterior, como se estivéssemos descendo por uma página web infinita.
+6. PACING DE ROLAGEM (scroll_pacing):
    - HERO (Abertura): Apresentação dramática do tema pelo Dr. Victor Vane.
    - FEATURE_PIN (Explicação): Pausa de velocidade para foco no conceito científico.
    - SPEED_RAMP_TRANSITION (Transição): Varredura rápida para o próximo módulo visual.
-4. KINETIC TEXT OVERLAYS: Frases curtas de alto impacto para sincronização com a locução.
+7. KINETIC TEXT OVERLAYS: Frases curtas de alto impacto para sincronização com a locução.
 
 {format_instructions}
     """
