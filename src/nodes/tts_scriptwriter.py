@@ -5,6 +5,8 @@ from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.exceptions import OutputParserException
 import logging
 
+from src.connectors.learning_engine import ViralLearningEngine
+
 logger = logging.getLogger(__name__)
 
 class TTSResponse(BaseModel):
@@ -21,6 +23,9 @@ def node_tts_scriptwriter(state: AgentState) -> AgentState:
     factual_context = state.get("factual_context", "")
     auditor_feedback = state.get("auditor_feedback", "")
     
+    learning_engine = ViralLearningEngine()
+    viral_context = learning_engine.format_patterns_for_prompt()
+    
     parser = PydanticOutputParser(pydantic_object=TTSResponse)
     format_instructions = parser.get_format_instructions()
     
@@ -32,6 +37,8 @@ Sua missão é escrever o roteiro falado baseando-se NESTA ESTRUTURA exata:
 
 Contexto Factual (Use apenas fatos, sem alucinar):
 {factual_context}
+
+{viral_context}
 
 FEEDBACK DO AUDITOR (Se estiver reescrevendo, CORRIJA ISSO):
 {auditor_feedback if auditor_feedback else "Primeira tentativa. Faça perfeito."}

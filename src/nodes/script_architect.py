@@ -5,6 +5,8 @@ from langchain_core.exceptions import OutputParserException
 import logging
 import json
 
+from src.connectors.learning_engine import ViralLearningEngine
+
 logger = logging.getLogger(__name__)
 
 def node_script_architect(state: AgentState) -> AgentState:
@@ -17,6 +19,10 @@ def node_script_architect(state: AgentState) -> AgentState:
     factual_context = state.get("factual_context", "")
     goal = state.get("goal", "")
     
+    # Carrega os padrões aprendidos do Viral Knowledge Bank
+    learning_engine = ViralLearningEngine()
+    viral_context = learning_engine.format_patterns_for_prompt()
+    
     # Parser do LangChain para forçar saída estruturada
     parser = PydanticOutputParser(pydantic_object=ScriptSkeleton)
     format_instructions = parser.get_format_instructions()
@@ -27,6 +33,8 @@ Sua missão é gerar um roteiro de fluxo narrativo contínuo ("Waterfall") no fo
 Tema: {goal}
 Fatos Coletados:
 {factual_context}
+
+{viral_context}
 
 DIRETRIZES DE PERSONA & NICHO:
 1. FUSÃO DE PSICOLOGIA: Combine conceitos acadêmicos rigorosos (Neuropsicologia, Tríade Sombria, TCC) para explicar fenômenos populares do dia a dia (Gatilhos Emocionais, Relacionamentos Tóxicos, Síndrome do Impostor, Manipulação).

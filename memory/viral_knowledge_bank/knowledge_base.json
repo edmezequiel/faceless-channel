@@ -1,0 +1,152 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-08-06T14:28:30Z",
+  "analyzed_videos_count": 4,
+  "patterns": {
+    "hooks": [
+      {
+        "id": "HOOK_001",
+        "type": "paradox_scale_contrast",
+        "pattern": "Comparar uma máquina/objeto minúsculo com um efeito gigantesco na física/sobrevivência",
+        "example_source": "Voyager 1 (3M views)",
+        "template": "Right now, while you read these words, something is happening... A machine with less power than your refrigerator light is shaking the foundations of physics.",
+        "adapted_for_channel": "Neste momento, um padrão invisível no seu cérebro está tomando decisões por você... Uma faísca neural menor que a luz de uma vela controla cada relação sua."
+      },
+      {
+        "id": "HOOK_002",
+        "type": "paradox_counter_intuitive",
+        "pattern": "Apresentar um mundo/objeto em uma condição extrema fazendo exatamente o oposto do esperado",
+        "example_source": "James Webb Pluto (2M views)",
+        "template": "A world four billion miles away is running its own private refrigerator, cooling itself down using nothing but the haze in its sky.",
+        "adapted_for_channel": "Um predador emocional constrói uma jaulação de controle mental... usando exatamente a sua própria empatia como combustível."
+      },
+      {
+        "type": "intrigue",
+        "pattern": "revelação de um fato desconhecido",
+        "example_phrase": "Right now, while you're reading these words, something is happening that almost nobody on Earth knows about",
+        "adapted_for_psychology": "curiosidade"
+      },
+      {
+        "type": "comparação",
+        "pattern": "comparação com algo familiar",
+        "example_phrase": "A machine the size of a small car",
+        "adapted_for_psychology": "facilitação da compreensão"
+      },
+      {
+        "type": "Surpresa",
+        "pattern": "Apresentar uma informação inesperada",
+        "example_phrase": "nobody expected a world that small and that cold to be doing anything like this",
+        "adapted_for_psychology": "Desencadear curiosidade e surpresa no espectador"
+      },
+      {
+        "type": "Mistério",
+        "pattern": "Apresentar um fenômeno misterioso",
+        "example_phrase": "a dwarf planet four billion miles away is running its own private refrigerator",
+        "adapted_for_psychology": "Manter o espectador engajado e curioso sobre o que está acontecendo"
+      }
+    ],
+    "analogies": [
+      {
+        "id": "ANA_001",
+        "concept": "Energia / Potência Limitada",
+        "domestic_comparison": "A luz dentro da sua geladeira ou a lâmpada do fogão",
+        "example": "Runs on 4 watts of power — less electricity than the light inside your refrigerator."
+      },
+      {
+        "id": "ANA_002",
+        "concept": "Gelo Extremo",
+        "domestic_comparison": "Metal / Rocha sólida",
+        "example": "At 400 degrees below zero, water ice stops being slippery and behaves like solid rock, ringing like metal if struck."
+      },
+      {
+        "id": "ANA_003",
+        "concept": "Medição Espacial Esparsa",
+        "domestic_comparison": "Medir o clima de um continente inteiro olhando um único termômetro em uma cidade uma vez por ano",
+        "example": "Like trying to understand continental weather by checking one thermometer once a year."
+      },
+      {
+        "concept": "tamanho da sonda",
+        "domestic_comparison": "tamanho de um carro pequeno",
+        "example_phrase": "A machine the size of a small car"
+      },
+      {
+        "concept": "consumo de energia",
+        "domestic_comparison": "luz de uma geladeira",
+        "example_phrase": "less electricity than the light inside your refrigerator"
+      },
+      {
+        "concept": "Resfriamento de um planeta",
+        "domestic_comparison": "Refrigerador",
+        "example_phrase": "running its own private refrigerator"
+      }
+    ],
+    "micro_twists": [
+      {
+        "id": "TWIST_001",
+        "trigger": "Inversão de Consenso Científico",
+        "phrase": "Researchers were not using words like 'interesting'... they were using words like 'we were wrong'.",
+        "adapted_for_channel": "Os psicólogos achavam que o narcisismo era apenas vaidade... até que a neuroimagem provou que estávamos completamente errados."
+      },
+      {
+        "id": "TWIST_002",
+        "trigger": "Crise Inesperada de Hardware / Mente",
+        "phrase": "For 5 months, the spacecraft transmitted gibberish... a single memory chip had failed after 46 years.",
+        "adapted_for_channel": "Sob manipulação prolongada, o cérebro não apenas se estressa — um único circuito no córtex pré-frontal entra em pane silenciosa."
+      },
+      {
+        "trigger": "descoberta inesperada",
+        "phrase": "The researchers are using words like we were wrong",
+        "adapted_for_psychology": "surpresa"
+      },
+      {
+        "trigger": "Descrever o funcionamento da tecnologia",
+        "phrase": "Webb reads light itself, breaking it apart into individual wavelengths to reveal chemical fingerprints",
+        "adapted_for_psychology": "Mostrar a complexidade e a precisão da tecnologia para aumentar a credibilidade"
+      }
+    ],
+    "sensory_beats": [
+      {
+        "id": "SENS_001",
+        "type": "first_person_simulation",
+        "template": "Now picture for just a moment what it would actually be like to stand on [LOCATION/SATELLITE]...",
+        "adapted_for_channel": "Agora imagine por um segundo como é estar sentado na sala onde um manipulador de elite está presente... sinta a tensão física no ar antes da primeira palavra."
+      },
+      {
+        "type": "visualização",
+        "template_phrase": "imaginar uma sonda no espaço"
+      },
+      {
+        "type": "compreensão",
+        "template_phrase": "entender a ideia de algo desconhecido"
+      },
+      {
+        "type": "Visual",
+        "template_phrase": "Imagine um planeta distante como Pluto..."
+      },
+      {
+        "type": "Descritivo",
+        "template_phrase": "a dwarf planet four billion miles away..."
+      }
+    ],
+    "ctas": [
+      {
+        "id": "CTA_001",
+        "type": "organic_mid_video",
+        "template": "If you are the kind of person who wants stories explained clearly without jargon, drop a like right now because it genuinely helps this content reach more people.",
+        "adapted_for_channel": "Se você é o tipo de pessoa que busca entender a mente humana com rigor científico sem o sensacionalismo de superfície, inscreva-se no EDM Archetype Lab agora."
+      },
+      {
+        "type": "reflexão",
+        "template_phrase": "pense sobre o que isso significa"
+      },
+      {
+        "type": "exploração",
+        "template_phrase": "descubra mais sobre a sonda Voyager 1"
+      },
+      {
+        "type": "Convite para continuar assistindo",
+        "template_phrase": "Stick around because I am about to walk you through..."
+      }
+    ]
+  }
+}

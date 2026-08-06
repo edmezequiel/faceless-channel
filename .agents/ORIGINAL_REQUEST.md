@@ -1,118 +1,34 @@
 # Original User Request
 
-## 2026-08-05T15:35:47Z
+## 2026-08-06T17:28:22Z
 
-# Teamwork Project Prompt — Draft
-
-> Status: Launched
-> Goal: Craft prompt → get user approval → delegate to teamwork_preview
-
-Analisar a fundo a estética de "Infinite Scroll" de sites de altíssimo nível (Shopify Winter 2026 e Pear.no) e arquitetar uma metodologia técnica para converter esse formato web interativo em um formato de vídeo contínuo gerado por IA para o Faceless Channel. O vídeo deve manter um fluxo visual ininterrupto, conectando imagens e textos de forma orgânica com a narração.
+Desenvolver um Sistema Autônomo de Aprendizado e Aprimoramento Contínuo de Roteiros Virais (`Viral Learning Engine`). O sistema ingerirá transcrições e dados de vídeos virais do YouTube de qualquer nicho, extrairá os padrões narrativos de alta retenção (ganchos, paradoxos, imersão sensorial, micro-twists, analogias) e atualizará dinamicamente a base de conhecimento e os prompts da esteira `EDM ARCHETYPE LAB`.
 
 Working directory: c:\Users\ezequ\OneDrive\Área de Trabalho\FACELESS CHANNEL
+
 Integrity mode: development
 
 ## Requirements
 
-### R1. Análise de Referências (Via Browser)
-O agente DEVE usar o subagente `browser` para acessar e destrinchar a estrutura visual, o ritmo e as lógicas de transição dos sites `https://www.shopify.com/editions/winter2026` e `https://pear.no/`. Identifique como os elementos textuais e visuais se mesclam durante a rolagem contínua.
+### R1. Base de Conhecimento Estruturada de Roteiros Virais (`Viral Knowledge Bank`)
+Criar uma estrutura de dados persistente em `memory/viral_knowledge_bank/knowledge_base.json` e `memory/viral_knowledge_bank/patterns.md` para catalogar e categorizar padrões de sucesso de qualquer vídeo viral (hooks, ganchos de retenção, analogias, pacing, viradas e CTAs).
 
-### R2. Metodologia de Adaptação para Vídeo de IA
-Proponha um workflow técnico explicando como mimetizar esse efeito usando nossas ferramentas de IA (ex: Outpainting contínuo, transições de pan/dolly fluidas unidas por interpoladores, uso de Deforum/SVD, ou sobreposição de texto em motion tracking). 
+### R2. Módulo de Ingestão e Aprendizado Autônomo (`src/connectors/learning_engine.py`)
+Implementar um módulo Python capaz de analisar transcrições brutas ou estudos de caso de vídeos virais, extrair a anatomia narrativa, calcular os fatores de sucesso e atualizar atomicamente a `knowledge_base.json`.
 
-### R3. Plano de Arquitetura no LangGraph
-Desenvolva um plano de implementação documentando como adaptar nosso `visual_storyboarder.py` e `script_architect.py` para suportar esse novo estilo narrativo (onde a câmera nunca corta, apenas "scrolla"). Crie o artefato `implementation_plan.md` listando as mudanças necessárias no código. Não modifique o código-fonte ainda.
+### R3. Injeção Dinâmica na Esteira LangGraph (`src/nodes/script_architect.py` e `src/nodes/tts_scriptwriter.py`)
+Conectar os nós da esteira de produção para lerem automaticamente os melhores padrões acumulados no `Viral Knowledge Bank` e injetá-los no prompt do Claude 3.7 Sonnet a cada novo roteiro gerado.
 
-## Acceptance Criteria
-
-### [Qualidade da Análise]
-- [ ] O plano descreve detalhadamente o comportamento de "scroll" dos sites de referência e como isso se traduz visualmente para vídeo (direção de arte).
-
-### [Verificação do Workflow Técnico]
-- [ ] O plano sugere uma técnica plausível de geração de vídeo contínuo com IA (ex: parâmetros específicos de I2V, Panning, Outpainting, ou After Effects script automation).
-- [ ] O plano mapeia exatamente quais nós do LangGraph precisariam ser reescritos (ex: forçar a taxonomia de câmera para `Vertical Pan Down` constante).
-
-### [Segurança do Código]
-- [ ] Nenhum código `.py` é alterado nesta fase; apenas o artefato de planejamento é entregue.
-
----
-*Next: when approved → delegate via invoke_subagent (see Delegation Protocol)*
-
-## 2026-08-05T16:00:05Z
-
-# Teamwork Project Prompt — Draft
-
-> Status: Launched
-> Goal: Craft prompt → get user approval → delegate to teamwork_preview
-
-Definir o posicionamento estratégico do nicho do canal unindo Psicologia Científica/Acadêmica e Pop Psychology/Dark Psychology, e criar a Identidade de Marca (Branding, Personagem Recorrente / SOUL ID e Âncoras Visuais Proprietárias) anti-cópia para o Faceless Channel.
-
-Working directory: c:\Users\ezequ\OneDrive\Área de Trabalho\FACELESS CHANNEL
-Integrity mode: development
-
-## Requirements
-
-### R1. Pesquisa e Posicionamento do Nicho (Via Browser)
-O agente DEVE usar o subagente `browser` para pesquisar no YouTube e na web os canais de maior sucesso em Psicologia/Dark Psychology/Neurociência (ex: formatos estilo *Academy of Ideas*, *Einzelgänger*, *Psych2Go*, canais de Dark Psychology estilo Netflix). Identifique a fusão ideal entre rigor científico e ganchos populares de alta retenção.
-
-### R2. Criação da Identidade de Marca e Personagem (SOUL ID Anti-Cópia)
-Desenvolver a bíblia do personagem/apresentador virtual proprietário do canal (design conceitual, arquétipo, paleta de cores, simbologia recorrente, bordão/assinatura narrativa). Este personagem será a propriedade intelectual que impede que o canal seja copiado por concorrentes.
-
-### R3. Mapeamento de Integração no Sistema LangGraph
-Documentar como integrar este personagem e diretrizes de nicho no pipeline do LangGraph (especificamente `layer1_identity_token` no `visual_storyboarder.py`, `SOUL_ID` no `state.py`, e tom de voz no `tts_scriptwriter.py`). Crie o artefato `implementation_plan.md` com a proposta de branding. Não modifique o código-fonte ainda.
+### R4. Interface CLI / Script de Aprendizado (`ingest_viral_script.py`)
+Criar um script executável simples `ingest_viral_script.py [caminho_ou_texto]` que permita ao usuário enviar novos roteiros virais para o sistema aprender instantaneamente.
 
 ## Acceptance Criteria
 
-### [Qualidade do Nicho & Posicionamento]
-- [ ] O plano estabelece um posicionamento claro que une termos científicos (Tríade Sombria, TCC, Neuropsicologia) com gatilhos populares (Psicologia Sombria, Manipulação, Impostor).
+### Integridade do Banco de Dados
+- [ ] O arquivo `memory/viral_knowledge_bank/knowledge_base.json` existe e possui schema válido com categorias: `hooks`, `analogies`, `micro_twists`, `sensory_beats`, `ctas` e `retention_tactics`.
+- [ ] O script de ingestão `ingest_viral_script.py` processa as transcrições da Voyager 1 e de Plutão/JWST e popula a base de conhecimento com os casos analisados.
 
-### [Propriedade Intelectual & Personagem]
-- [ ] O plano define a especificação completa do personagem/âncora visual (aparência, prompt estático do SOUL_ID, elementos visuais únicos e estilo narrativo).
-
-### [Verificação do Plano de Arquitetura]
-- [ ] O artefato `implementation_plan.md` é entregue com as diretrizes de integração sem alterar arquivos `.py` nesta fase.
-
----
-*Next: when approved → delegate via invoke_subagent (see Delegation Protocol)*
-
-## 2026-08-06T00:11:03Z
-
-# Teamwork Project Prompt — Draft
-
-> Status: Launched
-> Goal: Craft prompt → get user approval → delegate to teamwork_preview
-
-Auditar o projeto Faceless Channel (`EDM ARCHETYPE LAB`), identificar todos os repositórios, ferramentas ou dependências faltantes lendo os READMEs para instalação correta, e atualizar o sistema de roteamento dos 6 agentes no LangGraph para aproveitar os 30+ modelos e provedores gerenciados pelo OmniRoute.
-
-Working directory: c:\Users\ezequ\OneDrive\Área de Trabalho\FACELESS CHANNEL
-Integrity mode: development
-
-## Requirements
-
-### R1. Auditoria Geral de Dependências e Repositórios Pendentes
-Analisar a base de código do projeto (`requirements.txt`, `src/`, documentações e scripts) para identificar bibliotecas, ferramentas externas ou repositórios faltantes. Ler os READMEs de qualquer dependência para garantir a instalação e compilação correta no ambiente Windows.
-
-### R2. Matriz de Mapeamento Multi-Modelo via OmniRoute
-Mapear a atribuição ideal de modelos de IA para cada uma das 6 etapas da esteira do `EDM ARCHETYPE LAB`, aproveitando o gateway do OmniRoute:
-- **Intake & Pesquisa**: `gemini-2.0-flash` (1M context / gratuito).
-- **Packaging (CTR)**: `gpt-4o-mini` ou `groq/llama-3.3-70b` (Velocidade e precisão de formato).
-- **Script Architect & TTS Scriptwriter**: `claude-3-7-sonnet-20250219` (Qualidade humana / Anti-AI Slop).
-- **Visual Storyboarder**: `gemini-2.0-flash` ou `claude-3.5-sonnet` (Detalhamento visual de outpainting).
-- **Retention Auditor**: `groq/llama-3.3-70b` ou `deepseek-r1` (Raciocínio lógico estrito).
-
-### R3. Atualização e Validação do Roteador LangGraph
-Refatorar `src/connectors/llm_router.py` e os nós em `src/nodes/` para aceitar seleção dinâmica de modelos roteados através do OmniRoute, garantindo fallbacks em caso de indisponibilidade e compilação limpa do grafo (`python -m py_compile`).
-
-## Acceptance Criteria
-
-### [Auditoria & Instalação]
-- [ ] Todas as dependências Python (`requirements.txt`) e ferramentas externas necessárias estão devidamente instaladas e verificadas no sistema.
-
-### [Matriz de Roteamento Multi-Modelo]
-- [ ] O `llm_router.py` implementa a matriz de roteamento por função de agente utilizando o proxy do OmniRoute (`http://localhost:20128/v1`).
-
-### [Validação do Grafo]
-- [ ] Todos os arquivos em `src/nodes/` e `src/core/engine.py` compilam com sucesso via `py_compile` sem falhas.
-
----
-*Next: when approved → delegate via invoke_subagent (see Delegation Protocol)*
+### Integração com o Pipeline Python
+- [ ] O módulo `src/connectors/learning_engine.py` passa por compilação de sintaxe (`python -m py_compile`) sem erros.
+- [ ] Os nós `script_architect.py` e `tts_scriptwriter.py` importam e consomem os padrões do `Viral Knowledge Bank` em tempo de execução.
+- [ ] O teste completo do pipeline (`run_test.py`) executa com sucesso usando os aprendizados injetados.
