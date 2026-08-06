@@ -40,7 +40,7 @@ Regras para a Thumbnail & Estética:
     """
     
     try:
-        response = generate_response(prompt, system_prompt="Você é um gênio de CTR e Psicologia Humana.")
+        response = generate_response(prompt, system_prompt="Você é um gênio de CTR e Psicologia Humana.", agent_role="packaging")
         parsed_pkg = parser.parse(response)
         packaging_data = parsed_pkg.model_dump()
         logger.info("Packaging gerado e parseado com sucesso via Pydantic.")

@@ -1,68 +1,71 @@
-# BRIEFING — 2026-08-05T22:22:25Z
+# BRIEFING — 2026-08-06T00:12:00Z
 
 ## Mission
-Remediate Victory Audit failure: Revert premature `.py` source file modifications in `src/` (commit 6ab38d08d287c884ec8f98f1a5826d01b7903e61) to restore clean zero `.py` file state, verify character identity consistency (Dr. Victor Vane / "The Obsidian Analyst") in `implementation_plan.md` and proposed code specs, and re-run gate verification.
+Orchestrate execution of R1 (General audit of dependencies & pending repos, Windows compilation/installation check via READMEs), R2 (Multi-Model Mapping Matrix for 6 stages via OmniRoute at http://localhost:20128/v1), and R3 (Refactor `src/connectors/llm_router.py` and `src/nodes/` for dynamic model routing with fallbacks, verifying clean `python -m py_compile` across graph nodes and `src/core/engine.py`).
 
 ## 🔒 My Identity
 - Archetype: teamwork_preview_orchestrator
 - Roles: orchestrator, user_liaison, human_reporter, successor
 - Working directory: c:\Users\ezequ\OneDrive\Área de Trabalho\FACELESS CHANNEL\.agents\orchestrator
 - Original parent: parent
-- Original parent conversation ID: 511842ad-3cea-4086-b73e-7de3c090a1a1
+- Original parent conversation ID: 0c57e13a-8062-46cc-ab9d-e9002cfe20bb
 
 ## 🔒 My Workflow
 - **Pattern**: Project Pattern (Survey -> Assess -> Decompose & Delegate -> Iterate/Synthesize)
 - **Scope document**: c:\Users\ezequ\OneDrive\Área de Trabalho\FACELESS CHANNEL\.agents\orchestrator\PROJECT.md
 1. **Decompose**:
-   - Remediation M1: Revert premature `.py` modifications in `src/` [done]
-   - Remediation M2: Audit & verify character identity alignment ("Dr. Victor Vane") across `implementation_plan.md` [done]
-   - Remediation M3: Re-verify Gate (Reviewer + Forensic Auditor) [done]
+   - M1: Audit dependencies, external tools & pending repositories (requirements.txt, READMEs, Windows compatibility verification) [planned]
+   - M2: Multi-Model Mapping Matrix & OmniRoute routing architecture design for 6 stages [planned]
+   - M3: Refactor `src/connectors/llm_router.py`, `src/nodes/`, and `src/core/engine.py` + dynamic model selection & fallbacks + `py_compile` verification [planned]
 2. **Dispatch & Execute**:
-   - Step 1: Dispatched worker `3ac63484-1d5f-49ac-899c-fa1eabde8c00` to revert git commit 6ab38d08d287c884ec8f98f1a5826d01b7903e61 (completed).
-   - Step 2: Dispatched Reviewer 4 (`93ba7195-3f1d-4bbb-b45d-f051a4a7a296`) and Forensic Auditor 2 (`4e50a630-50bb-44ca-aae9-4e40d96afb21`) for gate re-verification.
-   - Step 3: Gate Result: **PASS** (Reviewer: APPROVE, Auditor: CLEAN).
+   - Step 1: Survey/Explore codebase, requirements.txt, docs, scripts, READMEs, and current llm_router.py via Explorers.
+   - Step 2: Implement changes & verification via Workers.
+   - Step 3: Review and Audit via Reviewers, Challengers, and Forensic Auditors.
 3. **On failure**:
    - Retry / Replace / Skip / Redistribute / Redesign / Escalate
 4. **Succession**: Threshold 20 spawns
 - **Work items**:
-  1. Remediation M1: Revert `.py` changes in `src/` [done]
-  2. Remediation M2: Confirm Dr. Victor Vane character consistency [done]
-  3. Remediation M3: Gate Re-verification [done]
-- **Current phase**: 4 (Completed)
-- **Current focus**: Delivering final remediation report and handoff claim to caller agent
+  1. M1: Dependency & Repository Audit [survey completed]
+  2. M2: OmniRoute Multi-Model Matrix Definition [survey completed]
+  3. M3: LangGraph Router & Nodes Refactoring + Compilation Verification [survey completed]
+- **Current phase**: 2 (Implementation & Verification)
+- **Current focus**: Dispatching Worker `worker_m3_1` to implement requirements.txt, config.py, llm_router.py refactoring, nodes dynamic routing parameters, and `python -m py_compile` verification.
 
 ## 🔒 Key Constraints
-- NEVER edit or modify any `.py` source code files directly during this phase. Planning & architecture design only.
+- NEVER write, modify, or create source code files directly — delegate all implementation to Workers via invoke_subagent.
+- NEVER run build/test commands directly — require Workers and Reviewers to execute and report verification results.
 - Maintain progress.md continuously in .agents/orchestrator/progress.md.
 - Ensure all work is executed by subagents via invoke_subagent.
 - Hard audit veto on integrity failure.
 
 ## Current Parent
-- Conversation ID: 511842ad-3cea-4086-b73e-7de3c090a1a1
-- Updated: 2026-08-05T22:22:25Z
+- Conversation ID: 0c57e13a-8062-46cc-ab9d-e9002cfe20bb
+- Updated: 2026-08-06T00:12:00Z
 
 ## Key Decisions Made
-- Reverted premature `.py` changes in `src/` (restored baseline state prior to commit `6ab38d08d287c884ec8f98f1a5826d01b7903e61`).
-- Verified zero dirty/modified `.py` files in `src/` (`git status -s src/` and `git diff` empty).
-- Verified `implementation_plan.md` presenter identity is 100% standardized on Dr. Victor Vane ("The Obsidian Analyst") / `SOUL_ID_DR_OBSIDIAN` (0 occurrences of "Dr. Kaelen").
-- Re-run gate verification: Reviewer 4 (APPROVE), Forensic Auditor 2 (CLEAN).
+- Decomposed the request into 3 milestones matching R1, R2, and R3.
+- Initiating Survey phase with 3 parallel Explorers:
+  1. `explorer_m1_audit`: Audit `requirements.txt`, `src/`, `docs/`, `scripts/`, external tools/repos, READMEs, and Windows installation checks.
+  2. `explorer_m2_matrix`: Map OmniRoute proxy endpoints, model aliases, fallbacks, and multi-model mapping matrix for all 6 stages.
+  3. `explorer_m3_router`: Investigate `src/connectors/llm_router.py`, all nodes in `src/nodes/`, and `src/core/engine.py` to design the refactoring plan for dynamic model routing.
 
 ## Team Roster
 | Agent | Type | Work Item | Status | Conv ID |
 |-------|------|-----------|--------|---------|
-| worker_revert_py | teamwork_preview_worker | Revert .py changes in src/ & verify character identity | completed | 3ac63484-1d5f-49ac-899c-fa1eabde8c00 |
-| reviewer_plan_4 | teamwork_preview_reviewer | Gate Re-verification Review | completed (APPROVE) | 93ba7195-3f1d-4bbb-b45d-f051a4a7a296 |
-| auditor_plan_2 | teamwork_preview_auditor | Gate Forensic Integrity Audit | completed (CLEAN) | 4e50a630-50bb-44ca-aae9-4e40d96afb21 |
+| explorer_audit_r1 | teamwork_preview_explorer | Audit dependencies, READMEs & Windows compatibility | completed | 0802add6-9a50-464c-b673-1e5c6e2ab220 |
+| explorer_matrix_r1 | teamwork_preview_explorer | OmniRoute Multi-Model Matrix definition | completed | 1fac82df-375b-4260-88d1-8a103213257b |
+| explorer_router_r1 | teamwork_preview_explorer | LangGraph Router & Node Architecture audit | completed | 79d26f61-5565-447a-9db9-17c60c7820a6 |
+| worker_m3_1 | teamwork_preview_worker | Implement R1 dependencies, R2 config & matrix, R3 router refactoring + py_compile verification | in-progress | eb57df39-1cb1-456b-b6da-52b71559a4b3 |
 
 ## Succession Status
 - Succession required: no
-- Spawn count: 10 / 20
-- Pending subagents: none
+- Spawn count: 4 / 20
+- Pending subagents: eb57df39-1cb1-456b-b6da-52b71559a4b3
 - Predecessor: none
 - Successor: not yet spawned
 
 ## Active Timers
-- Heartbeat cron: none
+- Heartbeat cron: pending start
 - Safety timer: none
 
 ## Artifact Index
@@ -72,4 +75,4 @@ Remediate Victory Audit failure: Revert premature `.py` source file modification
 - progress.md — c:\Users\ezequ\OneDrive\Área de Trabalho\FACELESS CHANNEL\.agents\orchestrator\progress.md
 - PROJECT.md — c:\Users\ezequ\OneDrive\Área de Trabalho\FACELESS CHANNEL\.agents\orchestrator\PROJECT.md
 - GATE_STATUS.md — c:\Users\ezequ\OneDrive\Área de Trabalho\FACELESS CHANNEL\.agents\orchestrator\GATE_STATUS.md
-- implementation_plan.md — c:\Users\ezequ\OneDrive\Área de Trabalho\FACELESS CHANNEL\implementation_plan.md
+

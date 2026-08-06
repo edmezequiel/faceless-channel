@@ -23,6 +23,6 @@ def node_researcher_fact_checker(state: AgentState) -> AgentState:
     raw_data = f"YouTube: {youtube_data}\nWeb: {web_data}"
     prompt = f"Analise estes dados sobre '{goal}'. Extraia APENAS fatos comprovados, nomes, datas e eventos, removendo qualquer viés ou desinformação.\n\nDados brutos:\n{raw_data}"
     
-    factual_context = generate_response(prompt, system_prompt="Você é um Fact-Checker rigoroso.")
+    factual_context = generate_response(prompt, system_prompt="Você é um Fact-Checker rigoroso.", agent_role="researcher")
     
     return {"factual_context": factual_context, "current_status": "research_done"}

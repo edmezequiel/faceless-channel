@@ -107,4 +107,45 @@ Documentar como integrar este personagem e diretrizes de nicho no pipeline do La
 ---
 *Next: when approved → delegate via invoke_subagent (see Delegation Protocol)*
 
+## 2026-08-06T00:11:03Z
+
+# Teamwork Project Prompt — Draft
+
+> Status: Launched
+> Goal: Craft prompt → get user approval → delegate to teamwork_preview
+
+Auditar o projeto Faceless Channel (`EDM ARCHETYPE LAB`), identificar todos os repositórios, ferramentas ou dependências faltantes lendo os READMEs para instalação correta, e atualizar o sistema de roteamento dos 6 agentes no LangGraph para aproveitar os 30+ modelos e provedores gerenciados pelo OmniRoute.
+
+Working directory: c:\Users\ezequ\OneDrive\Área de Trabalho\FACELESS CHANNEL
+Integrity mode: development
+
+## Requirements
+
+### R1. Auditoria Geral de Dependências e Repositórios Pendentes
+Analisar a base de código do projeto (`requirements.txt`, `src/`, documentações e scripts) para identificar bibliotecas, ferramentas externas ou repositórios faltantes. Ler os READMEs de qualquer dependência para garantir a instalação e compilação correta no ambiente Windows.
+
+### R2. Matriz de Mapeamento Multi-Modelo via OmniRoute
+Mapear a atribuição ideal de modelos de IA para cada uma das 6 etapas da esteira do `EDM ARCHETYPE LAB`, aproveitando o gateway do OmniRoute:
+- **Intake & Pesquisa**: `gemini-2.0-flash` (1M context / gratuito).
+- **Packaging (CTR)**: `gpt-4o-mini` ou `groq/llama-3.3-70b` (Velocidade e precisão de formato).
+- **Script Architect & TTS Scriptwriter**: `claude-3-7-sonnet-20250219` (Qualidade humana / Anti-AI Slop).
+- **Visual Storyboarder**: `gemini-2.0-flash` ou `claude-3.5-sonnet` (Detalhamento visual de outpainting).
+- **Retention Auditor**: `groq/llama-3.3-70b` ou `deepseek-r1` (Raciocínio lógico estrito).
+
+### R3. Atualização e Validação do Roteador LangGraph
+Refatorar `src/connectors/llm_router.py` e os nós em `src/nodes/` para aceitar seleção dinâmica de modelos roteados através do OmniRoute, garantindo fallbacks em caso de indisponibilidade e compilação limpa do grafo (`python -m py_compile`).
+
+## Acceptance Criteria
+
+### [Auditoria & Instalação]
+- [ ] Todas as dependências Python (`requirements.txt`) e ferramentas externas necessárias estão devidamente instaladas e verificadas no sistema.
+
+### [Matriz de Roteamento Multi-Modelo]
+- [ ] O `llm_router.py` implementa a matriz de roteamento por função de agente utilizando o proxy do OmniRoute (`http://localhost:20128/v1`).
+
+### [Validação do Grafo]
+- [ ] Todos os arquivos em `src/nodes/` e `src/core/engine.py` compilam com sucesso via `py_compile` sem falhas.
+
+---
+*Next: when approved → delegate via invoke_subagent (see Delegation Protocol)*
 

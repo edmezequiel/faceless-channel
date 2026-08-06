@@ -48,7 +48,7 @@ OVERLAYS DE TEXTO E TRACKING:
     """
     
     try:
-        response = generate_response(prompt, system_prompt="Você é um Cinematógrafo Especialista em AI Video.")
+        response = generate_response(prompt, system_prompt="Você é um Cinematógrafo Especialista em AI Video.", agent_role="storyboarder")
         parsed_board = parser.parse(response)
         # Convert models to dicts for the state
         visual_blocks = [block.model_dump() for block in parsed_board.visual_blocks]

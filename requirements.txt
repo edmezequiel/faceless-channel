@@ -1,0 +1,13 @@
+langchain-core>=1.5.3
+langgraph>=1.2.10
+litellm>=1.95.0
+pydantic>=2.13.4
+python-dotenv>=1.0.0
+yt-dlp
+httpx
+Pillow
+numpy
+opencv-python
+moviepy
+ffmpeg-python
+edge-tts

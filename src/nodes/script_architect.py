@@ -41,7 +41,7 @@ DIRETRIZES DE PERSONA & NICHO:
     """
     
     try:
-        response = generate_response(prompt, system_prompt="Você é um roteirista analítico especializado em gráficos de retenção (AVD).")
+        response = generate_response(prompt, system_prompt="Você é um roteirista analítico especializado em gráficos de retenção (AVD).", agent_role="architect")
         parsed_skeleton = parser.parse(response)
         skeleton_dict = parsed_skeleton.model_dump()
         logger.info("Script Skeleton gerado e parseado com sucesso via Pydantic.")

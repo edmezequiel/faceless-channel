@@ -1,27 +1,28 @@
-# Project: Channel Niche Positioning, Brand Identity & LangGraph Integration
+# Project: Dependency Audit, OmniRoute Model Matrix & LangGraph Router Refactoring
 
 ## Architecture
-Strategic positioning, brand identity design, proprietary virtual presenter character bible (SOUL ID), and LangGraph architecture integration mapping for the Faceless Channel.
-- Input: User specifications in `ORIGINAL_REQUEST.md`, existing codebase (`src/nodes/visual_storyboarder.py`, `src/nodes/tts_scriptwriter.py`, `src/core/state.py`).
-- Output: Complete Character Bible / SOUL ID specification + `implementation_plan.md` in workspace root.
+Comprehensive audit of codebase dependencies and tools, mapping of OmniRoute Multi-Model Matrix for 6 pipeline stages, dynamic routing refactoring in `src/connectors/llm_router.py` and `src/nodes/`, and syntax compilation verification across all graph nodes and `src/core/engine.py`.
 
 ## Feature Inventory
 | # | Feature | Description | Milestone | Source | Status |
 |---|---------|-------------|-----------|--------|--------|
-| 1 | Niche Research & Positioning | Benchmark successful channels (Academy of Ideas, Einzelgänger, Psych2Go, Netflix Dark Psych) and map scientific vs pop psych fusion | M1 | Browser / Web | IN_PROGRESS |
-| 2 | Brand Identity & SOUL ID Bible | Define virtual presenter archetype, visual anchors, static prompt of SOUL_ID, palette, recurring symbols, catchphrase | M2 | Synthesis | IN_PROGRESS |
-| 3 | LangGraph Codebase Audit | Audit `visual_storyboarder.py`, `tts_scriptwriter.py`, and `state.py` for integration points | M3 | Codebase | IN_PROGRESS |
-| 4 | Implementation Plan Generation | Produce `implementation_plan.md` in workspace root detailing LangGraph integration without modifying `.py` files | M3 | Synthesis | IN_PROGRESS |
+| 1 | Dependency & Tool Audit | Audit `requirements.txt`, `src/`, `docs/`, `scripts/`, external tools/repos, and READMEs for Windows compilation & installation | M1 | Codebase / Specs | PLANNED |
+| 2 | Multi-Model Mapping Matrix | Map ideal models for 6 stages via OmniRoute proxy (`http://localhost:20128/v1`) with fallbacks | M2 | Requirements | PLANNED |
+| 3 | LLM Router Refactoring | Refactor `src/connectors/llm_router.py` to route through OmniRoute proxy with dynamic model selection and fallbacks | M3 | Architecture | PLANNED |
+| 4 | Graph Nodes & Engine Refactoring | Update nodes in `src/nodes/` and `src/core/engine.py` to use dynamic model selection via `llm_router.py` | M3 | Refactoring | PLANNED |
+| 5 | Graph Syntax Verification | Verify all `.py` files in `src/nodes/` and `src/core/engine.py` compile cleanly via `python -m py_compile` | M3 | Verification | PLANNED |
 
 ## Milestones
 | # | Name | Scope | Dependencies | Status |
 |---|------|-------|-------------|--------|
-| M1 | Niche Research & Positioning | Deep-dive research on top psychology channels, defining scientific + pop psychology balance | None | IN_PROGRESS |
-| M2 | Brand Identity & SOUL ID Bible | Complete specification of channel identity, anti-copy character bible, static prompt, visual anchors, tone | M1 | IN_PROGRESS |
-| M3 | LangGraph Architecture & Plan | Detailed mapping of `layer1_identity_token`, `SOUL_ID`, `tts_scriptwriter.py` tone, and creation of `implementation_plan.md` | M1, M2 | IN_PROGRESS |
+| M1 | Dependency & Repository Audit | Analyze `requirements.txt`, READMEs, external tools/repos, verify Windows compatibility | None | IN_PROGRESS |
+| M2 | Multi-Model Matrix Architecture | Document and map 6-stage model selection matrix with fallbacks via OmniRoute proxy | M1 | IN_PROGRESS |
+| M3 | Router Refactoring & Graph Compilation | Refactor `llm_router.py`, `src/nodes/`, `src/core/engine.py` + verify `py_compile` clean pass | M2 | IN_PROGRESS |
 
-## Code Layout (Read-Only Audit Scope)
-- `src/nodes/visual_storyboarder.py` - Storyboard generation, camera prompts, `layer1_identity_token` injection
-- `src/nodes/tts_scriptwriter.py` - Script generation, narration pacing, tone of voice control
-- `src/core/state.py` - Pydantic state schemas, `SOUL_ID` definition
-- `implementation_plan.md` - Target deliverable artifact in workspace root
+## Code Layout
+- `requirements.txt` - Dependency specification
+- `src/connectors/llm_router.py` - LLM Connector & Dynamic Router via OmniRoute
+- `src/nodes/` - LangGraph node definitions (intake, packaging, script architect, tts scriptwriter, visual storyboarder, retention auditor, etc.)
+- `src/core/engine.py` - LangGraph workflow engine & state graph builder
+- `docs/` and `scripts/` - Project documentation and setup/execution scripts
+

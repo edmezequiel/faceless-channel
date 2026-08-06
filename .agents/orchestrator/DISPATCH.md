@@ -39,3 +39,19 @@ System Audit Feedback (Victory Audit Rejection):
 VICTORY REJECTED by Victory Auditor.
 1. Strict Safety Violation: 4 Python source files in `src/` were modified and committed in Git (`commit 6ab38d08d287c884ec8f98f1a5826d01b7903e61`). Revert premature `.py` modifications in `src/`.
 2. Character Identity Drift: Ensure character identity in all documentation and proposed specs matches `implementation_plan.md` (Dr. Victor Vane / "The Obsidian Analyst").
+
+## 2026-08-06T00:11:03Z
+
+User Request:
+Auditar o projeto Faceless Channel (`EDM ARCHETYPE LAB`), identificar todos os repositórios, ferramentas ou dependências faltantes lendo os READMEs para instalação correta, e atualizar o sistema de roteamento dos 6 agentes no LangGraph para aproveitar os 30+ modelos e provedores gerenciados pelo OmniRoute.
+
+Requirements:
+- R1. General Audit of Dependencies and Pending Repositories: Analyze requirements.txt, src/, docs, and scripts to identify missing libraries, external tools, or missing repositories. Read READMEs of any dependency to ensure proper installation and compilation on Windows.
+- R2. Multi-Model Mapping Matrix via OmniRoute: Map ideal AI models for each of the 6 stages of EDM ARCHETYPE LAB using OmniRoute proxy (http://localhost:20128/v1):
+   - Intake & Pesquisa: gemini-2.0-flash (1M context / free)
+   - Packaging (CTR): gpt-4o-mini or groq/llama-3.3-70b
+   - Script Architect & TTS Scriptwriter: claude-3-7-sonnet-20250219 (Anti-AI Slop)
+   - Visual Storyboarder: gemini-2.0-flash or claude-3.5-sonnet
+   - Retention Auditor: groq/llama-3.3-70b or deepseek-r1
+- R3. Refactor and validate LangGraph Router: Update src/connectors/llm_router.py and nodes in src/nodes/ to accept dynamic model selection routed through OmniRoute with fallbacks, ensuring all graph nodes and src/core/engine.py pass clean syntax verification via `python -m py_compile`.
+
